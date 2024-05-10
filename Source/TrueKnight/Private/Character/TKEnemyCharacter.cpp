@@ -3,3 +3,11 @@
 
 #include "Character/TKEnemyCharacter.h"
 
+ATKEnemyCharacter::ATKEnemyCharacter()
+{
+}
+
+void ATKEnemyCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+}

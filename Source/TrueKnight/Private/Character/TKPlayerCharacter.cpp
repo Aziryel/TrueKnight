@@ -3,3 +3,11 @@
 
 #include "Character/TKPlayerCharacter.h"
 
+ATKPlayerCharacter::ATKPlayerCharacter()
+{
+}
+
+void ATKPlayerCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+}

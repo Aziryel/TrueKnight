@@ -9,9 +9,16 @@
 /**
  * 
  */
-UCLASS()
+//Being abstract means this class will not be loaded into the level
+
+UCLASS(Abstract)
 class TRUEKNIGHT_API ATKCharacterBase : public APaperZDCharacter
 {
 	GENERATED_BODY()
 	
+public:
+	ATKCharacterBase();
+
+protected:
+	virtual void BeginPlay() override;
 };

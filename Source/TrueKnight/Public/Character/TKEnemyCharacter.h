@@ -13,5 +13,11 @@ UCLASS()
 class TRUEKNIGHT_API ATKEnemyCharacter : public ATKCharacterBase
 {
 	GENERATED_BODY()
+
+public:
+	ATKEnemyCharacter();
+
+protected:
+	virtual void BeginPlay() override;
 	
 };
