@@ -6,6 +6,7 @@
 #include "Character/TKCharacterBase.h"
 #include "TKPlayerCharacter.generated.h"
 
+class ITKTargetInterface;
 class UCameraComponent;
 class USpringArmComponent;
 /**
@@ -27,5 +28,13 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UCameraComponent* Camera;
+
+	//Used to access the Target Interface without using a cast
+	TScriptInterface<ITKTargetInterface> ThisActor;
+
+	UFUNCTION()
+	void OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	UFUNCTION()
+	void OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 	
 };

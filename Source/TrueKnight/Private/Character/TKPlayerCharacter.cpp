@@ -4,7 +4,9 @@
 #include "Character/TKPlayerCharacter.h"
 
 #include "Camera/CameraComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Interaction/TKTargetInterface.h"
 
 ATKPlayerCharacter::ATKPlayerCharacter()
 {
@@ -21,10 +23,30 @@ ATKPlayerCharacter::ATKPlayerCharacter()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm);
 	Camera->bUsePawnControlRotation = false;
+
+	GetCapsuleComponent()->OnComponentBeginOverlap.AddUniqueDynamic(this, &ATKPlayerCharacter::OnBeginOverlap);
+	GetCapsuleComponent()->OnComponentEndOverlap.AddUniqueDynamic(this, &ATKPlayerCharacter::OnEndOverlap);
 	
 }
 
 void ATKPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+}
+
+void ATKPlayerCharacter::OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if(!OtherActor) return;
+	
+	ThisActor = OtherActor;
+	ThisActor->HighlightActor();
+}
+
+void ATKPlayerCharacter::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	if(!OtherActor) return;
+	
+	ThisActor = OtherActor;
+	ThisActor->UnhighlightActor();
 }
