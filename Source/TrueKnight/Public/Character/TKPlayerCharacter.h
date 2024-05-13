@@ -6,6 +6,8 @@
 #include "Character/TKCharacterBase.h"
 #include "TKPlayerCharacter.generated.h"
 
+class UCameraComponent;
+class USpringArmComponent;
 /**
  * 
  */
@@ -19,5 +21,11 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	USpringArmComponent* SpringArm;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UCameraComponent* Camera;
 	
 };

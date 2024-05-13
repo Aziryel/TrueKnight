@@ -13,120 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Idle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Idle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Walk.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Walk.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/FB_Hero_Idle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/FB_Hero_RunLoop.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/FB_Hero_RunStart.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/FB_Hero_RunStop.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/FB_Hero_Walk.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_Block_block_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_Block_blockpose_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_Block_end_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_Block_start_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_Buff.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_attack_first_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_attack_recover_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_attack_second_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_crouch_attack_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_crouch_end_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_crouch_hitWhite_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_crouch_hit_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_crouch_idle_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_crouch_start_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_crouch_walk_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_dash_end_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_dash_smokeEffect_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_dash_start_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_death.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_healing_apple_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_healing_bananas_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_healing_bandageEnd_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_healing_bandageLoop_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_healing_bandageStart_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_healing_goldenapple_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_heavyattack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_hit.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_hit_white_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_idle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_idle_Sprite_0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_idle_Sprite_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_idle_Sprite_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_idle_Sprite_3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_idle_Sprite_4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_idle_Sprite_5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_idle_Sprite_6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_idle_Sprite_7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_interact_grab_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_interact_push_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_interact_takeonGround_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_interact_talkORshop_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_DownAttack_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_end_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_hitGround_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_hitWhite_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_hit_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_hitandFall_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_landing_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_rise_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_start_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_jump_upAttack_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_ladderclimb.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_ladderclimb_ledgeClimb_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_ledge_grab.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_ledgeclimb.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_pull.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_pull_end_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_pull_idle_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_pull_start_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_push.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_push_end_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_push_idle_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_push_start_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_end_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_end__Sprite_0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_end__Sprite_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_end__Sprite_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_end__Sprite_3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_loop__Sprite_9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_start_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_start__Sprite_0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_run_start__Sprite_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_slide.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_specialAttack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_stun_end_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_stun_loop_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_stun_start_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_to_be_caught_caught_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_to_be_caught_hitWhite_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_to_be_caught_hit_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_walk_Sprite_9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_wallSlide_slideDown_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_wallSlide_stab_.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_wounded_idle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/MainCharacter/MainChar_-_wounded_walk.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrueKnight.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TrueKnight.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,9 +54,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\hdzav\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\hdzav\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\hdzav\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\ezben\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\ezben\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\ezben\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -619,6 +505,7 @@
       <workItem from="1715369469316" duration="361000" />
       <workItem from="1715370319319" duration="1588000" />
       <workItem from="1715372556374" duration="7615000" />
+      <workItem from="1715583744497" duration="256000" />
     </task>
     <servers />
   </component>
