@@ -4,36 +4,29 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
-#include "PaperZDCharacter.h"
-#include "TKCharacterBase.generated.h"
+#include "GameFramework/PlayerState.h"
+#include "TKPlayerState.generated.h"
 
 class UAttributeSet;
 class UAbilitySystemComponent;
-
 /**
  * 
  */
-
-//Being abstract means this class will not be loaded into the level
-UCLASS(Abstract)
-class TRUEKNIGHT_API ATKCharacterBase : public APaperZDCharacter, public IAbilitySystemInterface
+UCLASS()
+class TRUEKNIGHT_API ATKPlayerState : public APlayerState, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
-	
-public:
-	ATKCharacterBase();
 
-	/* Ability System Interface */
+public:
+	ATKPlayerState();
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
-	/* End Ability System Interface */
 	UAttributeSet* GetAttributeSet() const { return AttributeSet; }
 
 protected:
-	virtual void BeginPlay() override;
-
 	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
 
 	UPROPERTY()
 	TObjectPtr<UAttributeSet> AttributeSet;
+	
 };

@@ -13,6 +13,20 @@
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Enemies/Boar/BrownBoar/BP_BrownBoar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Enemies/Boar/BrownBoar/BP_BrownBoar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Game/BP_TKGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Game/BP_TKGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/High_Forest/Assets/Buildings_TileSet.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/High_Forest/Assets/Buildings_TileSet.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/High_Forest/Assets/Tiles_TileMap.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/High_Forest/Assets/Tiles_TileMap.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/High_Forest/Assets/Tiles_TileSet.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/High_Forest/Assets/Tiles_TileSet.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKCharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKCharacterBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKEnemyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKEnemyCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKCharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKCharacterBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKEnemyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKEnemyCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKPlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/TrueKnight.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/TrueKnight.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrueKnight.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TrueKnight.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +37,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKEnemyCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -38,28 +54,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "C++ Project.TrueKnight.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CppUnrealEngineOptionsId",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;C++ Project.TrueKnight.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CppUnrealEngineOptionsId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\ezben\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\ezben\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\ezben\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\ezben\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\ezben\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\ezben\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="C++ Project.TrueKnight">
     <configuration name="TrueKnight" type="CppProject" factoryName="C++ Project">
       <configuration_1>
@@ -506,6 +522,7 @@
       <workItem from="1715370319319" duration="1588000" />
       <workItem from="1715372556374" duration="7615000" />
       <workItem from="1715583744497" duration="256000" />
+      <workItem from="1715681958602" duration="9917000" />
     </task>
     <servers />
   </component>

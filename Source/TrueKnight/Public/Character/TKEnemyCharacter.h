@@ -17,8 +17,11 @@ class TRUEKNIGHT_API ATKEnemyCharacter : public ATKCharacterBase, public ITKTarg
 
 public:
 	ATKEnemyCharacter();
+
+	/* Enemy Interface */
 	virtual void HighlightActor() override;
 	virtual void UnhighlightActor() override;
+	/* End Enemy Interface */
 
 protected:
 	virtual void BeginPlay() override;

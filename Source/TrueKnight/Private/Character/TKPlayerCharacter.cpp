@@ -3,10 +3,13 @@
 
 #include "Character/TKPlayerCharacter.h"
 
+#include "AbilitySystemComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Interaction/TKTargetInterface.h"
+#include "Player/TKPlayerState.h"
 
 ATKPlayerCharacter::ATKPlayerCharacter()
 {
@@ -24,8 +27,19 @@ ATKPlayerCharacter::ATKPlayerCharacter()
 	Camera->SetupAttachment(SpringArm);
 	Camera->bUsePawnControlRotation = false;
 
+	GetCharacterMovement()->bUseFlatBaseForFloorChecks = true;
+
 	GetCapsuleComponent()->OnComponentBeginOverlap.AddUniqueDynamic(this, &ATKPlayerCharacter::OnBeginOverlap);
 	GetCapsuleComponent()->OnComponentEndOverlap.AddUniqueDynamic(this, &ATKPlayerCharacter::OnEndOverlap);
+	
+}
+
+void ATKPlayerCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	// Init Ability Actor Info for the server (for standalone game is enough)
+	InitAbilityActorInfo();
 	
 }
 
@@ -49,4 +63,13 @@ void ATKPlayerCharacter::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, 
 	
 	ThisActor = OtherActor;
 	ThisActor->UnhighlightActor();
+}
+
+void ATKPlayerCharacter::InitAbilityActorInfo()
+{
+	ATKPlayerState* TKPlayerState = GetPlayerState<ATKPlayerState>();
+	check(TKPlayerState);
+	AbilitySystemComponent = TKPlayerState->GetAbilitySystemComponent();
+	AbilitySystemComponent->InitAbilityActorInfo(TKPlayerState, this);
+	AttributeSet = TKPlayerState->GetAttributeSet();
 }

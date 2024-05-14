@@ -19,6 +19,7 @@ class TRUEKNIGHT_API ATKPlayerCharacter : public ATKCharacterBase
 
 public:
 	ATKPlayerCharacter();
+	virtual void PossessedBy(AController* NewController) override;
 
 protected:
 	virtual void BeginPlay() override;
@@ -36,5 +37,8 @@ protected:
 	void OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION()
 	void OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+private:
+	void InitAbilityActorInfo();
 	
 };

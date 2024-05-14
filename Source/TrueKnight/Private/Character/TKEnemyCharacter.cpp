@@ -3,8 +3,16 @@
 
 #include "Character/TKEnemyCharacter.h"
 
+#include "AbilitySystem/TKAbilitySystemComponent.h"
+#include "AbilitySystem/TKAttributeSet.h"
+
 ATKEnemyCharacter::ATKEnemyCharacter()
 {
+	//Create the TKASC for the enemy character.
+	AbilitySystemComponent = CreateDefaultSubobject<UTKAbilitySystemComponent>("AbilitySystemComponent");
+
+	//Create the TKAttributeSet for the enemy character.
+	AttributeSet = CreateDefaultSubobject<UTKAttributeSet>("AttributeSet");
 }
 
 void ATKEnemyCharacter::HighlightActor()
@@ -20,4 +28,6 @@ void ATKEnemyCharacter::UnhighlightActor()
 void ATKEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 }
