@@ -16,3 +16,4 @@ Plugins/Developer/RiderLink
 *.suo
 *.xcodeproj
 *.xcworkspace
+*.xml
