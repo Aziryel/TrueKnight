@@ -3,8 +3,10 @@
 
 #include "Character/TKEnemyCharacter.h"
 
+#include "PaperFlipbookComponent.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "AbilitySystem/TKAttributeSet.h"
+#include "Components/CapsuleComponent.h"
 
 ATKEnemyCharacter::ATKEnemyCharacter()
 {
@@ -13,6 +15,11 @@ ATKEnemyCharacter::ATKEnemyCharacter()
 
 	//Create the TKAttributeSet for the enemy character.
 	AttributeSet = CreateDefaultSubobject<UTKAttributeSet>("AttributeSet");
+
+	//TODO Make a custom Collision Channel to find abilities overlaps
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);
+	GetSprite()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
+	GetSprite()->SetGenerateOverlapEvents(true);
 }
 
 void ATKEnemyCharacter::HighlightActor()
