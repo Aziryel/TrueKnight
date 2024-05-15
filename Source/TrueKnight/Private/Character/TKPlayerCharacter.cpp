@@ -69,7 +69,10 @@ void ATKPlayerCharacter::InitAbilityActorInfo()
 {
 	ATKPlayerState* TKPlayerState = GetPlayerState<ATKPlayerState>();
 	check(TKPlayerState);
-	AbilitySystemComponent = TKPlayerState->GetAbilitySystemComponent();
-	AbilitySystemComponent->InitAbilityActorInfo(TKPlayerState, this);
-	AttributeSet = TKPlayerState->GetAttributeSet();
+	if (AbilitySystemComponent)
+	{
+		AbilitySystemComponent = TKPlayerState->GetAbilitySystemComponent();
+		AbilitySystemComponent->InitAbilityActorInfo(TKPlayerState, this);
+		AttributeSet = TKPlayerState->GetAttributeSet();
+	}
 }
