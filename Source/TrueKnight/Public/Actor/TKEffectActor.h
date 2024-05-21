@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "TKEffectActor.generated.h"
 
+class UPaperFlipbookComponent;
 class USphereComponent;
 
 UCLASS()
@@ -29,6 +30,6 @@ private:
 	TObjectPtr<USphereComponent> Sphere;
 
 	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<UStaticMeshComponent> Mesh;
+	TObjectPtr<UPaperFlipbookComponent> Sprite;
 
 };

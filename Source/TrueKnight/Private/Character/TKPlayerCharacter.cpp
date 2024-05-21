@@ -51,9 +51,14 @@ void ATKPlayerCharacter::BeginPlay()
 void ATKPlayerCharacter::OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if(!OtherActor) return;
-	
+
+	//ThisActor is declared as TScriptInterface instead of making a cast to the ITKTargetInterface
 	ThisActor = OtherActor;
-	ThisActor->HighlightActor();
+	//Only activate the TargetInterface if the OtherActor has it
+	if (ThisActor)
+	{
+		ThisActor->HighlightActor();
+	}
 }
 
 void ATKPlayerCharacter::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
@@ -62,17 +67,18 @@ void ATKPlayerCharacter::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, 
 	if(!OtherActor) return;
 	
 	ThisActor = OtherActor;
-	ThisActor->UnhighlightActor();
+	//Only activate the TargetInterface if the OtherActor has it
+	if (ThisActor)
+	{
+		ThisActor->UnhighlightActor();
+	}
 }
 
 void ATKPlayerCharacter::InitAbilityActorInfo()
 {
 	ATKPlayerState* TKPlayerState = GetPlayerState<ATKPlayerState>();
 	check(TKPlayerState);
-	if (AbilitySystemComponent)
-	{
-		AbilitySystemComponent = TKPlayerState->GetAbilitySystemComponent();
-		AbilitySystemComponent->InitAbilityActorInfo(TKPlayerState, this);
-		AttributeSet = TKPlayerState->GetAttributeSet();
-	}
+	AbilitySystemComponent = TKPlayerState->GetAbilitySystemComponent();
+	AbilitySystemComponent->InitAbilityActorInfo(TKPlayerState, this);
+	AttributeSet = TKPlayerState->GetAttributeSet();
 }

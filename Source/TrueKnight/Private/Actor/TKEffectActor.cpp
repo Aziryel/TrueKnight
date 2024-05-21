@@ -5,6 +5,7 @@
 
 #include "AbilitySystemComponent.h"
 #include "AbilitySystemInterface.h"
+#include "PaperFlipbookComponent.h"
 #include "AbilitySystem/TKAttributeSet.h"
 #include "Components/SphereComponent.h"
 
@@ -12,8 +13,8 @@ ATKEffectActor::ATKEffectActor()
 {
 	PrimaryActorTick.bCanEverTick = false;
 
-	Mesh = CreateDefaultSubobject<UStaticMeshComponent>("Mesh");
-	SetRootComponent(Mesh);
+	Sprite = CreateDefaultSubobject<UPaperFlipbookComponent>("Sprite");
+	SetRootComponent(Sprite);
 	
 	Sphere = CreateDefaultSubobject<USphereComponent>("Sphere");
 	Sphere->SetupAttachment(GetRootComponent());
@@ -23,7 +24,7 @@ ATKEffectActor::ATKEffectActor()
 void ATKEffectActor::OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	//TODO Change this to apply gameplay effect
+	//TODO Change this to apply gameplay effect. For now, using const_cast as a hack!
 	if (IAbilitySystemInterface* ASCInterface = Cast<IAbilitySystemInterface>(OtherActor))
 	{
 		const UTKAttributeSet* TKAttributeSet = Cast<UTKAttributeSet>(ASCInterface->GetAbilitySystemComponent()->GetAttributeSet(UTKAttributeSet::StaticClass()));
