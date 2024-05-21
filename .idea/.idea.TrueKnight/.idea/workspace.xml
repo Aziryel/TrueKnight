@@ -13,13 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/TS_Forest.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/TS_Forest.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Tiles_TileMap.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Tiles_TileMap.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Actor/TKEffectActor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Actor/TKEffectActor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Actor/TKEffectActor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Actor/TKEffectActor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/TrueKnight.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/TrueKnight.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
