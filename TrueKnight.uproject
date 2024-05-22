@@ -11,7 +11,9 @@
 			"AdditionalDependencies": [
 				"PaperZD",
 				"Engine",
-				"GameplayAbilities"
+				"GameplayAbilities",
+				"CommonUI",
+				"CoreUObject"
 			]
 		}
 	],
@@ -30,6 +32,10 @@
 		},
 		{
 			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
 			"Enabled": true
 		}
 	]
