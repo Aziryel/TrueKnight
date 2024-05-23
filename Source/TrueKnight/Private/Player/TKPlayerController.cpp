@@ -18,8 +18,10 @@ void ATKPlayerController::BeginPlay()
 	check(TKContext);
 
 	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	check(Subsystem);
-	Subsystem->AddMappingContext(TKContext, 0);
+	if (Subsystem)
+	{
+		Subsystem->AddMappingContext(TKContext, 0);
+	}
 
 	bShowMouseCursor = false;
 

@@ -31,6 +31,8 @@ void ATKEffectActor::OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor*
 		
 		UTKAttributeSet* MutableTKAttributeSet = const_cast<UTKAttributeSet*>(TKAttributeSet);
 		MutableTKAttributeSet->SetHealth(TKAttributeSet->GetHealth() + 25.f);
+		MutableTKAttributeSet->SetMana(TKAttributeSet->GetMana() + 20.f);
+		MutableTKAttributeSet->SetStamina(TKAttributeSet->GetStamina() + 15.f);
 		Destroy();
 	}
 }

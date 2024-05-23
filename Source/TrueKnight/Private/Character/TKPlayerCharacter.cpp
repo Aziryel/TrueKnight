@@ -9,7 +9,9 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Interaction/TKTargetInterface.h"
+#include "Player/TKPlayerController.h"
 #include "Player/TKPlayerState.h"
+#include "UI/HUD/TKHUD.h"
 
 ATKPlayerCharacter::ATKPlayerCharacter()
 {
@@ -81,4 +83,13 @@ void ATKPlayerCharacter::InitAbilityActorInfo()
 	AbilitySystemComponent = TKPlayerState->GetAbilitySystemComponent();
 	AbilitySystemComponent->InitAbilityActorInfo(TKPlayerState, this);
 	AttributeSet = TKPlayerState->GetAttributeSet();
+
+	//Only continue if the PlayerController is valid
+	if (ATKPlayerController* TKPlayerController = Cast<ATKPlayerController>(GetController()))
+	{
+		if (ATKHUD* TKHUD = Cast<ATKHUD>(TKPlayerController->GetHUD()))
+		{
+			TKHUD->InitOverlay(TKPlayerController, TKPlayerState, AbilitySystemComponent, AttributeSet);
+		}
+	}
 }
