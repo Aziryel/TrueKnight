@@ -2,53 +2,53 @@
 
 
 #include "Actor/TKEffectActor.h"
-
+#include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
+#include "AbilitySystemInterface.h"
+
+/*#include "AbilitySystemComponent.h"
 #include "AbilitySystemInterface.h"
 #include "PaperFlipbookComponent.h"
 #include "AbilitySystem/TKAttributeSet.h"
-#include "Components/SphereComponent.h"
+#include "Components/SphereComponent.h"*/
 
 ATKEffectActor::ATKEffectActor()
 {
 	PrimaryActorTick.bCanEverTick = false;
-
-	Sprite = CreateDefaultSubobject<UPaperFlipbookComponent>("Sprite");
-	SetRootComponent(Sprite);
 	
-	Sphere = CreateDefaultSubobject<USphereComponent>("Sphere");
-	Sphere->SetupAttachment(GetRootComponent());
-
-}
-
-void ATKEffectActor::OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	//TODO Change this to apply gameplay effect. For now, using const_cast as a hack!
-	if (IAbilitySystemInterface* ASCInterface = Cast<IAbilitySystemInterface>(OtherActor))
-	{
-		const UTKAttributeSet* TKAttributeSet = Cast<UTKAttributeSet>(ASCInterface->GetAbilitySystemComponent()->GetAttributeSet(UTKAttributeSet::StaticClass()));
-		
-		UTKAttributeSet* MutableTKAttributeSet = const_cast<UTKAttributeSet*>(TKAttributeSet);
-		MutableTKAttributeSet->SetHealth(TKAttributeSet->GetHealth() + 25.f);
-		MutableTKAttributeSet->SetMana(TKAttributeSet->GetMana() + 20.f);
-		MutableTKAttributeSet->SetStamina(TKAttributeSet->GetStamina() + 15.f);
-		Destroy();
-	}
-}
-
-void ATKEffectActor::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	
+	SetRootComponent(CreateDefaultSubobject<USceneComponent>(TEXT("SceneRoot")));
 }
 
 void ATKEffectActor::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	Sphere->OnComponentBeginOverlap.AddDynamic(this, &ATKEffectActor::OnBeginOverlap);
-	Sphere->OnComponentEndOverlap.AddDynamic(this, &ATKEffectActor::OnEndOverlap);
+}
+
+void ATKEffectActor::ApplyEffectToTarget(AActor* TargetActor, TSubclassOf<UGameplayEffect> GameplayEffectClass)
+{
+	//This function uses the interface to look for ASC but if not it looks for the ASC in the actor in case the actor doesn't have the interface
+	UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(TargetActor);
+	if (!TargetASC) return;
+
+	//If the GameplayEffectClass is not set we crash
+	check(GameplayEffectClass);
+	//The context is whatever makes the gameplay effect unique. Lightweight wrapper that stores the actual effect context as a pointer "Data".
+	FGameplayEffectContextHandle EffectContextHandle = TargetASC->MakeEffectContext();
+	EffectContextHandle.AddSourceObject(this);
+	//Try to keep the "Handle" in the name to be descriptive
+	const FGameplayEffectSpecHandle EffectSpecHandle = TargetASC->MakeOutgoingSpec(GameplayEffectClass, 1.f, EffectContextHandle);
+	TargetASC->ApplyGameplayEffectSpecToSelf(*EffectSpecHandle.Data.Get());
+}
+
+void ATKEffectActor::OnOverlap(AActor* TargetActor)
+{
+	
+}
+
+void ATKEffectActor::OnEndOverlap(AActor* TargetActor)
+{
+	
 }
 
 
