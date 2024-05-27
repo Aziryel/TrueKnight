@@ -17,3 +17,7 @@ void ATKCharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
 }
+
+void ATKCharacterBase::InitAbilityActorInfo()
+{
+}

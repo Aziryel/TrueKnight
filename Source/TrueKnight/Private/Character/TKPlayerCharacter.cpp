@@ -4,6 +4,7 @@
 #include "Character/TKPlayerCharacter.h"
 
 #include "AbilitySystemComponent.h"
+#include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -81,6 +82,7 @@ void ATKPlayerCharacter::InitAbilityActorInfo()
 	ATKPlayerState* TKPlayerState = GetPlayerState<ATKPlayerState>();
 	check(TKPlayerState);
 	AbilitySystemComponent = TKPlayerState->GetAbilitySystemComponent();
+	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->AbilityActorInfoSet();
 	AbilitySystemComponent->InitAbilityActorInfo(TKPlayerState, this);
 	AttributeSet = TKPlayerState->GetAttributeSet();
 

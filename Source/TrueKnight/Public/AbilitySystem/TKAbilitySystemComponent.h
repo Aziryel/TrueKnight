@@ -13,5 +13,12 @@ UCLASS()
 class TRUEKNIGHT_API UTKAbilitySystemComponent : public UAbilitySystemComponent
 {
 	GENERATED_BODY()
+public:
+
+	void AbilityActorInfoSet();
+	
+protected:
+
+	void OnEffectApplied(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle);
 	
 };
