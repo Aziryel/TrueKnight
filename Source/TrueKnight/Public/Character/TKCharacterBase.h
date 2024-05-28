@@ -7,6 +7,7 @@
 #include "PaperZDCharacter.h"
 #include "TKCharacterBase.generated.h"
 
+class UGameplayEffect;
 class UAttributeSet;
 class UAbilitySystemComponent;
 
@@ -38,4 +39,9 @@ protected:
 	TObjectPtr<UAttributeSet> AttributeSet;
 
 	virtual void InitAbilityActorInfo();
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Attributes")
+	TSubclassOf<UGameplayEffect> DefaultBaseAttributes;
+
+	void InitializeBaseAttributes() const;
 };

@@ -3,6 +3,8 @@
 
 #include "Character/TKCharacterBase.h"
 
+#include "AbilitySystemComponent.h"
+
 ATKCharacterBase::ATKCharacterBase()
 {
 	PrimaryActorTick.bCanEverTick = false;
@@ -20,4 +22,14 @@ void ATKCharacterBase::BeginPlay()
 
 void ATKCharacterBase::InitAbilityActorInfo()
 {
+}
+
+void ATKCharacterBase::InitializeBaseAttributes() const
+{
+	check(GetAbilitySystemComponent());
+	check(DefaultBaseAttributes);
+	
+	const FGameplayEffectContextHandle ContextHandle = GetAbilitySystemComponent()->MakeEffectContext();
+	const FGameplayEffectSpecHandle& EffectSpec = GetAbilitySystemComponent()->MakeOutgoingSpec(DefaultBaseAttributes, 1.f, ContextHandle);
+	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*EffectSpec.Data.Get(), GetAbilitySystemComponent());
 }

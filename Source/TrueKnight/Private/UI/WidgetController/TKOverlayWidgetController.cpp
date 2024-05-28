@@ -26,19 +26,49 @@ void UTKOverlayWidgetController::BindCallbacksToDependencies()
 	const UTKAttributeSet* TKAttributeSet = CastChecked<UTKAttributeSet>(AttributeSet);
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		TKAttributeSet->GetHealthAttribute()).AddUObject(this, &UTKOverlayWidgetController::HealthChanged);
+		TKAttributeSet->GetHealthAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				OnHealthChanged.Broadcast(Data.NewValue);
+			}
+		);
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		TKAttributeSet->GetMaxHealthAttribute()).AddUObject(this, &UTKOverlayWidgetController::MaxHealthChanged);
+	TKAttributeSet->GetMaxHealthAttribute()).AddLambda(
+		[this](const FOnAttributeChangeData& Data)
+		{
+			OnMaxHealthChanged.Broadcast(Data.NewValue);
+		}
+	);
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		TKAttributeSet->GetManaAttribute()).AddUObject(this, &UTKOverlayWidgetController::ManaChanged);
+	TKAttributeSet->GetManaAttribute()).AddLambda(
+		[this](const FOnAttributeChangeData& Data)
+		{
+			OnManaChanged.Broadcast(Data.NewValue);
+		}
+	);
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		TKAttributeSet->GetMaxManaAttribute()).AddUObject(this, &UTKOverlayWidgetController::MaxManaChanged);
+	TKAttributeSet->GetMaxManaAttribute()).AddLambda(
+		[this](const FOnAttributeChangeData& Data)
+		{
+			OnMaxManaChanged.Broadcast(Data.NewValue);
+		}
+	);
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		TKAttributeSet->GetStaminaAttribute()).AddUObject(this, &UTKOverlayWidgetController::StaminaChanged);
+	TKAttributeSet->GetStaminaAttribute()).AddLambda(
+		[this](const FOnAttributeChangeData& Data)
+		{
+			OnStaminaChanged.Broadcast(Data.NewValue);
+		}
+	);
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		TKAttributeSet->GetMaxStaminaAttribute()).AddUObject(this, &UTKOverlayWidgetController::MaxStaminaChanged);
+	TKAttributeSet->GetMaxStaminaAttribute()).AddLambda(
+		[this](const FOnAttributeChangeData& Data)
+		{
+			OnMaxStaminaChanged.Broadcast(Data.NewValue);
+		}
+	);
 
 	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->EffectAssetTags.AddLambda(
 		[this](const FGameplayTagContainer& AssetTags)
@@ -54,35 +84,4 @@ void UTKOverlayWidgetController::BindCallbacksToDependencies()
 			}
 		}
 	);
-}
-
-void UTKOverlayWidgetController::HealthChanged(const FOnAttributeChangeData& Data) const
-{
-	
-	OnHealthChanged.Broadcast(Data.NewValue);
-}
-
-void UTKOverlayWidgetController::MaxHealthChanged(const FOnAttributeChangeData& Data) const
-{
-	OnMaxHealthChanged.Broadcast(Data.NewValue);
-}
-
-void UTKOverlayWidgetController::ManaChanged(const FOnAttributeChangeData& Data) const
-{
-	OnManaChanged.Broadcast(Data.NewValue);
-}
-
-void UTKOverlayWidgetController::MaxManaChanged(const FOnAttributeChangeData& Data) const
-{
-	OnMaxManaChanged.Broadcast(Data.NewValue);
-}
-
-void UTKOverlayWidgetController::StaminaChanged(const FOnAttributeChangeData& Data) const
-{
-	OnStaminaChanged.Broadcast(Data.NewValue);
-}
-
-void UTKOverlayWidgetController::MaxStaminaChanged(const FOnAttributeChangeData& Data) const
-{
-	OnMaxStaminaChanged.Broadcast(Data.NewValue);
 }

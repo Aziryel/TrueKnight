@@ -22,12 +22,13 @@ void UTKAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, fl
 	Super::PreAttributeChange(Attribute, NewValue);
 
 	/******************************************************************************************************
-	 ************* Only use this for clamping the attributes like Health, Mana and Stamina ****************
+	 ************** Only use this for clamping the attributes like Stamina, Mana and Stamina **************
+	 *********** We have to clamp again in PostGameplayEffectExecute to get the correct clamp *************
 	 ******************************************************************************************************/
 	
-	if (Attribute == GetHealthAttribute())
+	if (Attribute == GetStaminaAttribute())
 	{
-		NewValue = FMath::Clamp(NewValue, 0.f, GetMaxHealth());
+		NewValue = FMath::Clamp(NewValue, 0.f, GetMaxStamina());
 	}
 	if (Attribute == GetManaAttribute())
 	{
@@ -78,6 +79,21 @@ void UTKAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallback
 	FEffectProperties Props;
 	SetEffectProperties(Data, Props);
 
+	/*****************************************************************************************************************
+	 ******* We clamp setting the attribute so we get the correct value after the gameplay effect is applied *********
+	 *****************************************************************************************************************/
 	
+	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+	{
+		SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
+	}
+	if (Data.EvaluatedData.Attribute == GetManaAttribute())
+	{
+		SetMana(FMath::Clamp(GetMana(), 0.f, GetMaxMana()));
+	}
+	if (Data.EvaluatedData.Attribute == GetStaminaAttribute())
+	{
+		SetStamina(FMath::Clamp(GetStamina(), 0.f, GetMaxStamina()));
+	}
 }
 

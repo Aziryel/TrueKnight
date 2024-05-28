@@ -94,4 +94,7 @@ void ATKPlayerCharacter::InitAbilityActorInfo()
 			TKHUD->InitOverlay(TKPlayerController, TKPlayerState, AbilitySystemComponent, AttributeSet);
 		}
 	}
+
+	// Initialize the Base attributes for the player character
+	InitializeBaseAttributes();
 }
