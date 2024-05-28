@@ -3,6 +3,7 @@
 
 #include "UI/WidgetController/TKOverlayWidgetController.h"
 
+#include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "AbilitySystem/TKAttributeSet.h"
 
 void UTKOverlayWidgetController::BroadcastInitialValues()
@@ -38,6 +39,21 @@ void UTKOverlayWidgetController::BindCallbacksToDependencies()
 		TKAttributeSet->GetStaminaAttribute()).AddUObject(this, &UTKOverlayWidgetController::StaminaChanged);
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
 		TKAttributeSet->GetMaxStaminaAttribute()).AddUObject(this, &UTKOverlayWidgetController::MaxStaminaChanged);
+
+	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->EffectAssetTags.AddLambda(
+		[this](const FGameplayTagContainer& AssetTags)
+		{
+			for (const FGameplayTag& Tag : AssetTags)
+			{
+				FGameplayTag MessageTag = FGameplayTag::RequestGameplayTag(FName("Message"));
+				if (Tag.MatchesTag(MessageTag))
+				{
+					const FUIWidgetRow* Row = GetDataTableRowByTag<FUIWidgetRow>(MessageWidgetDataTable, Tag);
+					MessageWidgetRowDelegate.Broadcast(*Row);
+				}
+			}
+		}
+	);
 }
 
 void UTKOverlayWidgetController::HealthChanged(const FOnAttributeChangeData& Data) const
