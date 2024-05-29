@@ -13,6 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKCharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKCharacterBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKCharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKCharacterBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -516,7 +519,8 @@
       <workItem from="1716443824945" duration="13514000" />
       <workItem from="1716534581174" duration="10153000" />
       <workItem from="1716792632784" duration="14320000" />
-      <workItem from="1716876145047" duration="1111000" />
+      <workItem from="1716876145047" duration="20358000" />
+      <workItem from="1716963267973" duration="942000" />
     </task>
     <servers />
   </component>

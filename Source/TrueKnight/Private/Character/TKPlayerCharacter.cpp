@@ -49,6 +49,7 @@ void ATKPlayerCharacter::PossessedBy(AController* NewController)
 void ATKPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	
 }
 
 void ATKPlayerCharacter::OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -95,6 +96,6 @@ void ATKPlayerCharacter::InitAbilityActorInfo()
 		}
 	}
 
-	// Initialize the Base attributes for the player character
-	InitializeBaseAttributes();
+	// Initialize attributes for the player character
+	InitializeDefaultAttributes();
 }

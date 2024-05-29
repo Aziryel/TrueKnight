@@ -24,12 +24,18 @@ void ATKCharacterBase::InitAbilityActorInfo()
 {
 }
 
-void ATKCharacterBase::InitializeBaseAttributes() const
+void ATKCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const
 {
 	check(GetAbilitySystemComponent());
-	check(DefaultBaseAttributes);
+	check(GameplayEffectClass);
 	
 	const FGameplayEffectContextHandle ContextHandle = GetAbilitySystemComponent()->MakeEffectContext();
-	const FGameplayEffectSpecHandle& EffectSpec = GetAbilitySystemComponent()->MakeOutgoingSpec(DefaultBaseAttributes, 1.f, ContextHandle);
-	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*EffectSpec.Data.Get(), GetAbilitySystemComponent());
+	const FGameplayEffectSpecHandle& EffectSpec = GetAbilitySystemComponent()->MakeOutgoingSpec(GameplayEffectClass, Level, ContextHandle);
+	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToSelf(*EffectSpec.Data.Get());
+}
+
+void ATKCharacterBase::InitializeDefaultAttributes() const
+{
+	ApplyEffectToSelf(DefaultBaseAttributes, 1.f);
+	ApplyEffectToSelf(DefaultSecondaryAttributes, 1.f);
 }
