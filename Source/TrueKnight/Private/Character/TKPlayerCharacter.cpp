@@ -46,6 +46,14 @@ void ATKPlayerCharacter::PossessedBy(AController* NewController)
 	
 }
 
+int32 ATKPlayerCharacter::GetPlayerLevel()
+{
+	const ATKPlayerState* TKPlayerState = GetPlayerState<ATKPlayerState>();
+	check(TKPlayerState);
+
+	return TKPlayerState->GetPlayerLevel();
+}
+
 void ATKPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();

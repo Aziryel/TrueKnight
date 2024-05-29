@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
 #include "PaperZDCharacter.h"
+#include "Interaction/CombatInterface.h"
 #include "TKCharacterBase.generated.h"
 
 class UGameplayEffect;
@@ -17,7 +18,7 @@ class UAbilitySystemComponent;
 
 //Being abstract means this class will not be loaded into the level
 UCLASS(Abstract)
-class TRUEKNIGHT_API ATKCharacterBase : public APaperZDCharacter, public IAbilitySystemInterface
+class TRUEKNIGHT_API ATKCharacterBase : public APaperZDCharacter, public IAbilitySystemInterface, public ICombatInterface
 {
 	GENERATED_BODY()
 	

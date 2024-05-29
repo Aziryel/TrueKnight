@@ -32,6 +32,11 @@ void ATKEnemyCharacter::UnhighlightActor()
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Magenta, FString::Printf(TEXT("Unhighligh Actor: %s"), *GetNameSafe(this)));
 }
 
+int32 ATKEnemyCharacter::GetPlayerLevel()
+{
+	return Level;
+}
+
 void ATKEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();

@@ -21,6 +21,10 @@ public:
 	ATKPlayerCharacter();
 	virtual void PossessedBy(AController* NewController) override;
 
+	/* Combat Interface */
+	virtual int32 GetPlayerLevel() override;
+	/* End Combat Interface */
+
 protected:
 	virtual void BeginPlay() override;
 
