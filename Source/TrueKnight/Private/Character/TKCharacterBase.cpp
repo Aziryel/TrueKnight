@@ -29,7 +29,9 @@ void ATKCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEf
 	check(GetAbilitySystemComponent());
 	check(GameplayEffectClass);
 	
-	const FGameplayEffectContextHandle ContextHandle = GetAbilitySystemComponent()->MakeEffectContext();
+	FGameplayEffectContextHandle ContextHandle = GetAbilitySystemComponent()->MakeEffectContext();
+	// We have to use "this" as the source object because  we are going to use the CombatInterface
+	ContextHandle.AddSourceObject(this);
 	const FGameplayEffectSpecHandle& EffectSpec = GetAbilitySystemComponent()->MakeOutgoingSpec(GameplayEffectClass, Level, ContextHandle);
 	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToSelf(*EffectSpec.Data.Get());
 }
@@ -38,4 +40,5 @@ void ATKCharacterBase::InitializeDefaultAttributes() const
 {
 	ApplyEffectToSelf(DefaultBaseAttributes, 1.f);
 	ApplyEffectToSelf(DefaultSecondaryAttributes, 1.f);
+	ApplyEffectToSelf(DefaultVitalAttributes, 1.f);
 }

@@ -9,9 +9,7 @@
 
 UTKAttributeSet::UTKAttributeSet()
 {
-	InitHealth(50.f);
-	InitMana(80.f);
-	InitStamina(30.f);
+	
 }
 
 void UTKAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
