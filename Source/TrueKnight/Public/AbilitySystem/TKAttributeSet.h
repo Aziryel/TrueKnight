@@ -118,8 +118,8 @@ public:
 	ATTRIBUTE_ACCESSORS(UTKAttributeSet, FireResistance);
 	// Reduces damage taken by Thunder type damage, affected by Insight
 	UPROPERTY(BlueprintReadOnly, Category = "Secondary Attributes")
-	FGameplayAttributeData ThunderResistance;
-	ATTRIBUTE_ACCESSORS(UTKAttributeSet, ThunderResistance);
+	FGameplayAttributeData LightningResistance;
+	ATTRIBUTE_ACCESSORS(UTKAttributeSet, LightningResistance);
 	// Reduces damage taken by Cold type damage, affected by Insight
 	UPROPERTY(BlueprintReadOnly, Category = "Secondary Attributes")
 	FGameplayAttributeData ColdResistance;

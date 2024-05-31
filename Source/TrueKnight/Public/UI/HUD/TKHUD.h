@@ -22,7 +22,7 @@ class TRUEKNIGHT_API ATKHUD : public AHUD
 
 public:
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<UTKUserWidget> OverlayWidget;
 
 	UTKOverlayWidgetController* GetOverlayWidgetController(const FWidgetControllerParams& WCParams);

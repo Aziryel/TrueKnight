@@ -3,10 +3,12 @@
 
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 
+
 void UTKAbilitySystemComponent::AbilityActorInfoSet()
 {
 	//This function is called from InitAbilityActorInfo in the Player Character and in the Enemy Character
 	OnGameplayEffectAppliedDelegateToSelf.AddUObject(this, &UTKAbilitySystemComponent::OnEffectApplied);
+	
 }
 
 void UTKAbilitySystemComponent::OnEffectApplied(UAbilitySystemComponent* AbilitySystemComponent,
