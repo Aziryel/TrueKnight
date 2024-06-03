@@ -5,10 +5,48 @@
 
 #include "AbilitySystemBlueprintLibrary.h"
 #include "GameplayEffectExtension.h"
+#include "TKGameplayTags.h"
 #include "GameFramework/Character.h"
 
 UTKAttributeSet::UTKAttributeSet()
 {
+	const FTKGameplayTags& GameplayTags = FTKGameplayTags::Get();
+	
+	// Base Attributes
+	TagsToAttributes.Add(GameplayTags.BaseAttributeTag_Strength, GetStrengthAttribute);
+	TagsToAttributes.Add(GameplayTags.BaseAttributeTag_Vitality, GetVitalityAttribute);
+	TagsToAttributes.Add(GameplayTags.BaseAttributeTag_Intelligence, GetIntelligenceAttribute);
+	TagsToAttributes.Add(GameplayTags.BaseAttributeTag_Insight, GetInsightAttribute);
+	TagsToAttributes.Add(GameplayTags.BaseAttributeTag_Instinct, GetInstinctAttribute);
+	TagsToAttributes.Add(GameplayTags.BaseAttributeTag_Devotion, GetDevotionAttribute);
+	TagsToAttributes.Add(GameplayTags.BaseAttributeTag_Blasphemy, GetBlasphemyAttribute);
+
+	// Secondary Attributes
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_MaxHealth, GetMaxHealthAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_MaxMana, GetMaxManaAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_MaxStamina, GetMaxStaminaAttribute);
+	
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_Armor, GetArmorAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_FireResistance, GetFireResistanceAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_LightningResistance, GetLightningResistanceAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_ColdResistance, GetColdResistanceAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_HolyResistance, GetHolyResistanceAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_DarkResistance, GetDarkResistanceAttribute);
+
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_HealthRegeneration, GetHealthRegenerationAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_ManaRegeneration, GetManaRegenerationAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_StaminaRegeneration, GetStaminaRegenerationAttribute);
+	
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_PhysicalDamage, GetPhysicalDamageAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_ElementalDamage, GetElementalDamageAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_HolyDamage, GetHolyDamageAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_DarkDamage, GetDarkDamageAttribute);
+
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_BlockChance, GetBlockChanceAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_ArmorPenetration, GetArmorPenetrationAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_CriticalChance, GetCriticalChanceAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_VulnerabilityDamage, GetVulnerabilityDamageAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_CriticalDamage, GetCriticalDamageAttribute);
 	
 }
 

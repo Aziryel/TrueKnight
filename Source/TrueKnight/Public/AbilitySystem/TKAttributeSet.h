@@ -41,6 +41,11 @@ struct FEffectProperties
 	ACharacter* TargetCharacter = nullptr;
 };
 
+// typedef is specific to the FGameplayAttribute Signature, but TStaticFuncPtr is generic to any signature chosen.
+//typedef TBaseStaticDelegateInstance<FGameplayAttribute(), FDefaultDelegateUserPolicy>::FFuncPtr FAttributeFuncPtr;
+template<class T>
+using TStaticFuncPtr = typename TBaseStaticDelegateInstance<T, FDefaultDelegateUserPolicy>::FFuncPtr;
+
 /**
  * 
  */
@@ -54,6 +59,24 @@ public:
 
 	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
+
+	TMap<FGameplayTag, TStaticFuncPtr<FGameplayAttribute()>> TagsToAttributes;
+	
+	/**************************************
+	 ********** Vital Attributes **********
+	 **************************************/
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes")
+	FGameplayAttributeData Health;
+	ATTRIBUTE_ACCESSORS(UTKAttributeSet, Health);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes")
+	FGameplayAttributeData Mana;
+	ATTRIBUTE_ACCESSORS(UTKAttributeSet, Mana);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes")
+	FGameplayAttributeData Stamina;
+	ATTRIBUTE_ACCESSORS(UTKAttributeSet, Stamina);
 	
 	/*************************************
 	 ********** Base Attributes **********
@@ -183,24 +206,6 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Secondary Attributes")
 	FGameplayAttributeData CriticalDamage;
 	ATTRIBUTE_ACCESSORS(UTKAttributeSet, CriticalDamage);
-	
-	
-	
-	/**************************************
-	 ********** Vital Attributes **********
-	 **************************************/
-	
-	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes")
-	FGameplayAttributeData Health;
-	ATTRIBUTE_ACCESSORS(UTKAttributeSet, Health);
-
-	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes")
-	FGameplayAttributeData Mana;
-	ATTRIBUTE_ACCESSORS(UTKAttributeSet, Mana);
-
-	UPROPERTY(BlueprintReadOnly, Category = "Vital Attributes")
-	FGameplayAttributeData Stamina;
-	ATTRIBUTE_ACCESSORS(UTKAttributeSet, Stamina);
 
 	/**************************************
 	 ********** Other Attributes **********
