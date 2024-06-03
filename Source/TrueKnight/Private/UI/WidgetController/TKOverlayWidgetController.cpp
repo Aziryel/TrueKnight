@@ -3,6 +3,7 @@
 
 #include "UI/WidgetController/TKOverlayWidgetController.h"
 
+#include "TKGameplayTags.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "AbilitySystem/TKAttributeSet.h"
 
@@ -24,6 +25,7 @@ void UTKOverlayWidgetController::BroadcastInitialValues()
 void UTKOverlayWidgetController::BindCallbacksToDependencies()
 {
 	const UTKAttributeSet* TKAttributeSet = CastChecked<UTKAttributeSet>(AttributeSet);
+	const FTKGameplayTags& GameplayTags = FTKGameplayTags::Get();
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
 		TKAttributeSet->GetHealthAttribute()).AddLambda(
@@ -71,12 +73,11 @@ void UTKOverlayWidgetController::BindCallbacksToDependencies()
 	);
 
 	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->EffectAssetTags.AddLambda(
-		[this](const FGameplayTagContainer& AssetTags)
+		[this, GameplayTags](const FGameplayTagContainer& AssetTags)
 		{
 			for (const FGameplayTag& Tag : AssetTags)
 			{
-				FGameplayTag MessageTag = FGameplayTag::RequestGameplayTag(FName("Message"));
-				if (Tag.MatchesTag(MessageTag))
+				if (Tag.MatchesTag(GameplayTags.MessageTag))
 				{
 					const FUIWidgetRow* Row = GetDataTableRowByTag<FUIWidgetRow>(MessageWidgetDataTable, Tag);
 					MessageWidgetRowDelegate.Broadcast(*Row);

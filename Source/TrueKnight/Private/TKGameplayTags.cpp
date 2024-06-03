@@ -17,6 +17,11 @@ void FTKGameplayTags::InitializeNativeGameplayTags()
 
 void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 {
+	// Vital Attribute Tags
+	AddTag(VitalAttributeTag_Health, "Attributes.Vital.Health", "Amount of damage the player can receive.");
+	AddTag(VitalAttributeTag_Mana, "Attributes.Vital.Mana", "Total amount of mana to cast spells.");
+	AddTag(VitalAttributeTag_Stamina, "Attributes.Vital.Stamina", "Total amount of stamina to perform actions.");
+	
 	// Base Attribute Tags
 	AddTag(BaseAttributeTag_Strength, "Attributes.Base.Strength", "Increases physical damage done.");
 	AddTag(BaseAttributeTag_Vitality, "Attributes.Base.Vitality", "Increases max health and armor.");
@@ -53,15 +58,23 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(SecondaryAttributeTag_VulnerabilityDamage, "Attributes.Secondary.VulnerabilityDamage", "Damage multiplier for vulnerable targets.");
 	AddTag(SecondaryAttributeTag_CriticalDamage, "Attributes.Secondary.CriticalDamage", "Damage multiplier for critical hits.");
 
-	// Vital Attribute Tags
-	AddTag(VitalAttributeTag_Health, "Attributes.Vital.Health", "Amount of damage the player can receive.");
-	AddTag(VitalAttributeTag_Mana, "Attributes.Vital.Mana", "Total amount of mana to cast spells.");
-	AddTag(VitalAttributeTag_Stamina, "Attributes.Vital.Stamina", "Total amount of stamina to perform actions.");
-
 	// Currency Attribute Tags
 	AddTag(CurrencyAttributeTag_Memories, "Attributes.Currency.Memories", "Base currency of the game.");
 	AddTag(CurrencyAttributeTag_TimeShards, "Attributes.Currency.TimeShards", "Special currency for unique items, abilities or effects.");
-	
+
+	// Message Tags
+	AddTag(MessageTag, "Message", "Base tag for the messages");
+	AddTag(MessageTag_HealthMushroom, "Message.HealthMushroom", "Send a message to the UI after picking up a Health Mushroom");
+	AddTag(MessageTag_HealthPotion, "Message.HealthPotion", "Send a message to the UI after picking up a Health Potion");
+	AddTag(MessageTag_ManaPlant, "Message.ManaPlant", "Send a message to the UI after picking up a Mana Plant");
+	AddTag(MessageTag_ManaPotion, "Message.ManaPotion", "Send a message to the UI after picking up a Mana Potion");
+
+	// Base tags for attributes
+	AddTag(AttributesTag, "Attributes", "");
+	AddTag(VitalAttributesTag, "Attributes.Vital", "");
+	AddTag(BaseAttributesTag, "Attributes.Base", "");
+	AddTag(SecondaryAttributesTag, "Attributes.Secondary", "");
+	AddTag(CurrencyTag, "Attributes.Currency", "");
 }
 
 void FTKGameplayTags::AddTag(FGameplayTag& OutTag, const ANSICHAR* TagName, const ANSICHAR* TagComment)

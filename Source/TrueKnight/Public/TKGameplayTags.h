@@ -19,7 +19,14 @@ public:
  
     static const FTKGameplayTags& Get() { return GameplayTags; }
     static void InitializeNativeGameplayTags();
-
+	
+	/*
+	 * Vital Attribute Tags
+	 */
+	FGameplayTag VitalAttributeTag_Health;
+	FGameplayTag VitalAttributeTag_Mana;
+	FGameplayTag VitalAttributeTag_Stamina;
+	
 	/*
 	 * Base Attribute Tags
 	 */
@@ -61,13 +68,6 @@ public:
 	FGameplayTag SecondaryAttributeTag_CriticalDamage;
 
 	/*
-	 * Vital Attribute Tags
-	 */
-	FGameplayTag VitalAttributeTag_Health;
-	FGameplayTag VitalAttributeTag_Mana;
-	FGameplayTag VitalAttributeTag_Stamina;
-
-	/*
 	 * Other Attribute Tags
 	 */
 	FGameplayTag CurrencyAttributeTag_Memories;
@@ -76,11 +76,24 @@ public:
 	/*
 	 * Message Tags 
 	 */
-	
+	FGameplayTag MessageTag;
+	FGameplayTag MessageTag_HealthMushroom;
+	FGameplayTag MessageTag_HealthPotion;
+	FGameplayTag MessageTag_ManaPlant;
+	FGameplayTag MessageTag_ManaPotion;
+
+	/*
+	 * Base tags for attributes
+	 */
+	FGameplayTag AttributesTag;
+	FGameplayTag VitalAttributesTag;
+	FGameplayTag BaseAttributesTag;
+	FGameplayTag SecondaryAttributesTag;
+	FGameplayTag CurrencyTag;
 	
 protected:
 
-	// Registers all of the tags with the Gameplaytags Manager
+	// Registers all the tags with the GameplayTags Manager
     void AddAllTags(UGameplayTagsManager& Manager);
  
     //Helper function used by AddAllTags to register a single tag with the GameplayTags Manager

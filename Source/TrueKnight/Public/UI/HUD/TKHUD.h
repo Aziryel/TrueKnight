@@ -6,6 +6,7 @@
 #include "GameFramework/HUD.h"
 #include "TKHUD.generated.h"
 
+class UTKAttributeMenuWidgetController;
 class UAttributeSet;
 class UAbilitySystemComponent;
 struct FWidgetControllerParams;
@@ -21,23 +22,29 @@ class TRUEKNIGHT_API ATKHUD : public AHUD
 	GENERATED_BODY()
 
 public:
-
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<UTKUserWidget> OverlayWidget;
 
 	UTKOverlayWidgetController* GetOverlayWidgetController(const FWidgetControllerParams& WCParams);
+	UTKAttributeMenuWidgetController* GetAttributeMenuWidgetController(const FWidgetControllerParams& WCParams);
 
 	void InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS);
 
 private:
-
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UTKUserWidget> OverlayWidgetClass;
-
+	
 	UPROPERTY()
 	TObjectPtr<UTKOverlayWidgetController> OverlayWidgetController;
+	UPROPERTY()
+	TObjectPtr<UTKAttributeMenuWidgetController> AttributeMenuWidgetController;
 
+	/*
+	 * Classes to create the widget controllers
+	 */
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UTKOverlayWidgetController> OverlayWidgetControllerClass;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UTKAttributeMenuWidgetController> AttributeMenuWidgetControllerClass;
 	
 };
