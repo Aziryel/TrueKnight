@@ -4,6 +4,7 @@
 #include "Character/TKCharacterBase.h"
 
 #include "AbilitySystemComponent.h"
+#include "AbilitySystem/TKAbilitySystemComponent.h"
 
 ATKCharacterBase::ATKCharacterBase()
 {
@@ -41,4 +42,12 @@ void ATKCharacterBase::InitializeDefaultAttributes() const
 	ApplyEffectToSelf(DefaultBaseAttributes, 1.f);
 	ApplyEffectToSelf(DefaultSecondaryAttributes, 1.f);
 	ApplyEffectToSelf(DefaultVitalAttributes, 1.f);
+}
+
+void ATKCharacterBase::AddCharacterAbilities()
+{
+	UTKAbilitySystemComponent* TKASC = CastChecked<UTKAbilitySystemComponent>(AbilitySystemComponent);
+	if (!HasAuthority()) return;
+
+	TKASC->AddCharacterAbilities(StartupAbilities);
 }

@@ -43,7 +43,7 @@ void ATKPlayerCharacter::PossessedBy(AController* NewController)
 
 	// Init Ability Actor Info for the server (for standalone game is enough)
 	InitAbilityActorInfo();
-	
+	AddCharacterAbilities();
 }
 
 int32 ATKPlayerCharacter::GetPlayerLevel()

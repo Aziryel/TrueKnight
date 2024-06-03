@@ -8,6 +8,7 @@
 #include "Interaction/CombatInterface.h"
 #include "TKCharacterBase.generated.h"
 
+class UGameplayAbility;
 class UGameplayEffect;
 class UAttributeSet;
 class UAbilitySystemComponent;
@@ -28,6 +29,7 @@ public:
 	/* Ability System Interface */
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	/* End Ability System Interface */
+	
 	UAttributeSet* GetAttributeSet() const { return AttributeSet; }
 
 protected:
@@ -52,5 +54,11 @@ protected:
 
 	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
 	void InitializeDefaultAttributes() const;
+
+	void AddCharacterAbilities();
+private:
+
+	UPROPERTY(EditAnywhere, Category = "Abilities")
+	TArray<TSubclassOf<UGameplayAbility>> StartupAbilities;
 
 };
