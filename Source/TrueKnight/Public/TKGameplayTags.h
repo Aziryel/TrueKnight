@@ -90,6 +90,22 @@ public:
 	FGameplayTag BaseAttributesTag;
 	FGameplayTag SecondaryAttributesTag;
 	FGameplayTag CurrencyTag;
+
+	/*
+	 * Input Tags
+	 */
+	FGameplayTag InputTag_Primary;
+	FGameplayTag InputTag_Secondary;
+	FGameplayTag InputTag_Dash;
+	FGameplayTag InputTag_Crouch;
+	FGameplayTag InputTag_Jump;
+	FGameplayTag InputTag_Action1;
+	FGameplayTag InputTag_Action2;
+	FGameplayTag InputTag_Action3;
+	FGameplayTag InputTag_Action4;
+	FGameplayTag InputTag_Map;
+	FGameplayTag InputTag_Menu;
+	FGameplayTag InputTag_Move;
 	
 protected:
 

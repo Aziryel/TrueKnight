@@ -3,6 +3,8 @@
 
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 
+#include "AbilitySystem/Abilities/TKGameplayAbility.h"
+
 
 void UTKAbilitySystemComponent::AbilityActorInfoSet()
 {
@@ -13,11 +15,44 @@ void UTKAbilitySystemComponent::AbilityActorInfoSet()
 
 void UTKAbilitySystemComponent::AddCharacterAbilities(const TArray<TSubclassOf<UGameplayAbility>>& StartupAbilities)
 {
-	for (TSubclassOf<UGameplayAbility> AbilityClass : StartupAbilities)
+	for (const TSubclassOf<UGameplayAbility> AbilityClass : StartupAbilities)
 	{
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, 1);
-		//GiveAbility(AbilitySpec);
-		GiveAbilityAndActivateOnce(AbilitySpec);
+		if (const UTKGameplayAbility* TKAbility = Cast<UTKGameplayAbility>(AbilitySpec.Ability))
+		{
+			AbilitySpec.DynamicAbilityTags.AddTag(TKAbility->StartupInputTag);
+			GiveAbility(AbilitySpec);
+		}
+	}
+}
+
+void UTKAbilitySystemComponent::AbilityInputTagHeld(const FGameplayTag& InputTag)
+{
+	if(!InputTag.IsValid()) return;
+
+	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
+	{
+		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		{
+			AbilitySpecInputPressed(AbilitySpec);
+			if (!AbilitySpec.IsActive())
+			{
+				TryActivateAbility(AbilitySpec.Handle);
+			}
+		}
+	}
+}
+
+void UTKAbilitySystemComponent::AbilityInputTagReleased(const FGameplayTag& InputTag)
+{
+	if(!InputTag.IsValid()) return;
+
+	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
+	{
+		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		{
+			AbilitySpecInputReleased(AbilitySpec);
+		}
 	}
 }
 

@@ -75,9 +75,24 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(BaseAttributesTag, "Attributes.Base", "");
 	AddTag(SecondaryAttributesTag, "Attributes.Secondary", "");
 	AddTag(CurrencyTag, "Attributes.Currency", "");
+
+	// Input Tags
+	AddTag(InputTag_Primary, "InputTag.Primary", "Input tag associated to the primary attack.");
+	AddTag(InputTag_Secondary, "InputTag.Secondary", "Input tag associated to the secondary attack.");
+	AddTag(InputTag_Dash, "InputTag.Dash", "Input tag associated to the character's dash.");
+	AddTag(InputTag_Crouch, "InputTag.Crouch", "Input tag associated to character's crouching.");
+	AddTag(InputTag_Jump, "InputTag.Jump", "Input tag associated to character's jump.");
+	AddTag(InputTag_Action1, "InputTag.Action1", "Input tag associated to any action or gameplay ability.");
+	AddTag(InputTag_Action2, "InputTag.Action2", "Input tag associated to any action or gameplay ability.");
+	AddTag(InputTag_Action3, "InputTag.Action3", "Input tag associated to any action or gameplay ability.");
+	AddTag(InputTag_Action4, "InputTag.Action4", "Input tag associated to any action or gameplay ability.");
+	AddTag(InputTag_Map, "InputTag.Map", "Input tag associated to opening the Map.");
+	AddTag(InputTag_Menu, "InputTag.Menu", "Input tag associated to opening the Pause Menu.");
+	AddTag(InputTag_Move, "InputTag.Move", "Input tag associated to moving the character.");
 }
+
 
 void FTKGameplayTags::AddTag(FGameplayTag& OutTag, const ANSICHAR* TagName, const ANSICHAR* TagComment)
 {
-	OutTag = UGameplayTagsManager::Get().AddNativeGameplayTag(FName(TagName), FString(TEXT("(Native) ")) + FString(TagComment));
+	OutTag = UGameplayTagsManager::Get().AddNativeGameplayTag(FName(TagName), FString(TagComment));
 }

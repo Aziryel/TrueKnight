@@ -3,9 +3,16 @@
 
 #include "Player/TKPlayerController.h"
 
-#include "EnhancedInputComponent.h"
+#include "AbilitySystemBlueprintLibrary.h"
 #include "EnhancedInputSubsystems.h"
+#include "TKGameplayTags.h"
+#include "AbilitySystem/TKAbilitySystemComponent.h"
+#include "Character/TKPlayerCharacter.h"
+#include "Engine/Engine.h"
+#include "Engine/LocalPlayer.h"
+#include "GameFramework/Pawn.h"
 #include "GameFramework/PawnMovementComponent.h"
+#include "Input/TKInputComponent.h"
 
 ATKPlayerController::ATKPlayerController()
 {
@@ -33,9 +40,15 @@ void ATKPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
 
-	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
+	const FTKGameplayTags& GameplayTags = FTKGameplayTags::Get();
 
-	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ATKPlayerController::Move);
+	UTKInputComponent* TKInputComponent = CastChecked<UTKInputComponent>(InputComponent);
+	
+	TKInputComponent->BindActionByTag(InputConfig, GameplayTags.InputTag_Move, ETriggerEvent::Triggered, this, &ThisClass::Move);
+	TKInputComponent->BindActionByTag(InputConfig, GameplayTags.InputTag_Jump, ETriggerEvent::Triggered, this, &ThisClass::Input_Jump);
+	TKInputComponent->BindAbilityActions(InputConfig, this, &ThisClass::AbilityInputTagPressed, &ThisClass::AbilityInputTagReleased, &ThisClass::AbilityInputTagHeld);
+
+	//TODO: Bind the LocalInputConfirm and LocalInputCancel from the ASC
 }
 
 void ATKPlayerController::Move(const FInputActionValue& InputActionValue)
@@ -52,4 +65,37 @@ void ATKPlayerController::Move(const FInputActionValue& InputActionValue)
 		}
 		ControlledPawn->AddMovementInput(FVector(1.f, 0.f, 0.f), InputActionValue.GetMagnitude());
 	}
+}
+
+void ATKPlayerController::Input_Jump(const FInputActionValue& InputActionValue)
+{
+	ATKPlayerCharacter* PlayerCharacter = CastChecked<ATKPlayerCharacter>(GetCharacter());
+	PlayerCharacter->Jump();
+}
+
+void ATKPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
+{
+	//GEngine->AddOnScreenDebugMessage(1, 3.f, FColor::Orange, *InputTag.ToString());
+}
+
+void ATKPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
+{
+	if (!GetASC()) return;
+	GetASC()->AbilityInputTagReleased(InputTag);
+}
+
+void ATKPlayerController::AbilityInputTagHeld(FGameplayTag InputTag)
+{
+	if (!GetASC()) return;
+	GetASC()->AbilityInputTagHeld(InputTag);
+}
+
+UTKAbilitySystemComponent* ATKPlayerController::GetASC()
+{
+	if (!TKAbilitySystemComponent)
+	{
+		TKAbilitySystemComponent = Cast<UTKAbilitySystemComponent>(UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(GetPawn<APawn>()));
+	}
+
+	return TKAbilitySystemComponent;
 }

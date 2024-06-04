@@ -3,9 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "GameFramework/PlayerController.h"
 #include "TKPlayerController.generated.h"
 
+class UTKAbilitySystemComponent;
+class UTKInputConfig;
 struct FInputActionValue;
 class UInputAction;
 class UInputMappingContext;
@@ -28,8 +31,22 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputMappingContext> TKContext;
 
-	UPROPERTY(EditAnywhere, Category = "Input")
-	TObjectPtr<UInputAction> MoveAction;
-
+	/* Handles Moving */
 	void Move(const FInputActionValue& InputActionValue);
+	/* Handles Jumping */
+	void Input_Jump(const FInputActionValue& InputActionValue);
+
+	void AbilityInputTagPressed(FGameplayTag InputTag);
+	
+	void AbilityInputTagReleased(FGameplayTag InputTag);
+	
+	void AbilityInputTagHeld(FGameplayTag InputTag);
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Input")
+	TObjectPtr<UTKInputConfig> InputConfig;
+
+	UPROPERTY()
+	TObjectPtr<UTKAbilitySystemComponent> TKAbilitySystemComponent;
+
+	UTKAbilitySystemComponent* GetASC();
 };
