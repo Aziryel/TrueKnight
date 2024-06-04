@@ -6,7 +6,9 @@
 #include "AbilitySystemBlueprintLibrary.h"
 #include "GameplayEffectExtension.h"
 #include "TKGameplayTags.h"
+#include "Engine/Engine.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/PlayerController.h"
 
 UTKAttributeSet::UTKAttributeSet()
 {
@@ -70,6 +72,10 @@ void UTKAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, fl
 	if (Attribute == GetStaminaAttribute())
 	{
 		NewValue = FMath::Clamp(NewValue, 0.f, GetMaxStamina());
+	}
+	if (Attribute == GetComboCounterAttribute())
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Magenta, FString::Printf(TEXT("Combo: %f"), NewValue));
 	}
 }
 

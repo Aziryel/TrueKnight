@@ -227,6 +227,11 @@ public:
 	FGameplayAttributeData TimeShards;
 	ATTRIBUTE_ACCESSORS(UTKAttributeSet, TimeShards);
 
+	// Attack Related Attributes
+	UPROPERTY(BlueprintReadOnly, Category = "Attack Attributes")
+	FGameplayAttributeData ComboCounter;
+	ATTRIBUTE_ACCESSORS(UTKAttributeSet, ComboCounter);
+
 private:
 
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props);
