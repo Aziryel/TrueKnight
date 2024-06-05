@@ -12,9 +12,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_TestGameplayAbility.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_TestGameplayAbility.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/TKAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/TKAttributeSet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/TKAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/TKAttributeSet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_TestGameplayAbility.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayEffects/GE_ComboCounter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayEffects/GE_ComboCounter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Enemies/Boar/BrownBoar/ABP_BrownBoar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Enemies/Boar/BrownBoar/ABP_BrownBoar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Enemies/Boar/BrownBoar/BP_BrownBoar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Enemies/Boar/BrownBoar/BP_BrownBoar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/ABP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/ABP_Player.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Enemies/Boar/BrownBoar/FB_BrownBoar_Idle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Enemies/Boar/BrownBoar/FB_BrownBoar_Idle.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Attack/hero_attack1_d_Sprite_6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Attack/hero_attack1_d_Sprite_6.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Attack/hero_attack2_d_Sprite_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Attack/hero_attack2_d_Sprite_2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Attack/hero_attack2_d_Sprite_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Attack/hero_attack2_d_Sprite_3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Attack1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Attack1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Attack2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Attack2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Falling.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Falling.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Idle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Idle.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_JumpEnd.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_JumpEnd.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_JumpLand.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_JumpLand.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_JumpStart.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_JumpStart.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_RunLoop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_RunLoop.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_RunStart.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_RunStart.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_RunStop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_RunStop.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Player/TKPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Player/TKPlayerController.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +49,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://8" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKEnemyCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -523,6 +547,7 @@
       <workItem from="1717135747175" duration="11647000" />
       <workItem from="1717394279942" duration="19340000" />
       <workItem from="1717481299751" duration="13694000" />
+      <workItem from="1717568310077" duration="5006000" />
     </task>
     <servers />
   </component>

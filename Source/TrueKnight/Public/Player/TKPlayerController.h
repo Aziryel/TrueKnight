@@ -48,5 +48,8 @@ private:
 	UPROPERTY()
 	TObjectPtr<UTKAbilitySystemComponent> TKAbilitySystemComponent;
 
+	UPROPERTY()
+	FGameplayTagContainer TagsToIgnore;
+
 	UTKAbilitySystemComponent* GetASC();
 };

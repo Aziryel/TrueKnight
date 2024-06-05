@@ -16,7 +16,9 @@
 
 ATKPlayerController::ATKPlayerController()
 {
-	
+	const FTKGameplayTags& GameplayTags = FTKGameplayTags::Get();
+
+	TagsToIgnore.AddTag(GameplayTags.InputTag_Primary);
 }
 
 void ATKPlayerController::BeginPlay()
@@ -45,7 +47,7 @@ void ATKPlayerController::SetupInputComponent()
 	UTKInputComponent* TKInputComponent = CastChecked<UTKInputComponent>(InputComponent);
 	
 	TKInputComponent->BindActionByTag(InputConfig, GameplayTags.InputTag_Move, ETriggerEvent::Triggered, this, &ThisClass::Move);
-	TKInputComponent->BindActionByTag(InputConfig, GameplayTags.InputTag_Jump, ETriggerEvent::Triggered, this, &ThisClass::Input_Jump);
+	TKInputComponent->BindActionByTag(InputConfig, GameplayTags.InputTag_Jump, ETriggerEvent::Started, this, &ThisClass::Input_Jump);
 	TKInputComponent->BindAbilityActions(InputConfig, this, &ThisClass::AbilityInputTagPressed, &ThisClass::AbilityInputTagReleased, &ThisClass::AbilityInputTagHeld);
 
 	//TODO: Bind the LocalInputConfirm and LocalInputCancel from the ASC
@@ -53,8 +55,13 @@ void ATKPlayerController::SetupInputComponent()
 
 void ATKPlayerController::Move(const FInputActionValue& InputActionValue)
 {
+	// We check if the ASC has any ignored tags to avoid moving during the attack animation.
+	// This is only done with functions like Move and Input_Jump that aren't gameplay abilities.
+	if (GetASC() && GetASC()->HasAnyMatchingGameplayTags(TagsToIgnore)) return;
+	
 	if (APawn* ControlledPawn = GetPawn<APawn>())
 	{
+		// We set the controller rotation according to the direction of movement
 		if (ControlledPawn->GetMovementComponent()->Velocity.X  > 0.f)
 		{
 			SetControlRotation(FRotator(0.f, 0.f, 0.f));
@@ -69,6 +76,10 @@ void ATKPlayerController::Move(const FInputActionValue& InputActionValue)
 
 void ATKPlayerController::Input_Jump(const FInputActionValue& InputActionValue)
 {
+	// We check if the ASC has any ignored tags to avoid using Jump.
+	// This is only done with functions like Move and Input_Jump that aren't gameplay abilities.
+	if (GetASC() && GetASC()->HasAnyMatchingGameplayTags(TagsToIgnore)) return;
+	
 	ATKPlayerCharacter* PlayerCharacter = CastChecked<ATKPlayerCharacter>(GetCharacter());
 	PlayerCharacter->Jump();
 }
