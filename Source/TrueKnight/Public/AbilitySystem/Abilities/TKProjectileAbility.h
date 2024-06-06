@@ -6,6 +6,7 @@
 #include "AbilitySystem/Abilities/TKGameplayAbility.h"
 #include "TKProjectileAbility.generated.h"
 
+class ATKProjectile;
 /**
  * 
  */
@@ -17,4 +18,7 @@ class TRUEKNIGHT_API UTKProjectileAbility : public UTKGameplayAbility
 protected:
 
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TSubclassOf<ATKProjectile> ProjectileClass;
 };

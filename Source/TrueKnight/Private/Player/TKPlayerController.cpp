@@ -7,7 +7,6 @@
 #include "EnhancedInputSubsystems.h"
 #include "TKGameplayTags.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
-#include "Character/TKPlayerCharacter.h"
 #include "Engine/Engine.h"
 #include "Engine/LocalPlayer.h"
 #include "GameFramework/Pawn.h"
@@ -18,7 +17,8 @@ ATKPlayerController::ATKPlayerController()
 {
 	const FTKGameplayTags& GameplayTags = FTKGameplayTags::Get();
 
-	TagsToIgnore.AddTag(GameplayTags.InputTag_Primary);
+	TagsToIgnore.AddTag(GameplayTags.CombatTag_Attacking);
+	TagsToIgnore.AddTag(GameplayTags.CombatTag_Casting);
 }
 
 void ATKPlayerController::BeginPlay()

@@ -4,6 +4,7 @@
 #include "Character/TKCharacterBase.h"
 
 #include "AbilitySystemComponent.h"
+#include "PaperFlipbookComponent.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 
 ATKCharacterBase::ATKCharacterBase()
@@ -19,6 +20,11 @@ UAbilitySystemComponent* ATKCharacterBase::GetAbilitySystemComponent() const
 void ATKCharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
+}
+
+FVector ATKCharacterBase::GetCombatSocketLocation()
+{
+	return GetSprite()->GetSocketLocation(ProjectileSocketName);
 }
 
 void ATKCharacterBase::InitAbilityActorInfo()

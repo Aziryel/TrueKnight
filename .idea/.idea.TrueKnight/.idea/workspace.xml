@@ -13,10 +13,42 @@
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/BP_FireBolt.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/BP_FireBolt.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/GA_FireBolt.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/GA_FireBolt.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack_Target.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack_Target.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AnimNotify/ANS_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AnimNotify/ANS_Attack.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Walk.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Walk.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack2.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Spell_End.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Spell_Start.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/FB_Hero_Spellcast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_0.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_4.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_5.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_6.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_7.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/Idle/hero_idle_d_Sprite_7.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_0.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_4.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_5.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/Abilities/TKProjectileAbility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/Abilities/TKProjectileAbility.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKCharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKCharacterBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Interaction/CombatInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Interaction/CombatInterface.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/TKGameplayTags.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/TKGameplayTags.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/Abilities/TKProjectileAbility.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/Abilities/TKProjectileAbility.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKCharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKCharacterBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Interaction/CombatInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Interaction/CombatInterface.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/TKGameplayTags.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/TKGameplayTags.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +59,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://8" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKEnemyCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -526,7 +566,7 @@
       <workItem from="1717394279942" duration="19340000" />
       <workItem from="1717481299751" duration="13694000" />
       <workItem from="1717568310077" duration="5614000" />
-      <workItem from="1717654415462" duration="8662000" />
+      <workItem from="1717654415462" duration="13504000" />
     </task>
     <servers />
   </component>

@@ -90,8 +90,11 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(InputTag_Menu, "InputTag.Menu", "Input tag associated to opening the Pause Menu.");
 	AddTag(InputTag_Move, "InputTag.Move", "Input tag associated to moving the character.");
 
-	// Target Tags
-	AddTag(TargetTag_Melee, "TargetTag.Melee", "Target tag to use target actors with melee attacks");
+	// Combat Tags
+	AddTag(ANSTag_Melee, "ANSTag.Melee", "Target tag to use target actors with melee attacks using AnimNotify States.");
+	AddTag(ANSTag_Projectile, "ANSTag.Projectile", "Target tag to spawn projectiles using AnimNotify States.");
+	AddTag(CombatTag_Attacking, "Combat.Attacking", "Combat tag to melee attacks.");
+	AddTag(CombatTag_Casting, "Combat.Casting", "Combat tag to cast spells.");
 }
 
 

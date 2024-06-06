@@ -4,6 +4,7 @@
 #include "Character/TKPlayerCharacter.h"
 
 #include "AbilitySystemComponent.h"
+#include "PaperFlipbookComponent.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
