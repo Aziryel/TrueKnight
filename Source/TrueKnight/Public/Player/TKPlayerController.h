@@ -33,8 +33,6 @@ private:
 
 	/* Handles Moving */
 	void Move(const FInputActionValue& InputActionValue);
-	/* Handles Jumping */
-	void Input_Jump(const FInputActionValue& InputActionValue);
 
 	void AbilityInputTagPressed(FGameplayTag InputTag);
 	

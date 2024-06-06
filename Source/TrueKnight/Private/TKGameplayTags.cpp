@@ -89,6 +89,9 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(InputTag_Map, "InputTag.Map", "Input tag associated to opening the Map.");
 	AddTag(InputTag_Menu, "InputTag.Menu", "Input tag associated to opening the Pause Menu.");
 	AddTag(InputTag_Move, "InputTag.Move", "Input tag associated to moving the character.");
+
+	// Target Tags
+	AddTag(TargetTag_Melee, "TargetTag.Melee", "Target tag to use target actors with melee attacks");
 }
 
 

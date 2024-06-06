@@ -106,6 +106,13 @@ public:
 	FGameplayTag InputTag_Map;
 	FGameplayTag InputTag_Menu;
 	FGameplayTag InputTag_Move;
+
+	/*
+	 * Target Tags
+	 * These tags are used to trigger abilities from Animation Notifies so TargetActors can be used
+	 */
+
+	FGameplayTag TargetTag_Melee;
 	
 protected:
 
