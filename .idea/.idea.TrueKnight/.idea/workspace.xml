@@ -13,20 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack_Target.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack_Target.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayEffects/GE_ComboCounter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayEffects/GE_ComboCounter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Actor/Potion/BP_HealthPotion.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Actor/Potion/BP_HealthPotion.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Actor/Potion/BP_ManaPotion.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Actor/Potion/BP_ManaPotion.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AnimNotify/ANS_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AnimNotify/ANS_Attack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Walk.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Walk.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Input/Actions/IA_Jump.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Input/Actions/IA_Jump.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Items/tiles_forest_d_Sprite_23.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Items/tiles_forest_d_Sprite_23.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Items/tiles_forest_d_Sprite_26.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Items/tiles_forest_d_Sprite_26.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/TKGameplayTags.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/TKGameplayTags.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Player/TKPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Player/TKPlayerController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/TKGameplayTags.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/TKGameplayTags.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -536,7 +526,7 @@
       <workItem from="1717394279942" duration="19340000" />
       <workItem from="1717481299751" duration="13694000" />
       <workItem from="1717568310077" duration="5614000" />
-      <workItem from="1717654415462" duration="2749000" />
+      <workItem from="1717654415462" duration="8662000" />
     </task>
     <servers />
   </component>
