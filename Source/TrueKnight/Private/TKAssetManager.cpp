@@ -3,6 +3,7 @@
 
 #include "TKAssetManager.h"
 
+#include "AbilitySystemGlobals.h"
 #include "TKGameplayTags.h"
 
 UTKAssetManager& UTKAssetManager::Get()
@@ -16,6 +17,8 @@ UTKAssetManager& UTKAssetManager::Get()
 void UTKAssetManager::StartInitialLoading()
 {
 	Super::StartInitialLoading();
-
 	FTKGameplayTags::InitializeNativeGameplayTags();
+	
+	// We MUST call this to initialize TargetData among other things
+	UAbilitySystemGlobals::Get().InitGlobalData();
 }

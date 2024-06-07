@@ -108,12 +108,12 @@ public:
 	FGameplayTag InputTag_Move;
 
 	/*
-	 * Combat Tags
-	 * These tags are used to trigger abilities from Animation Notifies so TargetActors can be used
+	 * Event Tags
+	 * These tags are used to trigger something in response to a gameplay event
 	 */
 
-	FGameplayTag ANSTag_Melee;
-	FGameplayTag ANSTag_Projectile;
+	FGameplayTag EventTag_Melee_Basic;
+	FGameplayTag EventTag_Spell_Firebolt;
 	FGameplayTag CombatTag_Casting;
 	FGameplayTag CombatTag_Attacking;
 	

@@ -11,11 +11,15 @@ void UTKProjectileAbility::ActivateAbility(const FGameplayAbilitySpecHandle Hand
                                            const FGameplayEventData* TriggerEventData)
 {
 	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
+	
+}
 
-	const bool bIsServer = HasAuthority(&ActivationInfo);
+void UTKProjectileAbility::SpawnProjectile()
+{
+	const bool bIsServer = GetAvatarActorFromActorInfo()->HasAuthority();
 	if (!bIsServer) return;
 
-	// We cast to the Combat Interface, so we don't depend in the character base class for anything
+	// We cast to the Combat Interface, so we don't depend on the character base class for anything
 	ICombatInterface* CombatInterface = Cast<ICombatInterface>(GetAvatarActorFromActorInfo());
 	if (CombatInterface)
 	{
@@ -23,7 +27,7 @@ void UTKProjectileAbility::ActivateAbility(const FGameplayAbilitySpecHandle Hand
 
 		FTransform SpawnTransform;
 		SpawnTransform.SetLocation(SocketLocation);
-		//TODO: Set the projectile rotation. 
+		SpawnTransform.SetRotation(GetAvatarActorFromActorInfo()->GetActorForwardVector().ToOrientationQuat());
 		
 		ATKProjectile* Projectile = GetWorld()->SpawnActorDeferred<ATKProjectile>(
 			ProjectileClass,
@@ -32,7 +36,7 @@ void UTKProjectileAbility::ActivateAbility(const FGameplayAbilitySpecHandle Hand
 			Cast<APawn>(GetOwningActorFromActorInfo()),
 			ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
 
-		//TODO: Give the projectile a gameplay effect spec for causing damage. 
+		//TODO: Give the projectile a gameplay effect spec for causing damage.
 
 		Projectile->FinishSpawning(SpawnTransform);
 	}
