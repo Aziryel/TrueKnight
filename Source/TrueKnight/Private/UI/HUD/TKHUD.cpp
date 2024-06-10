@@ -38,7 +38,7 @@ void ATKHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystem
 	checkf(OverlayWidgetControllerClass, TEXT("OverlayWidgetControllerClass uninitialized, please fill out BP_TKHUD"));
 	
 	//We have to include the TKUserWidget.h for it to recognize out of the UUserWidget
-	UUserWidget* Widget = CreateWidget<UUserWidget>(GetWorld(), OverlayWidgetClass);
+	UUserWidget* Widget = CreateWidget<UUserWidget>(PC, OverlayWidgetClass);
 	OverlayWidget = Cast<UTKUserWidget>(Widget);
 
 	//Create the WidgetController for the first time

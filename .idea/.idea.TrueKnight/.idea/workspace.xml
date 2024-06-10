@@ -13,30 +13,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/BP_FireBolt.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/BP_FireBolt.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/GA_FireBolt.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/GA_FireBolt.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/GA_FireBolt_Spawn.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayEffects/GE_ComboCounter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayEffects/GE_ComboCounter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AnimNotify/ANS_Attack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AnimNotify/ANS_Projectile.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/Attack2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/SpellCast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AnimSequences/SpellCast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Input/Actions/IA_Secondary.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Input/Actions/IA_Secondary.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_TKPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_TKPlayerController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/AttributeMenu/WBP_TextValueButtonRow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/AttributeMenu/WBP_TextValueButtonRow.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Button/WBP_Button.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/Button/WBP_Button.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Button/WBP_WideButton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/Button/WBP_WideButton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/MainMenu/WBP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/MainMenu/WBP_MainMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Overlay/WBP_Overlay.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/Overlay/WBP_Overlay.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Characters/Hero/SpellCast/hero_spell_casting_d_Sprite_2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/Abilities/TKProjectileAbility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/Abilities/TKProjectileAbility.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Actor/TKProjectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Actor/TKProjectile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/TKAssetManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/TKAssetManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/TKGameplayTags.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/TKGameplayTags.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/Abilities/TKProjectileAbility.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/Abilities/TKProjectileAbility.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Actor/TKProjectile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Actor/TKProjectile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/TKGameplayTags.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/TKGameplayTags.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/TrueKnight.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/TrueKnight.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/UI/HUD/TKHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/UI/HUD/TKHUD.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,53 +32,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -600,6 +538,7 @@
       <workItem from="1717568310077" duration="5614000" />
       <workItem from="1717654415462" duration="13504000" />
       <workItem from="1717740986526" duration="12693000" />
+      <workItem from="1717999167429" duration="8379000" />
     </task>
     <servers />
   </component>
