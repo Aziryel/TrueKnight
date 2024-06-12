@@ -6,10 +6,13 @@
 #include "AbilitySystemComponent.h"
 #include "PaperFlipbookComponent.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "TrueKnight/TrueKnight.h"
 
 ATKCharacterBase::ATKCharacterBase()
 {
 	PrimaryActorTick.bCanEverTick = false;
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Projectile, ECR_Overlap);
 }
 
 UAbilitySystemComponent* ATKCharacterBase::GetAbilitySystemComponent() const
