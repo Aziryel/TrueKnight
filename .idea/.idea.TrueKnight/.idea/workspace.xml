@@ -11,14 +11,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Player/BP_TKPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Player/BP_TKPlayerController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/AttributeMenu/WBP_TextValueButtonRow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/AttributeMenu/WBP_TextValueButtonRow.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Button/WBP_ButtonBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/Button/WBP_ButtonBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/MainMenu/WBP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/MainMenu/WBP_MainMenu.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Overlay/WBP_Overlay.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/Overlay/WBP_Overlay.uasset" afterDir="false" />
-    </list>
+    <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -538,7 +531,7 @@
       <workItem from="1718041780011" duration="1054000" />
       <workItem from="1718095334449" duration="2612000" />
       <workItem from="1718172845957" duration="1176000" />
-      <workItem from="1718178749307" duration="1366000" />
+      <workItem from="1718178749307" duration="1439000" />
     </task>
     <servers />
   </component>
