@@ -125,6 +125,7 @@ void UTKAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallback
 	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
 	{
 		SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
+		GEngine->AddOnScreenDebugMessage(1, 10.f, FColor::Orange, FString::Printf(TEXT("Changed Health on %s, Health %f"), *GetNameSafe(Props.TargetAvatarActor), GetHealth()));
 	}
 	if (Data.EvaluatedData.Attribute == GetManaAttribute())
 	{

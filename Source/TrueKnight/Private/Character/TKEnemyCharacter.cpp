@@ -7,6 +7,8 @@
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "AbilitySystem/TKAttributeSet.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/WidgetComponent.h"
+#include "UI/Widget/TKUserWidget.h"
 
 ATKEnemyCharacter::ATKEnemyCharacter()
 {
@@ -15,11 +17,13 @@ ATKEnemyCharacter::ATKEnemyCharacter()
 
 	//Create the TKAttributeSet for the enemy character.
 	AttributeSet = CreateDefaultSubobject<UTKAttributeSet>("AttributeSet");
-
-	//TODO Make a custom Collision Channel to find abilities overlaps
+	
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);
 	GetSprite()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	GetSprite()->SetGenerateOverlapEvents(true);
+
+	HealthBar = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
+	HealthBar->SetupAttachment(GetRootComponent());
 }
 
 void ATKEnemyCharacter::HighlightActor()
@@ -42,10 +46,38 @@ void ATKEnemyCharacter::BeginPlay()
 	Super::BeginPlay();
 	
 	InitAbilityActorInfo();
+
+	if (UTKUserWidget* TKUserWidget = Cast<UTKUserWidget>(HealthBar->GetUserWidgetObject()))
+	{
+		TKUserWidget->SetWidgetController(this);
+	}
+	
+	// Bind to delegates from the AbilitySystemComponent
+
+	if (const UTKAttributeSet* TKAS = Cast<UTKAttributeSet>(AttributeSet))
+	{
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(TKAS->GetHealthAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				OnHealthChange.Broadcast(Data.NewValue);
+			}
+		);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(TKAS->GetMaxHealthAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				OnMaxHealthChange.Broadcast(Data.NewValue);
+			}
+		);
+
+		OnHealthChange.Broadcast(TKAS->GetHealth());
+		OnMaxHealthChange.Broadcast(TKAS->GetMaxHealth());
+	}
 }
 
 void ATKEnemyCharacter::InitAbilityActorInfo()
 {
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->AbilityActorInfoSet();
+
+	InitializeDefaultAttributes();
 }
