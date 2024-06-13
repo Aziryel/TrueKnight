@@ -4,6 +4,7 @@
 #include "Character/TKEnemyCharacter.h"
 
 #include "PaperFlipbookComponent.h"
+#include "AbilitySystem/TKAbilitySystemBlueprintLibrary.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "AbilitySystem/TKAttributeSet.h"
 #include "Components/CapsuleComponent.h"
@@ -80,4 +81,9 @@ void ATKEnemyCharacter::InitAbilityActorInfo()
 	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->AbilityActorInfoSet();
 
 	InitializeDefaultAttributes();
+}
+
+void ATKEnemyCharacter::InitializeDefaultAttributes() const
+{
+	UTKAbilitySystemBlueprintLibrary::InitializeDefaultsAttributes(this, CharacterClass, Level, AbilitySystemComponent);
 }

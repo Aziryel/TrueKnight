@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Data/CharacterClassInfo.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "TKAbilitySystemBlueprintLibrary.generated.h"
 
@@ -10,6 +11,7 @@
  * 
  */
 
+class UAbilitySystemComponent;
 class UTKAttributeMenuWidgetController;
 class UTKOverlayWidgetController;
 
@@ -24,4 +26,7 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "TKAbilitySystemLibrary|WidgetController", meta = (DefaultToSelf = "WorldContextObject"))
 	static UTKAttributeMenuWidgetController* GetAttributeMenuWidgetController(const UObject* WorldContextObject);
+
+	UFUNCTION(BlueprintCallable, Category = "TKAbilitySystemLibrary|ClassDefaults", meta = (DefaultToSelf = "WorldContextObject"))
+	static void InitializeDefaultsAttributes(const UObject* WorldContextObject, ECharacterClass CharacterClass, float Level, UAbilitySystemComponent* ASC);
 };
