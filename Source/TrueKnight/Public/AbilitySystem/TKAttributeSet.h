@@ -232,6 +232,14 @@ public:
 	FGameplayAttributeData ComboCounter;
 	ATTRIBUTE_ACCESSORS(UTKAttributeSet, ComboCounter);
 
+	/**************************************
+	 ********** Meta Attributes **********
+	 **************************************/
+
+	UPROPERTY(BlueprintReadOnly, Category = "Meta Attributes")
+	FGameplayAttributeData IncomingDamage;
+	ATTRIBUTE_ACCESSORS(UTKAttributeSet, IncomingDamage);
+
 private:
 
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props);
