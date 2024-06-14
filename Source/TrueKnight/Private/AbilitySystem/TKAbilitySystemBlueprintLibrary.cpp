@@ -3,6 +3,7 @@
 
 #include "AbilitySystem/TKAbilitySystemBlueprintLibrary.h"
 
+#include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Game/TKGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 #include "Player/TKPlayerState.h"
@@ -53,6 +54,63 @@ UTKAttributeMenuWidgetController* UTKAbilitySystemBlueprintLibrary::GetAttribute
 	}
 
 	return nullptr;
+}
+
+UTKInventoryMenuWidgetController* UTKAbilitySystemBlueprintLibrary::GetInventoryMenuWidgetController(
+	const UObject* WorldContextObject)
+{
+	if (APlayerController* PC = UGameplayStatics::GetPlayerController(WorldContextObject, 0))
+	{
+		if (ATKHUD* TKHUD = Cast<ATKHUD>(PC->GetHUD()))
+		{
+			ATKPlayerState* PS = PC->GetPlayerState<ATKPlayerState>();
+			if (PS)
+			{
+				UAbilitySystemComponent* ASC = PS->GetAbilitySystemComponent();
+				UAttributeSet* AS = PS->GetAttributeSet();
+
+				const FWidgetControllerParams WidgetControllerParams(PC, PS, ASC, AS);
+
+				return TKHUD->GetInventoryMenuWidgetController(WidgetControllerParams);
+			}
+		}
+	}
+
+	return nullptr;
+}
+
+void UTKAbilitySystemBlueprintLibrary::AddItemToInventory(UAbilitySystemComponent* AbilitySystemComponent, TSubclassOf<UGameplayEffect> GameplayEffectClass, const float Level,
+                                                          const int32 Quantity)
+{
+	// We return if the Ability System Component or the Gameplay Effect are null
+	if (!AbilitySystemComponent || !GameplayEffectClass) return;
+	
+	// Create a spec handle for the gameplay effect
+	FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(GameplayEffectClass, Level, AbilitySystemComponent->MakeEffectContext());
+	if (SpecHandle.IsValid())
+	{
+		// Set the initial quantity
+		SpecHandle.Data->SetStackCount(Quantity);
+
+		// Apply the spec to the target
+		AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+	}
+}
+
+void UTKAbilitySystemBlueprintLibrary::RemoveItemFromInventory(UAbilitySystemComponent* AbilitySystemComponent,
+	FGameplayTag ItemTag, int32 Quantity)
+{
+	if (!AbilitySystemComponent) return;
+	
+	if (UTKAbilitySystemComponent* TKASC = Cast<UTKAbilitySystemComponent>(AbilitySystemComponent))
+	{
+		TKASC->RemoveItemFromInventory(ItemTag, Quantity);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("The AbilitySystemComponent to remove an item is not of the class TKAbilitySystemComponent"));
+	}
+	
 }
 
 void UTKAbilitySystemBlueprintLibrary::InitializeDefaultsAttributes(const UObject* WorldContextObject, ECharacterClass CharacterClass, float Level, UAbilitySystemComponent* ASC)

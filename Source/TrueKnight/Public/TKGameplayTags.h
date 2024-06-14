@@ -116,6 +116,16 @@ public:
 	FGameplayTag EventTag_Spell_Firebolt;
 	FGameplayTag CombatTag_Casting;
 	FGameplayTag CombatTag_Attacking;
+
+	/*
+	 * Inventory Tags
+	 */
+	FGameplayTag InventoryTag;
+	FGameplayTag InventoryTag_Item;
+	FGameplayTag InventoryTag_Key;
+	FGameplayTag InventoryTag_Special;
+	FGameplayTag InventoryTag_Mark;
+	FGameplayTag InventoryTag_Equipment;
 	
 protected:
 

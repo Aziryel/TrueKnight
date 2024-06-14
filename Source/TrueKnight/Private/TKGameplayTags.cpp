@@ -95,6 +95,14 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(EventTag_Spell_Firebolt, "Event.Spell.Firebolt", "Event tag to send the Firebolt event.");
 	AddTag(CombatTag_Attacking, "Combat.Attacking", "Combat tag to melee attacks.");
 	AddTag(CombatTag_Casting, "Combat.Casting", "Combat tag to cast spells.");
+
+	// Inventory Tags
+	AddTag(InventoryTag, "InventoryTag", "");
+	AddTag(InventoryTag_Item, "InventoryTag.Item", "");
+	AddTag(InventoryTag_Key, "InventoryTag.Key", "");
+	AddTag(InventoryTag_Mark, "InventoryTag.Mark", "");
+	AddTag(InventoryTag_Special, "InventoryTag.Special", "");
+	AddTag(InventoryTag_Equipment, "InventoryTag.Equipment", "");
 }
 
 

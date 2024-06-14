@@ -5,6 +5,7 @@
 
 #include "UI/Widget/TKUserWidget.h"
 #include "UI/WidgetController/TKAttributeMenuWidgetController.h"
+#include "UI/WidgetController/TKInventoryMenuWidgetController.h"
 #include "UI/WidgetController/TKOverlayWidgetController.h"
 
 UTKOverlayWidgetController* ATKHUD::GetOverlayWidgetController(const FWidgetControllerParams& WCParams)
@@ -30,6 +31,18 @@ UTKAttributeMenuWidgetController* ATKHUD::GetAttributeMenuWidgetController(const
 	}
 	
 	return AttributeMenuWidgetController;
+}
+
+UTKInventoryMenuWidgetController* ATKHUD::GetInventoryMenuWidgetController(const FWidgetControllerParams& WCParams)
+{
+	if (InventoryMenuWidgetController == nullptr)
+	{
+		InventoryMenuWidgetController = NewObject<UTKInventoryMenuWidgetController>(this, InventoryMenuWidgetControllerClass);
+		InventoryMenuWidgetController->SetWidgetControllerParams(WCParams);
+		InventoryMenuWidgetController->BindCallbacksToDependencies();
+	}
+
+	return InventoryMenuWidgetController;
 }
 
 void ATKHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS)
