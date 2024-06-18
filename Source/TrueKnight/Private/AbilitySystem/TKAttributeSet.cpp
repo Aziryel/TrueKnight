@@ -145,6 +145,18 @@ void UTKAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallback
 			SetHealth(FMath::Clamp(NewHealth, 0.f, GetMaxHealth()));
 
 			const bool bFatal = NewHealth <= 0.f;
+			if (bFatal)
+			{
+				FGameplayTagContainer TagContainer;
+				TagContainer.AddTag(FTKGameplayTags::Get().EffectTag_Death);
+				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
+			}
+			else
+			{
+				FGameplayTagContainer TagContainer;
+				TagContainer.AddTag(FTKGameplayTags::Get().EffectTag_HitReact);
+				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
+			}
 		}
 	}
 }

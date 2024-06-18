@@ -20,4 +20,7 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Damage")
 	FScalableFloat Damage;
+
+	UFUNCTION(BlueprintPure)
+	float GetDamageAtAbilityLevel() const;
 };

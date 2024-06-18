@@ -4,11 +4,13 @@
 #include "Character/TKEnemyCharacter.h"
 
 #include "PaperFlipbookComponent.h"
+#include "TKGameplayTags.h"
 #include "AbilitySystem/TKAbilitySystemBlueprintLibrary.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "AbilitySystem/TKAttributeSet.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/WidgetComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "UI/Widget/TKUserWidget.h"
 
 ATKEnemyCharacter::ATKEnemyCharacter()
@@ -42,11 +44,21 @@ int32 ATKEnemyCharacter::GetPlayerLevel()
 	return Level;
 }
 
+void ATKEnemyCharacter::Die_Implementation()
+{
+	SetLifeSpan(LifeSpan);
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Emerald, FString::Printf(TEXT("Die Enemy")));
+
+	Super::Die_Implementation();
+}
+
 void ATKEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	GetCharacterMovement()->MaxWalkSpeed = BaseWalkSpeed;
 	
 	InitAbilityActorInfo();
+	UTKAbilitySystemBlueprintLibrary::GiveStartupAbilitites(this, AbilitySystemComponent);
 
 	if (UTKUserWidget* TKUserWidget = Cast<UTKUserWidget>(HealthBar->GetUserWidgetObject()))
 	{
@@ -69,10 +81,21 @@ void ATKEnemyCharacter::BeginPlay()
 				OnMaxHealthChange.Broadcast(Data.NewValue);
 			}
 		);
+		
+		AbilitySystemComponent->RegisterGameplayTagEvent(FTKGameplayTags::Get().EffectTag_HitReact, EGameplayTagEventType::NewOrRemoved).AddUObject(
+			this,
+			&ATKEnemyCharacter::HitReactTagChanged
+		);
 
 		OnHealthChange.Broadcast(TKAS->GetHealth());
 		OnMaxHealthChange.Broadcast(TKAS->GetMaxHealth());
 	}
+}
+
+void ATKEnemyCharacter::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
+{
+	bHitReacting = NewCount > 0;
+	GetCharacterMovement()->MaxWalkSpeed = bHitReacting ? 0.f : BaseWalkSpeed;
 }
 
 void ATKEnemyCharacter::InitAbilityActorInfo()

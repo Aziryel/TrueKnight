@@ -93,9 +93,15 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	// Damage Tags
 	AddTag(Damage, "Damage", "Damage.");
 
-	// Combat Tags
+	// Effect Tags
+	AddTag(EffectTag_HitReact, "Effect.HitReact", "HitReact");
+	AddTag(EffectTag_Death, "Effect.Death", "Death");
+
+	// Event Tags
 	AddTag(EventTag_Melee_Basic, "Event.Melee.Basic", "Event tag to send the basic melee attack event.");
 	AddTag(EventTag_Spell_Firebolt, "Event.Spell.Firebolt", "Event tag to send the Firebolt event.");
+
+	// Combat Tags
 	AddTag(CombatTag_Attacking, "Combat.Attacking", "Combat tag to melee attacks.");
 	AddTag(CombatTag_Casting, "Combat.Casting", "Combat tag to cast spells.");
 

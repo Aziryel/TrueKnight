@@ -138,3 +138,17 @@ void UTKAbilitySystemBlueprintLibrary::InitializeDefaultsAttributes(const UObjec
 	const FGameplayEffectSpecHandle VitalAttributesSpecHandle = ASC->MakeOutgoingSpec(CharacterClassInfo->VitalAttributes, Level, VitalAttributesContextHandle);
 	ASC->ApplyGameplayEffectSpecToSelf(*VitalAttributesSpecHandle.Data.Get());
 }
+
+void UTKAbilitySystemBlueprintLibrary::GiveStartupAbilitites(const UObject* WorldContextObject,
+	UAbilitySystemComponent* ASC)
+{
+	ATKGameModeBase* TKGameMode = Cast<ATKGameModeBase>(UGameplayStatics::GetGameMode(WorldContextObject));
+	if (!TKGameMode) return;
+
+	UCharacterClassInfo* CharacterClassInfo = TKGameMode->CharacterClassInfo;
+	for (TSubclassOf<UGameplayAbility> AbilityClass : CharacterClassInfo->CommonAbilities)
+	{
+		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, 1);
+		ASC->GiveAbility(AbilitySpec);
+	}
+}

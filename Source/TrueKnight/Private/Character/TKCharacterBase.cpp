@@ -20,6 +20,27 @@ UAbilitySystemComponent* ATKCharacterBase::GetAbilitySystemComponent() const
 	return AbilitySystemComponent;
 }
 
+UPaperZDAnimInstance* ATKCharacterBase::GetPaperAnimInstance_Implementation()
+{
+	return GetAnimInstance();
+}
+
+UPaperZDAnimSequence* ATKCharacterBase::GetHitReactAnimSequence_Implementation()
+{
+	return HitReactSequence;
+}
+
+UPaperZDAnimSequence* ATKCharacterBase::GetDeathAnimSequence_Implementation()
+{
+	return DeathSequence;
+}
+
+void ATKCharacterBase::Die_Implementation()
+{
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Emerald, FString::Printf(TEXT("Die CharacterBase")));
+}
+
 void ATKCharacterBase::BeginPlay()
 {
 	Super::BeginPlay();

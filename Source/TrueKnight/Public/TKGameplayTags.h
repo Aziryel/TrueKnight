@@ -110,8 +110,16 @@ public:
 	/*
 	 * Damage Tags
 	 */
+	
 	FGameplayTag Damage;
 
+	/*
+	 * Effect Tags
+	 */
+
+	FGameplayTag EffectTag_HitReact;
+	FGameplayTag EffectTag_Death;
+	
 	/*
 	 * Event Tags
 	 * These tags are used to trigger something in response to a gameplay event
@@ -119,6 +127,8 @@ public:
 
 	FGameplayTag EventTag_Melee_Basic;
 	FGameplayTag EventTag_Spell_Firebolt;
+
+	// Combat Tags
 	FGameplayTag CombatTag_Casting;
 	FGameplayTag CombatTag_Attacking;
 
