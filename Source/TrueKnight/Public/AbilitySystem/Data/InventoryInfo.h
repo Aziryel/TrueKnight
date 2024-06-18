@@ -26,7 +26,7 @@ struct FTKInventoryInfo
 	FText ItemDescription = FText();
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	UPaperSprite* ItemSprite;
+	UPaperSprite* ItemSprite = nullptr;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<TSubclassOf<UGameplayEffect>> ItemEffects;

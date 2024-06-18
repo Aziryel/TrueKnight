@@ -108,6 +108,11 @@ public:
 	FGameplayTag InputTag_Move;
 
 	/*
+	 * Damage Tags
+	 */
+	FGameplayTag Damage;
+
+	/*
 	 * Event Tags
 	 * These tags are used to trigger something in response to a gameplay event
 	 */

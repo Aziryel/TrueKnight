@@ -90,6 +90,9 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(InputTag_Menu, "InputTag.Menu", "Input tag associated to opening the Pause Menu.");
 	AddTag(InputTag_Move, "InputTag.Move", "Input tag associated to moving the character.");
 
+	// Damage Tags
+	AddTag(Damage, "Damage", "Damage.");
+
 	// Combat Tags
 	AddTag(EventTag_Melee_Basic, "Event.Melee.Basic", "Event tag to send the basic melee attack event.");
 	AddTag(EventTag_Spell_Firebolt, "Event.Spell.Firebolt", "Event tag to send the Firebolt event.");

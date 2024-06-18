@@ -43,10 +43,12 @@ void UTKAbilitySystemComponent::AddItemToInventory(const FGameplayTag ItemTag,
 		OnGameplayEffectStackChangeDelegate(ActiveEffectHandle)->AddLambda(
 		[this, ItemTag](FActiveGameplayEffectHandle ActiveHandle, int32 NewStack, int32 OldStack)
 		{
+			// We only create a widget (true) when creating the inventory widget
 			OnInventoryUpdated.Broadcast(ItemTag, NewStack, false);
 		}
 		);
-		OnInventoryUpdated.Broadcast(ItemTag, SpecHandle.Data->GetStackCount(), true);
+		// We only create a widget (true) when creating the inventory widget
+		OnInventoryUpdated.Broadcast(ItemTag, SpecHandle.Data->GetStackCount(), false);
 	}
 }
 
@@ -77,11 +79,14 @@ void UTKAbilitySystemComponent::RemoveItemFromInventory(const FGameplayTag ItemT
 	}
 
 	// Broadcast inventory update
+	// We only create a widget (true) when creating the inventory widget
 	OnInventoryUpdated.Broadcast(ItemTag, SpecHandle.Data->GetStackCount(), false);
 }
 
 FActiveGameplayEffectHandle UTKAbilitySystemComponent::GetItemFromInventory(const FGameplayTag ItemTag) const
 {
+	// Possibly get the ActiveGameplayEffect instead of the handle?
+	
 	if (InventoryMap.Contains(ItemTag))
 	{
 		return InventoryMap[ItemTag];

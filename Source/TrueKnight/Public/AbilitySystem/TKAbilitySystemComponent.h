@@ -22,6 +22,7 @@ public:
 
 	FEffectAssetTags EffectAssetTags;
 	FOnInventoryUpdated OnInventoryUpdated;
+	TMap<FGameplayTag, FActiveGameplayEffectHandle> InventoryMap;
 
 	void AddCharacterAbilities(const TArray<TSubclassOf<UGameplayAbility>>& StartupAbilities);
 	void AddItemToInventory(const FGameplayTag ItemTag, FActiveGameplayEffectHandle ActiveEffectHandle, const float Level, const int32 Quantity);
@@ -34,8 +35,6 @@ public:
 	void AbilityInputTagReleased(const FGameplayTag& InputTag);
 	
 protected:
-
-	TMap<FGameplayTag, FActiveGameplayEffectHandle> InventoryMap;
 	
 	void OnEffectApplied(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle);
 	
