@@ -25,6 +25,12 @@ public:
 	virtual int32 GetPlayerLevel() override;
 	/* End Combat Interface */
 
+	// Animation Variables
+	UPROPERTY(BlueprintReadWrite, Category = "Animation")
+	bool bIsClimbing;
+	UPROPERTY(BlueprintReadWrite, Category = "Animation")
+	bool bIsGrabbingLedge;
+
 protected:
 	virtual void BeginPlay() override;
 

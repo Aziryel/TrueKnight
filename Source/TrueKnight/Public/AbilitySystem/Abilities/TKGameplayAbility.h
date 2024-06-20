@@ -21,6 +21,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Damage")
 	FScalableFloat Damage;
 
+	UPROPERTY(EditDefaultsOnly)
+	bool bActivateOnGiven = false;
+
 	UFUNCTION(BlueprintPure)
 	float GetDamageAtAbilityLevel() const;
 };

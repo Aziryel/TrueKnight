@@ -127,6 +127,9 @@ public:
 
 	FGameplayTag EventTag_Melee_Basic;
 	FGameplayTag EventTag_Spell_Firebolt;
+	FGameplayTag EventTag_Wall;
+	FGameplayTag EventTag_WallSliding;
+	FGameplayTag EventTag_WallHanging;
 
 	// Combat Tags
 	FGameplayTag CombatTag_Casting;

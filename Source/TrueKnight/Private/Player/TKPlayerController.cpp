@@ -19,6 +19,7 @@ ATKPlayerController::ATKPlayerController()
 
 	TagsToIgnore.AddTag(GameplayTags.CombatTag_Attacking);
 	TagsToIgnore.AddTag(GameplayTags.CombatTag_Casting);
+	TagsToIgnore.AddTag(GameplayTags.EventTag_Wall);
 }
 
 void ATKPlayerController::BeginPlay()

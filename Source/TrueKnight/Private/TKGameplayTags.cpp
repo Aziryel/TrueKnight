@@ -100,6 +100,9 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	// Event Tags
 	AddTag(EventTag_Melee_Basic, "Event.Melee.Basic", "Event tag to send the basic melee attack event.");
 	AddTag(EventTag_Spell_Firebolt, "Event.Spell.Firebolt", "Event tag to send the Firebolt event.");
+	AddTag(EventTag_Wall, "Event.Wall", "The character is sliding a wall.");
+	AddTag(EventTag_WallSliding, "Event.Wall.Sliding", "The character is sliding a wall.");
+	AddTag(EventTag_WallHanging, "Event.Wall.Hanging", "The character is hanging from a wall.");
 
 	// Combat Tags
 	AddTag(CombatTag_Attacking, "Combat.Attacking", "Combat tag to melee attacks.");

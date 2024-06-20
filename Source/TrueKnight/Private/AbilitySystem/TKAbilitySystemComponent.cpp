@@ -20,7 +20,15 @@ void UTKAbilitySystemComponent::AddCharacterAbilities(const TArray<TSubclassOf<U
 		if (const UTKGameplayAbility* TKAbility = Cast<UTKGameplayAbility>(AbilitySpec.Ability))
 		{
 			AbilitySpec.DynamicAbilityTags.AddTag(TKAbility->StartupInputTag);
-			GiveAbility(AbilitySpec);
+			if (TKAbility->bActivateOnGiven)
+			{
+				GiveAbilityAndActivateOnce(AbilitySpec);
+			}
+			else
+			{
+				GiveAbility(AbilitySpec);
+			}	
+			
 		}
 	}
 }
