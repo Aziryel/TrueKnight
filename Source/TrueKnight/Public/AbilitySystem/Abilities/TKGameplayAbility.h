@@ -6,6 +6,7 @@
 #include "Abilities/GameplayAbility.h"
 #include "TKGameplayAbility.generated.h"
 
+class UTimelineComponent;
 /**
  * 
  */
@@ -26,4 +27,5 @@ public:
 
 	UFUNCTION(BlueprintPure)
 	float GetDamageAtAbilityLevel() const;
+	
 };

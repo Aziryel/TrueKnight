@@ -89,6 +89,8 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(InputTag_Map, "InputTag.Map", "Input tag associated to opening the Map.");
 	AddTag(InputTag_Menu, "InputTag.Menu", "Input tag associated to opening the Pause Menu.");
 	AddTag(InputTag_Move, "InputTag.Move", "Input tag associated to moving the character.");
+	AddTag(InputTag_Down, "InputTag.Down", "Input tag to drop while hanging off a ledge.");
+	AddTag(InputTag_Up, "InputTag.Up", "Input tag to go up from hanging off a ledge.");
 
 	// Damage Tags
 	AddTag(Damage, "Damage", "Damage.");
@@ -103,6 +105,7 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(EventTag_Wall, "Event.Wall", "The character is sliding a wall.");
 	AddTag(EventTag_WallSliding, "Event.Wall.Sliding", "The character is sliding a wall.");
 	AddTag(EventTag_WallHanging, "Event.Wall.Hanging", "The character is hanging from a wall.");
+	AddTag(EventTag_LedgeClimb, "Event.Wall.Climb", "Event trigger to climb a wall.");
 
 	// Combat Tags
 	AddTag(CombatTag_Attacking, "Combat.Attacking", "Combat tag to melee attacks.");

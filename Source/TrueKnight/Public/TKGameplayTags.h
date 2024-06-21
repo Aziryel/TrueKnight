@@ -106,6 +106,8 @@ public:
 	FGameplayTag InputTag_Map;
 	FGameplayTag InputTag_Menu;
 	FGameplayTag InputTag_Move;
+	FGameplayTag InputTag_Down;
+	FGameplayTag InputTag_Up;
 
 	/*
 	 * Damage Tags
@@ -130,6 +132,7 @@ public:
 	FGameplayTag EventTag_Wall;
 	FGameplayTag EventTag_WallSliding;
 	FGameplayTag EventTag_WallHanging;
+	FGameplayTag EventTag_LedgeClimb;
 
 	// Combat Tags
 	FGameplayTag CombatTag_Casting;
