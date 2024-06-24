@@ -12,17 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_TKJump.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_TKJump.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_WallGrabSlide.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_WallGrabSlide.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayEffects/GA_GetUp.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/ABP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/ABP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/AS_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Tiles_TileMap.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Tiles_TileMap.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Tiles_TileMapTest.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Tiles_TileMapTest.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_DropCrouch.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_DropCrouch.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -563,7 +553,7 @@
       <workItem from="1718697915591" duration="13449000" />
       <workItem from="1718869421249" duration="6548000" />
       <workItem from="1718953015522" duration="11215000" />
-      <workItem from="1719214124679" duration="6915000" />
+      <workItem from="1719214124679" duration="7335000" />
     </task>
     <servers />
   </component>
