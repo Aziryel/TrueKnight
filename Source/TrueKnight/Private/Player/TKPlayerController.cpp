@@ -62,11 +62,11 @@ void ATKPlayerController::Move(const FInputActionValue& InputActionValue)
 	if (APawn* ControlledPawn = GetPawn<APawn>())
 	{
 		// We set the controller rotation according to the direction of movement
-		if (ControlledPawn->GetMovementComponent()->Velocity.X  > 0.f && !GetPawn()->GetMovementComponent()->IsFalling())
+		if (ControlledPawn->GetMovementComponent()->Velocity.X  > 0.f)
 		{
 			SetControlRotation(FRotator(0.f, 0.f, 0.f));
 		}
-		if (ControlledPawn->GetMovementComponent()->Velocity.X  < 0.f && !GetPawn()->GetMovementComponent()->IsFalling())
+		if (ControlledPawn->GetMovementComponent()->Velocity.X  < 0.f)
 		{
 			SetControlRotation(FRotator(0.f, 180.f, 0.f));
 		}
