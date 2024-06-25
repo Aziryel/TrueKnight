@@ -133,6 +133,7 @@ public:
 	FGameplayTag EventTag_WallSliding;
 	FGameplayTag EventTag_WallHanging;
 	FGameplayTag EventTag_LedgeClimb;
+	FGameplayTag EventTag_Slide;
 
 	// Combat Tags
 	FGameplayTag CombatTag_Casting;

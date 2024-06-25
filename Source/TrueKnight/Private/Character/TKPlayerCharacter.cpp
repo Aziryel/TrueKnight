@@ -7,6 +7,7 @@
 #include "PaperFlipbookComponent.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Camera/CameraComponent.h"
+#include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"

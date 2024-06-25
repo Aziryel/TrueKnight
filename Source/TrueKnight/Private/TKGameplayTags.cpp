@@ -106,6 +106,7 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(EventTag_WallSliding, "Event.Wall.Sliding", "The character is sliding a wall.");
 	AddTag(EventTag_WallHanging, "Event.Wall.Hanging", "The character is hanging from a wall.");
 	AddTag(EventTag_LedgeClimb, "Event.Wall.Climb", "Event trigger to climb a wall.");
+	AddTag(EventTag_Slide, "Event.Slide", "Event trigger to slide.");
 
 	// Combat Tags
 	AddTag(CombatTag_Attacking, "Combat.Attacking", "Combat tag to melee attacks.");

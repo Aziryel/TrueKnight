@@ -6,6 +6,7 @@
 #include "Character/TKCharacterBase.h"
 #include "TKPlayerCharacter.generated.h"
 
+class UBoxComponent;
 class ITKTargetInterface;
 class UCameraComponent;
 class USpringArmComponent;
