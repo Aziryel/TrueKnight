@@ -65,7 +65,6 @@ void ATKPlayerController::Move(const FInputActionValue& InputActionValue)
 		if (InputActionValue.GetMagnitude() > 0.f)
 		{
 			SetControlRotation(FRotator(0.f, 0.f, 0.f));
-			GEngine->AddOnScreenDebugMessage(-1, 0.f, FColor::Emerald, FString::Printf(TEXT("Move Input Value: %f"), InputActionValue.GetMagnitude()));
 		}
 		if (InputActionValue.GetMagnitude() < 0.f)
 		{
