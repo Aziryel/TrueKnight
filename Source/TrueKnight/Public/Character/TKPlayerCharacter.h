@@ -31,6 +31,8 @@ public:
 	bool bIsClimbing;
 	UPROPERTY(BlueprintReadWrite, Category = "Animation")
 	bool bIsGrabbingLedge;
+	UPROPERTY(BlueprintReadWrite, Category = "Camera")
+	AActor* OverlappingRestrictor;
 
 protected:
 	virtual void BeginPlay() override;

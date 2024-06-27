@@ -13,10 +13,38 @@
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/GA_FireBolt.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/GA_FireBolt.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_ClimbLedge.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_ClimbLedge.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_Slide.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_Slide.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_TKJump.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_TKJump.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_WallGrabSlide.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_WallGrabSlide.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Characters/Player/BP_TKPlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Player/TKPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Input/IMC_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Input/IMC_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MAP_ForestTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleA_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleA_01.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleA_02.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleA_02.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleA_03.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleA_03.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleA_04.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleA_04.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleB_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleB_01.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleB_02.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleB_02.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleB_03.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleB_03.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleB_04.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/candleB_04.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/decorative.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/decorative.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/mainlevbuild.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/mainlevbuild.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_0.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/spike_4.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/torch_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/torch_1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/torch_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/torch_2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/torch_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/torch_3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/torch_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/Catacombs/torch_4.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Tiles_TileMapTest.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PaperAssets/TKAssets/Tiles/Forest/Tiles_TileMapTest.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/Character/TKPlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/Character/TKPlayerCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +55,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -553,7 +579,8 @@
       <workItem from="1719296861779" duration="845000" />
       <workItem from="1719310386409" duration="6286000" />
       <workItem from="1719382011380" duration="7473000" />
-      <workItem from="1719400322389" duration="3237000" />
+      <workItem from="1719400322389" duration="3881000" />
+      <workItem from="1719468661739" duration="9292000" />
     </task>
     <servers />
   </component>

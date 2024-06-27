@@ -24,6 +24,7 @@ ATKPlayerCharacter::ATKPlayerCharacter()
 	SpringArm->TargetArmLength = 1000.f;
 	SpringArm->bUsePawnControlRotation = false;
 	SpringArm->SetUsingAbsoluteRotation(true);
+	SpringArm->SetUsingAbsoluteLocation(true);
 	FRotator DesiredRotation = FRotator(0.0f, -90.0f, 0.0f);
 	SpringArm->SetWorldRotation(DesiredRotation);
 	SpringArm->bDoCollisionTest = false;
