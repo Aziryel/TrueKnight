@@ -94,6 +94,14 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 
 	// Damage Tags
 	AddTag(Damage, "Damage", "Damage.");
+	
+	AddTag(DamageType_Physical, "DamageType.Physical", "Physical Damage.");
+	AddTag(DamageType_Magic, "DamageType.Magic", "Magic Damage.");
+	AddTag(DamageType_Fire, "DamageType.Fire", "Fire Damage.");
+	AddTag(DamageType_Cold, "DamageType.Cold", "Cold Damage.");
+	AddTag(DamageType_Lightning, "DamageType.Lightning", "Lightning Damage.");
+	AddTag(DamageType_Holy, "DamageType.Holy", "Holy Damage.");
+	AddTag(DamageType_Dark, "DamageType.Dark", "Dark Damage.");
 
 	// Effect Tags
 	AddTag(EffectTag_HitReact, "Effect.HitReact", "HitReact");
