@@ -113,13 +113,14 @@ public:
 	 * Damage Tags
 	 */
 	
-	FGameplayTag Damage;
+	FGameplayTag DamageType_TrueDamage;
 	
 	FGameplayTag DamageType_Physical;
 	FGameplayTag DamageType_Magic;
 	FGameplayTag DamageType_Fire;
 	FGameplayTag DamageType_Cold;
 	FGameplayTag DamageType_Lightning;
+	FGameplayTag DamageType_Poison;
 	FGameplayTag DamageType_Holy;
 	FGameplayTag DamageType_Dark;
 

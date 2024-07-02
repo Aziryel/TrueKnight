@@ -52,21 +52,66 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	EvaluationParameters.TargetTags = TargetTags;
 
 	// Get Damage Set By Caller magnitude
-	float Damage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().Damage);
+	float TrueDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_TrueDamage);
+	float PhysicalDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Physical);
+	float MagicDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Magic);
+	float FireDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Fire);
+	float ColdDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Cold);
+	float LightningDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Lightning);
+	float PoisonDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Poison);
+	float HolyDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Holy);
+	float DarkDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Dark);
+	float TotalDamage = 0.f;
 
-	// Capture BlockChance on Target and determine if there was a successful block
-	// If Block, halve the damage
+	// Add the True Damage to the total damage
+	TotalDamage += TrueDamage;
+	
+	if (PhysicalDamage > 0.f)
+	{
+		// Capture BlockChance on Target and determine if there was a successful block
+		// If Block, halve the damage
+		float TargetBlockChance = 0.f;
+		ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().BlockChanceDef, EvaluationParameters, TargetBlockChance);
+		TargetBlockChance = FMath::Max<float>(TargetBlockChance, 0.f);
 
-	float TargetBlockChance = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().BlockChanceDef, EvaluationParameters, TargetBlockChance);
-	TargetBlockChance = FMath::Max<float>(TargetBlockChance, 0.f);
+		const bool bBlocked = FMath::RandRange(1, 100) < TargetBlockChance;
+		PhysicalDamage = bBlocked ? PhysicalDamage / 2.f : PhysicalDamage;
 
-	const bool bBlocked = FMath::RandRange(1, 100) < TargetBlockChance;
-	Damage = bBlocked ? Damage / 2.f : Damage;
+		TotalDamage += PhysicalDamage;
+	}
+	if (MagicDamage > 0.f)
+	{
+		TotalDamage += MagicDamage;
+	}
+	if (FireDamage > 0.f)
+	{
+		TotalDamage += FireDamage;
+	}
+	if (ColdDamage > 0.f)
+	{
+		TotalDamage += ColdDamage;
+	}
+	if (LightningDamage > 0.f)
+	{
+		TotalDamage += LightningDamage;
+	}
+	if (PoisonDamage > 0.f)
+	{
+		TotalDamage += PoisonDamage;
+	}
+	if (HolyDamage > 0.f)
+	{
+		TotalDamage += HolyDamage;	
+	}
+	if (DarkDamage > 0.f)
+	{
+		TotalDamage += DarkDamage;
+	}
+	
 
 	//if (bBlocked) GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Magenta, FString::Printf(TEXT("Blocked! Damage: %f"), Damage));
 	
 	// Add the damage set by caller to the meta-attribute IncomingDamage
-	const FGameplayModifierEvaluatedData EvaluatedData(UTKAttributeSet::GetIncomingDamageAttribute(), EGameplayModOp::Additive, Damage);
+	const FGameplayModifierEvaluatedData EvaluatedData(UTKAttributeSet::GetIncomingDamageAttribute(), EGameplayModOp::Additive, TotalDamage);
 	OutExecutionOutput.AddOutputModifier(EvaluatedData);
 }

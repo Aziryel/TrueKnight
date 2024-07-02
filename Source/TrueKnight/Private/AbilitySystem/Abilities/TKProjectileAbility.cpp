@@ -43,9 +43,26 @@ void UTKProjectileAbility::SpawnProjectile()
 		const FGameplayEffectSpecHandle SpecHandle = SourceASC->MakeOutgoingSpec(DamageEffectClass, GetAbilityLevel(), SourceASC->MakeEffectContext());
 
 		const FTKGameplayTags GameplayTags = FTKGameplayTags::Get();
-		const float ScaledDamage = Damage.GetValueAtLevel(GetAbilityLevel());
 		
-		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.Damage, ScaledDamage);
+		//float ScaledDamage = Damage.TrueDamage.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_TrueDamage, GetDamageAtAbilityLevel().TrueDamage);
+		//ScaledDamage = Damage.PhysicalDamage.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Physical, GetDamageAtAbilityLevel().PhysicalDamage);
+		//ScaledDamage = Damage.MagicDamage.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Magic, GetDamageAtAbilityLevel().MagicDamage);
+		//ScaledDamage = Damage.FireDamage.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Fire, GetDamageAtAbilityLevel().FireDamage);
+		//ScaledDamage = Damage.ColdDamage.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Cold, GetDamageAtAbilityLevel().ColdDamage);
+		//ScaledDamage = Damage.LightningDamage.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Lightning, GetDamageAtAbilityLevel().LightningDamage);
+		//ScaledDamage = Damage.PoisonDamage.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Poison, GetDamageAtAbilityLevel().PoisonDamage);
+		//ScaledDamage = Damage.HolyDamage.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Holy, GetDamageAtAbilityLevel().HolyDamage);
+		//ScaledDamage = Damage.DarkDamage.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Dark, GetDamageAtAbilityLevel().DarkDamage);
+		
 		Projectile->DamageEffectSpecHandle = SpecHandle;
 
 		Projectile->FinishSpawning(SpawnTransform);
