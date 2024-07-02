@@ -6,17 +6,24 @@
 #include "AbilitySystemComponent.h"
 #include "TKGameplayTags.h"
 #include "AbilitySystem/TKAttributeSet.h"
+#include "Interaction/CombatInterface.h"
 
 // Struct to be used locally only
 struct TKDamageStatics
 {
 	DECLARE_ATTRIBUTE_CAPTUREDEF(Armor);
+	DECLARE_ATTRIBUTE_CAPTUREDEF(ArmorPenetration);
 	DECLARE_ATTRIBUTE_CAPTUREDEF(BlockChance);
+	DECLARE_ATTRIBUTE_CAPTUREDEF(CriticalChance);
+	DECLARE_ATTRIBUTE_CAPTUREDEF(CriticalDamage);
 	
 	TKDamageStatics()
 	{
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UTKAttributeSet, Armor, Target, false);
-		DEFINE_ATTRIBUTE_CAPTUREDEF(UTKAttributeSet, BlockChance, Target, false);	
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UTKAttributeSet, ArmorPenetration, Source, false);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UTKAttributeSet, BlockChance, Target, false);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UTKAttributeSet, CriticalChance, Source, false);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UTKAttributeSet, CriticalDamage, Source, false);
 	}
 };
 
@@ -29,7 +36,10 @@ static const TKDamageStatics& DamageStatics()
 UExecCalc_Damage::UExecCalc_Damage()
 {
 	RelevantAttributesToCapture.Add(DamageStatics().ArmorDef);
+	RelevantAttributesToCapture.Add(DamageStatics().ArmorPenetrationDef);
 	RelevantAttributesToCapture.Add(DamageStatics().BlockChanceDef);
+	RelevantAttributesToCapture.Add(DamageStatics().CriticalChanceDef);
+	RelevantAttributesToCapture.Add(DamageStatics().CriticalDamageDef);
 }
 
 void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecutionParameters& ExecutionParams,
@@ -38,8 +48,10 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	const UAbilitySystemComponent* SourceASC = ExecutionParams.GetSourceAbilitySystemComponent();
 	const UAbilitySystemComponent* TargetASC = ExecutionParams.GetTargetAbilitySystemComponent();
 
-	const AActor* SourceAvatar = SourceASC ? SourceASC->GetAvatarActor() : nullptr;
-	const AActor* TargetAvatar = TargetASC ? TargetASC->GetAvatarActor() : nullptr;
+	AActor* SourceAvatar = SourceASC ? SourceASC->GetAvatarActor() : nullptr;
+	AActor* TargetAvatar = TargetASC ? TargetASC->GetAvatarActor() : nullptr;
+	ICombatInterface* SourceCombatInterface = Cast<ICombatInterface>(SourceAvatar);
+	ICombatInterface* TargetCombatInterface = Cast<ICombatInterface>(TargetAvatar);
 
 	const FGameplayEffectSpec& Spec = ExecutionParams.GetOwningSpec();
 
@@ -62,9 +74,6 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	float HolyDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Holy);
 	float DarkDamage = Spec.GetSetByCallerMagnitude(FTKGameplayTags::Get().DamageType_Dark);
 	float TotalDamage = 0.f;
-
-	// Add the True Damage to the total damage
-	TotalDamage += TrueDamage;
 	
 	if (PhysicalDamage > 0.f)
 	{
@@ -76,6 +85,19 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 		const bool bBlocked = FMath::RandRange(1, 100) < TargetBlockChance;
 		PhysicalDamage = bBlocked ? PhysicalDamage / 2.f : PhysicalDamage;
+		
+		// Armor Penetration ignores a percentage of the target armor
+		float TargetArmor = 0.f;
+		ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().ArmorDef, EvaluationParameters, TargetArmor);
+		TargetArmor = FMath::Max<float>(TargetArmor, 0.f);
+
+		float SourceArmorPenetration = 0.f;
+		ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().ArmorPenetrationDef, EvaluationParameters, SourceArmorPenetration);
+		SourceArmorPenetration = FMath::Max<float>(SourceArmorPenetration, 0.f);
+
+		// We take the armor penetration into consideration to calculate the target's final armor
+		const float EffectiveArmor = TargetArmor *= (100 - SourceArmorPenetration) / 100.f;
+		PhysicalDamage *= (100 - EffectiveArmor) / 100.f;
 
 		TotalDamage += PhysicalDamage;
 	}
@@ -107,10 +129,22 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	{
 		TotalDamage += DarkDamage;
 	}
-	
 
-	//if (bBlocked) GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Magenta, FString::Printf(TEXT("Blocked! Damage: %f"), Damage));
+	// The critical hit will take into account the complete damage, even elemental and magic damage.
+	float SourceCriticalChance = 0.f;
+	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().CriticalChanceDef, EvaluationParameters, SourceCriticalChance);
+	SourceCriticalChance = FMath::Max<float>(SourceCriticalChance, 0.f);
+
+	float SourceCriticalDamage = 0.f;
+	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().CriticalDamageDef, EvaluationParameters, SourceCriticalDamage);
+	SourceCriticalDamage = FMath::Max<float>(SourceCriticalDamage, 0.f);
+
+	// We multiply the damage by the critical damage
+	const bool bCritical = FMath::RandRange(1, 100) < SourceCriticalChance;
+	TotalDamage = bCritical ? TotalDamage * SourceCriticalDamage : TotalDamage;
 	
+	// Add the True Damage to the total damage, it doesn't take into consideration resistance nor critical hits.
+	TotalDamage += TrueDamage;
 	// Add the damage set by caller to the meta-attribute IncomingDamage
 	const FGameplayModifierEvaluatedData EvaluatedData(UTKAttributeSet::GetIncomingDamageAttribute(), EGameplayModOp::Additive, TotalDamage);
 	OutExecutionOutput.AddOutputModifier(EvaluatedData);

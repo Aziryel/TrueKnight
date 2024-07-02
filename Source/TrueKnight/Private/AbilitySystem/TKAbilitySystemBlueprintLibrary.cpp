@@ -115,12 +115,9 @@ void UTKAbilitySystemBlueprintLibrary::RemoveItemFromInventory(UAbilitySystemCom
 
 void UTKAbilitySystemBlueprintLibrary::InitializeDefaultsAttributes(const UObject* WorldContextObject, ECharacterClass CharacterClass, float Level, UAbilitySystemComponent* ASC)
 {
-	ATKGameModeBase* TKGameMode = Cast<ATKGameModeBase>(UGameplayStatics::GetGameMode(WorldContextObject));
-	if (!TKGameMode) return;
-
 	AActor* AvatarActor = ASC->GetAvatarActor();
 	
-	UCharacterClassInfo* CharacterClassInfo = TKGameMode->CharacterClassInfo;
+	UCharacterClassInfo* CharacterClassInfo = GetCharacterClassInfo(WorldContextObject);
 	FCharacterClassDefaultInfo ClassDefaultInfo = CharacterClassInfo->GetClassDefaultInfo(CharacterClass);
 
 	FGameplayEffectContextHandle PrimaryAttributesContextHandle = ASC->MakeEffectContext();
@@ -142,13 +139,18 @@ void UTKAbilitySystemBlueprintLibrary::InitializeDefaultsAttributes(const UObjec
 void UTKAbilitySystemBlueprintLibrary::GiveStartupAbilitites(const UObject* WorldContextObject,
 	UAbilitySystemComponent* ASC)
 {
-	ATKGameModeBase* TKGameMode = Cast<ATKGameModeBase>(UGameplayStatics::GetGameMode(WorldContextObject));
-	if (!TKGameMode) return;
-
-	UCharacterClassInfo* CharacterClassInfo = TKGameMode->CharacterClassInfo;
+	UCharacterClassInfo* CharacterClassInfo = GetCharacterClassInfo(WorldContextObject);
 	for (TSubclassOf<UGameplayAbility> AbilityClass : CharacterClassInfo->CommonAbilities)
 	{
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, 1);
 		ASC->GiveAbility(AbilitySpec);
 	}
+}
+
+UCharacterClassInfo* UTKAbilitySystemBlueprintLibrary::GetCharacterClassInfo(const UObject* WorldContextObject)
+{
+	ATKGameModeBase* TKGameMode = Cast<ATKGameModeBase>(UGameplayStatics::GetGameMode(WorldContextObject));
+	if (!TKGameMode) return nullptr;
+
+	return TKGameMode->CharacterClassInfo;
 }

@@ -43,4 +43,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "TKAbilitySystemLibrary|ClassDefaults", meta = (DefaultToSelf = "WorldContextObject"))
 	static void GiveStartupAbilitites(const UObject* WorldContextObject, UAbilitySystemComponent* ASC);
+
+	UFUNCTION(BlueprintCallable, Category = "TKAbilitySystemLibrary|ClassDefaults", meta = (DefaultToSelf = "WorldContextObject"))
+	static UCharacterClassInfo* GetCharacterClassInfo(const UObject* WorldContextObject);
 };
