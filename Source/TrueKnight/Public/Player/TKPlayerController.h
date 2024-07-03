@@ -7,6 +7,7 @@
 #include "GameFramework/PlayerController.h"
 #include "TKPlayerController.generated.h"
 
+class UDamageTextComponent;
 class UTKAbilitySystemComponent;
 class UTKInputConfig;
 struct FInputActionValue;
@@ -22,6 +23,9 @@ class TRUEKNIGHT_API ATKPlayerController : public APlayerController
 	GENERATED_BODY()
 public:
 	ATKPlayerController();
+
+	UFUNCTION()
+	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit);
 	
 protected:
 	virtual void BeginPlay() override;
@@ -50,4 +54,7 @@ private:
 	FGameplayTagContainer TagsToIgnore;
 
 	UTKAbilitySystemComponent* GetASC();
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UDamageTextComponent> DamageTextComponentClass;
 };

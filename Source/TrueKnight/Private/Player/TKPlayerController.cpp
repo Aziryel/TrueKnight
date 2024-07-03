@@ -9,9 +9,11 @@
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Engine/Engine.h"
 #include "Engine/LocalPlayer.h"
+#include "GameFramework/Character.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PawnMovementComponent.h"
 #include "Input/TKInputComponent.h"
+#include "UI/Widget/DamageTextComponent.h"
 
 ATKPlayerController::ATKPlayerController()
 {
@@ -20,6 +22,21 @@ ATKPlayerController::ATKPlayerController()
 	TagsToIgnore.AddTag(GameplayTags.CombatTag_Attacking);
 	TagsToIgnore.AddTag(GameplayTags.CombatTag_Casting);
 	TagsToIgnore.AddTag(GameplayTags.EventTag_Wall);
+}
+
+void ATKPlayerController::ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit)
+{
+	if (IsValid(TargetCharacter) && DamageTextComponentClass)
+	{
+		// To create a component, we have to declare a NewObject and then register it (this is normally done by CreateDefaultSubobject)
+		// We set the Outer to the TargetCharacter because we are attaching the widget component to it.
+		UDamageTextComponent* DamageText = NewObject<UDamageTextComponent>(TargetCharacter, DamageTextComponentClass);
+		DamageText->RegisterComponent();
+		// First, we attach the component to the target, so it has an initial location and then we detach it so it can play its own animation
+		DamageText->AttachToComponent(TargetCharacter->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
+		DamageText->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+		DamageText->SetDamageText(DamageAmount, bBlockedHit, bCriticalHit);
+	}
 }
 
 void ATKPlayerController::BeginPlay()

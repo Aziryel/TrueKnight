@@ -10,6 +10,8 @@
 #include "Engine/Engine.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/PlayerController.h"
+#include "Kismet/GameplayStatics.h"
+#include "Player/TKPlayerController.h"
 
 UTKAttributeSet::UTKAttributeSet()
 {
@@ -166,14 +168,13 @@ void UTKAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallback
 	}
 }
 
-void UTKAttributeSet::ShowFloatingText(const FEffectProperties& Props, float Damage, bool bBlockedHit, bool bCriticalHit)
+void UTKAttributeSet::ShowFloatingText(const FEffectProperties& Props, float Damage, bool bBlockedHit, bool bCriticalHit) const 
 {
-	if (bBlockedHit)
+	if (Props.SourceCharacter != Props.TargetCharacter)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Orange, FString::Printf(TEXT("Blocked!!!!")));
-	}
-	if (bCriticalHit)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Orange, FString::Printf(TEXT("Critical!!!!")));
+		if (ATKPlayerController* PC = Cast<ATKPlayerController>(UGameplayStatics::GetPlayerController(Props.SourceCharacter, 0)))
+		{
+			PC->ShowDamageNumber(Damage, Props.TargetCharacter, bBlockedHit, bCriticalHit);
+		}	
 	}
 }
