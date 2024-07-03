@@ -3,6 +3,7 @@
 
 #include "AbilitySystem/TKAbilitySystemBlueprintLibrary.h"
 
+#include "TKAbilityTypes.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Game/TKGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
@@ -153,4 +154,39 @@ UCharacterClassInfo* UTKAbilitySystemBlueprintLibrary::GetCharacterClassInfo(con
 	if (!TKGameMode) return nullptr;
 
 	return TKGameMode->CharacterClassInfo;
+}
+
+bool UTKAbilitySystemBlueprintLibrary::IsBlockedHit(const FGameplayEffectContextHandle& EffectContextHandle)
+{
+	if (const FTKGameplayEffectContext* TKEffectContext = static_cast<const FTKGameplayEffectContext*>(EffectContextHandle.Get()))
+	{
+		return TKEffectContext->IsBlockedHit();
+	}
+	return false;
+}
+
+bool UTKAbilitySystemBlueprintLibrary::IsCriticalHit(const FGameplayEffectContextHandle& EffectContextHandle)
+{
+	if (const FTKGameplayEffectContext* TKEffectContext = static_cast<const FTKGameplayEffectContext*>(EffectContextHandle.Get()))
+	{
+		return TKEffectContext->IsCriticalHit();
+	}
+	return false;
+}
+
+void UTKAbilitySystemBlueprintLibrary::SetIsBlockedHit(FGameplayEffectContextHandle& EffectContextHandle, bool bInIsBlockedHit)
+{
+	if (FTKGameplayEffectContext* TKEffectContext = static_cast<FTKGameplayEffectContext*>(EffectContextHandle.Get()))
+	{
+		TKEffectContext->SetIsBlockedHit(bInIsBlockedHit);
+	}
+}
+
+void UTKAbilitySystemBlueprintLibrary::SetIsCriticalHit(FGameplayEffectContextHandle& EffectContextHandle,
+	bool bInIsCriticalHit)
+{
+	if (FTKGameplayEffectContext* TKEffectContext = static_cast<FTKGameplayEffectContext*>(EffectContextHandle.Get()))
+	{
+		TKEffectContext->SetIsCriticalHit(bInIsCriticalHit);
+	}
 }

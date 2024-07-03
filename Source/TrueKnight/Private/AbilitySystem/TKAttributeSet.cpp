@@ -6,6 +6,7 @@
 #include "AbilitySystemBlueprintLibrary.h"
 #include "GameplayEffectExtension.h"
 #include "TKGameplayTags.h"
+#include "AbilitySystem/TKAbilitySystemBlueprintLibrary.h"
 #include "Engine/Engine.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/PlayerController.h"
@@ -75,7 +76,7 @@ void UTKAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, fl
 	}
 	if (Attribute == GetComboCounterAttribute())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Magenta, FString::Printf(TEXT("Combo: %f"), NewValue));
+		GEngine->AddOnScreenDebugMessage(10, 2.f, FColor::Magenta, FString::Printf(TEXT("Combo: %f"), NewValue));
 	}
 }
 
@@ -157,7 +158,22 @@ void UTKAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallback
 				TagContainer.AddTag(FTKGameplayTags::Get().EffectTag_HitReact);
 				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
 			}
+			
+			const bool bBlockedHit = UTKAbilitySystemBlueprintLibrary::IsBlockedHit(Props.EffectContextHandle);
+			const bool bCriticalHit = UTKAbilitySystemBlueprintLibrary::IsCriticalHit(Props.EffectContextHandle);
+			ShowFloatingText(Props, LocalIncomingDamage, bBlockedHit, bCriticalHit);
 		}
 	}
 }
 
+void UTKAttributeSet::ShowFloatingText(const FEffectProperties& Props, float Damage, bool bBlockedHit, bool bCriticalHit)
+{
+	if (bBlockedHit)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Orange, FString::Printf(TEXT("Blocked!!!!")));
+	}
+	if (bCriticalHit)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Orange, FString::Printf(TEXT("Critical!!!!")));
+	}
+}

@@ -4,7 +4,9 @@
 #include "AbilitySystem/ExecCalc/ExecCalc_Damage.h"
 
 #include "AbilitySystemComponent.h"
+#include "TKAbilityTypes.h"
 #include "TKGameplayTags.h"
+#include "AbilitySystem/TKAbilitySystemBlueprintLibrary.h"
 #include "AbilitySystem/TKAttributeSet.h"
 #include "Interaction/CombatInterface.h"
 
@@ -54,6 +56,9 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	ICombatInterface* TargetCombatInterface = Cast<ICombatInterface>(TargetAvatar);
 
 	const FGameplayEffectSpec& Spec = ExecutionParams.GetOwningSpec();
+	
+	// We need to get the EffectContextHandle to set the custom properties in the custom FTKGameplayEffectContext
+	FGameplayEffectContextHandle EffectContextHandle = Spec.GetContext();
 
 	// Gather tags from Source and Target
 	const FGameplayTagContainer* SourceTags = Spec.CapturedSourceTags.GetAggregatedTags();
@@ -84,6 +89,8 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 		TargetBlockChance = FMath::Max<float>(TargetBlockChance, 0.f);
 
 		const bool bBlocked = FMath::RandRange(1, 100) < TargetBlockChance;
+		UTKAbilitySystemBlueprintLibrary::SetIsBlockedHit(EffectContextHandle, bBlocked);
+		
 		PhysicalDamage = bBlocked ? PhysicalDamage / 2.f : PhysicalDamage;
 		
 		// Armor Penetration ignores a percentage of the target armor
@@ -141,6 +148,8 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 	// We multiply the damage by the critical damage
 	const bool bCritical = FMath::RandRange(1, 100) < SourceCriticalChance;
+	UTKAbilitySystemBlueprintLibrary::SetIsCriticalHit(EffectContextHandle, bCritical);
+	
 	TotalDamage = bCritical ? TotalDamage * SourceCriticalDamage : TotalDamage;
 	
 	// Add the True Damage to the total damage, it doesn't take into consideration resistance nor critical hits.

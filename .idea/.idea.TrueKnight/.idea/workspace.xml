@@ -13,14 +13,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8b610b13-fba2-455a-9e0e-ecf3a50350c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrueKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/GA_FireBolt.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/Fire/FireBolt/GA_FireBolt.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AbilitySystem/GameplayAbilities/GA_PrimaryAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/Abilities/TKGameplayAbility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/Abilities/TKGameplayAbility.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/Abilities/TKProjectileAbility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/Abilities/TKProjectileAbility.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/ExecCalc/ExecCalc_Damage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/ExecCalc/ExecCalc_Damage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/TKGameplayTags.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/TKGameplayTags.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/Abilities/TKGameplayAbility.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/Abilities/TKGameplayAbility.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/TKGameplayTags.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/TKGameplayTags.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/TKAbilitySystemBlueprintLibrary.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/TKAbilitySystemBlueprintLibrary.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/TKAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/TKAttributeSet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/TKAbilitySystemBlueprintLibrary.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/TKAbilitySystemBlueprintLibrary.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/TKAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TrueKnight/Public/AbilitySystem/TKAttributeSet.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,25 +30,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -584,6 +564,9 @@
       <workItem from="1719468661739" duration="9345000" />
       <workItem from="1719555549998" duration="11407000" />
       <workItem from="1719900901846" duration="3915000" />
+      <workItem from="1719912873512" duration="10096000" />
+      <workItem from="1719987383108" duration="5758000" />
+      <workItem from="1719995680724" duration="2896000" />
     </task>
     <servers />
   </component>
@@ -601,9 +584,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/ExecCalc/ExecCalc_Damage.cpp</url>
-          <line>54</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/Source/TrueKnight/Private/AbilitySystem/Abilities/TKProjectileAbility.cpp</url>
+          <line>49</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
