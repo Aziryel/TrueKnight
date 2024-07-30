@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AbilitySystem/Abilities/TKGameplayAbility.h"
+#include "AbilitySystem/Abilities/TKDamageGameplayAbility.h"
 #include "TKProjectileAbility.generated.h"
 
 class ATKProjectile;
@@ -11,7 +11,7 @@ class ATKProjectile;
  * 
  */
 UCLASS()
-class TRUEKNIGHT_API UTKProjectileAbility : public UTKGameplayAbility
+class TRUEKNIGHT_API UTKProjectileAbility : public UTKDamageGameplayAbility
 {
 	GENERATED_BODY()
 
@@ -24,7 +24,4 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Projectile")
 	TSubclassOf<ATKProjectile> ProjectileClass;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Projectile")
-	TSubclassOf<UGameplayEffect> DamageEffectClass;
 };

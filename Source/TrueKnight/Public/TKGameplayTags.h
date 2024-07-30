@@ -46,9 +46,11 @@ public:
 	FGameplayTag SecondaryAttributeTag_MaxStamina;
 	
     FGameplayTag SecondaryAttributeTag_Armor;
+	FGameplayTag SecondaryAttributeTag_MagicResistance;
 	FGameplayTag SecondaryAttributeTag_FireResistance;
 	FGameplayTag SecondaryAttributeTag_LightningResistance;
 	FGameplayTag SecondaryAttributeTag_ColdResistance;
+	FGameplayTag SecondaryAttributeTag_PoisonResistance;
 	FGameplayTag SecondaryAttributeTag_HolyResistance;
 	FGameplayTag SecondaryAttributeTag_DarkResistance;
 
@@ -123,6 +125,9 @@ public:
 	FGameplayTag DamageType_Poison;
 	FGameplayTag DamageType_Holy;
 	FGameplayTag DamageType_Dark;
+	
+
+	TMap<FGameplayTag, FGameplayTag> DamageTypesToResistances;
 
 	/*
 	 * Effect Tags

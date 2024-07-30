@@ -37,9 +37,11 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(SecondaryAttributeTag_MaxStamina, "Attributes.Secondary.MaxStamina", "Increases the maximum Stamina the player can have, affected by Vitality or Insight (the highest).");
 	
 	AddTag(SecondaryAttributeTag_Armor, "Attributes.Secondary.Armor", "Reduces physical damage taken.");
+	AddTag(SecondaryAttributeTag_MagicResistance, "Attributes.Secondary.MagicResistance", "Reduces magical damage taken.");
 	AddTag(SecondaryAttributeTag_FireResistance, "Attributes.Secondary.FireResistance", "Reduces fire damage taken.");
 	AddTag(SecondaryAttributeTag_LightningResistance, "Attributes.Secondary.LightningResistance", "Reduces lightning damage taken.");
 	AddTag(SecondaryAttributeTag_ColdResistance, "Attributes.Secondary.ColdResistance", "Reduces cold damage taken.");
+	AddTag(SecondaryAttributeTag_PoisonResistance, "Attributes.Secondary.PoisonResistance", "Reduces poison damage taken.");
 	AddTag(SecondaryAttributeTag_HolyResistance, "Attributes.Secondary.HolyResistance", "Reduces holy damage taken.");
 	AddTag(SecondaryAttributeTag_DarkResistance, "Attributes.Secondary.DarkResistance", "Reduces dark damage taken.");
 
@@ -102,6 +104,17 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(DamageType_Poison, "DamageType.Poison", "Poison Damage.");
 	AddTag(DamageType_Holy, "DamageType.Holy", "Holy Damage.");
 	AddTag(DamageType_Dark, "DamageType.Dark", "Dark Damage.");
+
+	// Map of DamageTypes to Resistances
+	DamageTypesToResistances.Add(DamageType_TrueDamage, FGameplayTag());
+	DamageTypesToResistances.Add(DamageType_Physical, SecondaryAttributeTag_Armor);
+	DamageTypesToResistances.Add(DamageType_Magic, SecondaryAttributeTag_MagicResistance);
+	DamageTypesToResistances.Add(DamageType_Fire, SecondaryAttributeTag_FireResistance);
+	DamageTypesToResistances.Add(DamageType_Cold, SecondaryAttributeTag_ColdResistance);
+	DamageTypesToResistances.Add(DamageType_Lightning, SecondaryAttributeTag_LightningResistance);
+	DamageTypesToResistances.Add(DamageType_Poison, SecondaryAttributeTag_PoisonResistance);
+	DamageTypesToResistances.Add(DamageType_Holy, SecondaryAttributeTag_HolyResistance);
+	DamageTypesToResistances.Add(DamageType_Dark, SecondaryAttributeTag_DarkResistance);
 
 	// Effect Tags
 	AddTag(EffectTag_HitReact, "Effect.HitReact", "HitReact");

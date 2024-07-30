@@ -135,6 +135,10 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Secondary Attributes")
 	FGameplayAttributeData Armor;
 	ATTRIBUTE_ACCESSORS(UTKAttributeSet, Armor);
+	// Reduces damage taken from magical damage, affected by Insight
+	UPROPERTY(BlueprintReadOnly, Category = "Secondary Attributes")
+	FGameplayAttributeData MagicResistance;
+	ATTRIBUTE_ACCESSORS(UTKAttributeSet, MagicResistance);
 	// Reduces damage taken by Fire type damage, affected by Insight
 	UPROPERTY(BlueprintReadOnly, Category = "Secondary Attributes")
 	FGameplayAttributeData FireResistance;
@@ -147,6 +151,10 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Secondary Attributes")
 	FGameplayAttributeData ColdResistance;
 	ATTRIBUTE_ACCESSORS(UTKAttributeSet, ColdResistance);
+	// Reduces damage taken from poison damage, affected by Vitality
+	UPROPERTY(BlueprintReadOnly, Category = "Secondary Attributes")
+	FGameplayAttributeData PoisonResistance;
+	ATTRIBUTE_ACCESSORS(UTKAttributeSet, PoisonResistance);
 	// Reduces the damage taken by Holy type damage, affected by Devotion (+) and Blasphemy (-)
 	UPROPERTY(BlueprintReadOnly, Category = "Secondary Attributes")
 	FGameplayAttributeData HolyResistance;

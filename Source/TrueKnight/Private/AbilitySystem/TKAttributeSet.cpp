@@ -32,9 +32,11 @@ UTKAttributeSet::UTKAttributeSet()
 	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_MaxStamina, GetMaxStaminaAttribute);
 	
 	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_Armor, GetArmorAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_MagicResistance, GetMagicResistanceAttribute);
 	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_FireResistance, GetFireResistanceAttribute);
 	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_LightningResistance, GetLightningResistanceAttribute);
 	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_ColdResistance, GetColdResistanceAttribute);
+	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_PoisonResistance, GetPoisonResistanceAttribute);
 	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_HolyResistance, GetHolyResistanceAttribute);
 	TagsToAttributes.Add(GameplayTags.SecondaryAttributeTag_DarkResistance, GetDarkResistanceAttribute);
 

@@ -51,9 +51,20 @@ void UTKProjectileAbility::SpawnProjectile()
 		
 		const FGameplayEffectSpecHandle SpecHandle = SourceASC->MakeOutgoingSpec(DamageEffectClass, GetAbilityLevel(), EffectContextHandle);
 
+		//TODO: Make a function to accept an effect ContextHandle and assigns a SpecHandle set on the TKDamageGameplayAbility class 
+
 		const FTKGameplayTags GameplayTags = FTKGameplayTags::Get();
+
+		for (auto& Pair : DamageTypes)
+		{
+			const float ScaledDamage = Pair.Value.GetValueAtLevel(GetAbilityLevel());
+			if (ScaledDamage)
+			{
+				UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, Pair.Key, ScaledDamage);
+			}
+		}
 		
-		//float ScaledDamage = Damage.TrueDamage.GetValueAtLevel(GetAbilityLevel());
+		/*//float ScaledDamage = Damage.TrueDamage.GetValueAtLevel(GetAbilityLevel());
 		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_TrueDamage, GetDamageAtAbilityLevel().TrueDamage);
 		//ScaledDamage = Damage.PhysicalDamage.GetValueAtLevel(GetAbilityLevel());
 		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Physical, GetDamageAtAbilityLevel().PhysicalDamage);
@@ -70,7 +81,7 @@ void UTKProjectileAbility::SpawnProjectile()
 		//ScaledDamage = Damage.HolyDamage.GetValueAtLevel(GetAbilityLevel());
 		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Holy, GetDamageAtAbilityLevel().HolyDamage);
 		//ScaledDamage = Damage.DarkDamage.GetValueAtLevel(GetAbilityLevel());
-		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Dark, GetDamageAtAbilityLevel().DarkDamage);
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.DamageType_Dark, GetDamageAtAbilityLevel().DarkDamage);*/
 		
 		Projectile->DamageEffectSpecHandle = SpecHandle;
 
