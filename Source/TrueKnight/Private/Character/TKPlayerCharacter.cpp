@@ -49,7 +49,15 @@ void ATKPlayerCharacter::PossessedBy(AController* NewController)
 	AddCharacterAbilities();
 }
 
-int32 ATKPlayerCharacter::GetPlayerLevel()
+void ATKPlayerCharacter::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+
+	// Init ability actor info for the Client
+	InitAbilityActorInfo();
+}
+
+int32 ATKPlayerCharacter::GetPlayerLevel_Implementation()
 {
 	const ATKPlayerState* TKPlayerState = GetPlayerState<ATKPlayerState>();
 	check(TKPlayerState);

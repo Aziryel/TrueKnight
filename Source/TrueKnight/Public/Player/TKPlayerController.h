@@ -24,7 +24,7 @@ class TRUEKNIGHT_API ATKPlayerController : public APlayerController
 public:
 	ATKPlayerController();
 
-	UFUNCTION()
+	UFUNCTION(Client, Reliable)
 	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit);
 	
 protected:

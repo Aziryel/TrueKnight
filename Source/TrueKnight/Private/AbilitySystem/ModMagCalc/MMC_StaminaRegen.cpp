@@ -38,8 +38,11 @@ float UMMC_StaminaRegen::CalculateBaseMagnitude_Implementation(const FGameplayEf
 	GetCapturedAttributeMagnitude(InsightDef, Spec, EvaluationParameters, Insight);
 	Insight = FMath::Max<float>(Insight, 0.f);
 
-	ICombatInterface* CombatInterface = Cast<ICombatInterface>(Spec.GetContext().GetSourceObject());
-	const int32 PlayerLevel = CombatInterface->GetPlayerLevel();
+	int32 PlayerLevel = 1;
+	if (Spec.GetContext().GetSourceObject()->Implements<UCombatInterface>())
+	{
+		PlayerLevel = ICombatInterface::Execute_GetPlayerLevel(Spec.GetContext().GetSourceObject());
+	}
 
 	return 0.5f + (Vitality + Insight) * 0.08 + PlayerLevel * 0.06; 
 }

@@ -35,10 +35,15 @@ UPaperZDAnimSequence* ATKCharacterBase::GetDeathAnimSequence_Implementation()
 	return DeathSequence;
 }
 
-void ATKCharacterBase::Die_Implementation()
+void ATKCharacterBase::MulticastHandleDeath_Implementation()
 {
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Emerald, FString::Printf(TEXT("Die CharacterBase")));
+}
+
+void ATKCharacterBase::Die_Implementation()
+{
+	MulticastHandleDeath();
 }
 
 void ATKCharacterBase::BeginPlay()
@@ -64,7 +69,7 @@ void ATKCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEf
 	// We have to use "this" as the source object because  we are going to use the CombatInterface
 	ContextHandle.AddSourceObject(this);
 	const FGameplayEffectSpecHandle& EffectSpec = GetAbilitySystemComponent()->MakeOutgoingSpec(GameplayEffectClass, Level, ContextHandle);
-	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToSelf(*EffectSpec.Data.Get());
+	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*EffectSpec.Data.Get(), GetAbilitySystemComponent());
 }
 
 void ATKCharacterBase::InitializeDefaultAttributes() const

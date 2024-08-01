@@ -36,6 +36,8 @@ public:
 	virtual UPaperZDAnimSequence* GetHitReactAnimSequence_Implementation() override;
 	virtual UPaperZDAnimSequence* GetDeathAnimSequence_Implementation() override;
 
+	UFUNCTION(NetMulticast, Reliable)
+	virtual void MulticastHandleDeath();
 	virtual void Die_Implementation() override;
 
 protected:

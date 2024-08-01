@@ -16,6 +16,8 @@
 
 ATKPlayerController::ATKPlayerController()
 {
+	bReplicates = true;
+	
 	const FTKGameplayTags& GameplayTags = FTKGameplayTags::Get();
 
 	TagsToIgnore.AddTag(GameplayTags.CombatTag_Attacking);
@@ -23,9 +25,9 @@ ATKPlayerController::ATKPlayerController()
 	TagsToIgnore.AddTag(GameplayTags.EventTag_Wall);
 }
 
-void ATKPlayerController::ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit)
+void ATKPlayerController::ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit)
 {
-	if (IsValid(TargetCharacter) && DamageTextComponentClass)
+	if (IsValid(TargetCharacter) && DamageTextComponentClass && IsLocalController())
 	{
 		// To create a component, we have to declare a NewObject and then register it (this is normally done by CreateDefaultSubobject)
 		// We set the Outer to the TargetCharacter because we are attaching the widget component to it.

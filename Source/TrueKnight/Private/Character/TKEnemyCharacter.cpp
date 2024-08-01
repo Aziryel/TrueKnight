@@ -39,7 +39,7 @@ void ATKEnemyCharacter::UnhighlightActor()
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Magenta, FString::Printf(TEXT("Unhighligh Actor: %s"), *GetNameSafe(this)));
 }
 
-int32 ATKEnemyCharacter::GetPlayerLevel()
+int32 ATKEnemyCharacter::GetPlayerLevel_Implementation()
 {
 	return Level;
 }
@@ -58,7 +58,10 @@ void ATKEnemyCharacter::BeginPlay()
 	GetCharacterMovement()->MaxWalkSpeed = BaseWalkSpeed;
 	
 	InitAbilityActorInfo();
-	UTKAbilitySystemBlueprintLibrary::GiveStartupAbilitites(this, AbilitySystemComponent);
+	if (HasAuthority())
+	{
+		UTKAbilitySystemBlueprintLibrary::GiveStartupAbilitites(this, AbilitySystemComponent);
+	}
 
 	if (UTKUserWidget* TKUserWidget = Cast<UTKUserWidget>(HealthBar->GetUserWidgetObject()))
 	{
@@ -103,7 +106,10 @@ void ATKEnemyCharacter::InitAbilityActorInfo()
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->AbilityActorInfoSet();
 
-	InitializeDefaultAttributes();
+	if (HasAuthority())
+	{
+		InitializeDefaultAttributes();
+	}
 }
 
 void ATKEnemyCharacter::InitializeDefaultAttributes() const
