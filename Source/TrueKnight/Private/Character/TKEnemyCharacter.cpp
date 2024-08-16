@@ -8,6 +8,9 @@
 #include "AbilitySystem/TKAbilitySystemBlueprintLibrary.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "AbilitySystem/TKAttributeSet.h"
+#include "AI/TKAIController.h"
+#include "BehaviorTree/BehaviorTree.h"
+#include "BehaviorTree/BlackboardComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/WidgetComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -27,6 +30,21 @@ ATKEnemyCharacter::ATKEnemyCharacter()
 
 	HealthBar = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
 	HealthBar->SetupAttachment(GetRootComponent());
+}
+
+void ATKEnemyCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	if(!HasAuthority()) return;
+	TKAIController = Cast<ATKAIController>(NewController);
+	TKAIController->GetBlackboardComponent()->InitializeBlackboard(*BehaviorTree->BlackboardAsset);
+	TKAIController->RunBehaviorTree(BehaviorTree);
+	TKAIController->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), false);
+	if (CharacterClass == ECharacterClass::Mage || CharacterClass == ECharacterClass::Marksman)
+	{
+		TKAIController->GetBlackboardComponent()->SetValueAsBool(FName("RangedAttacker"), true);
+	}
 }
 
 void ATKEnemyCharacter::HighlightActor()
@@ -99,6 +117,7 @@ void ATKEnemyCharacter::HitReactTagChanged(const FGameplayTag CallbackTag, int32
 {
 	bHitReacting = NewCount > 0;
 	GetCharacterMovement()->MaxWalkSpeed = bHitReacting ? 0.f : BaseWalkSpeed;
+	TKAIController->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), bHitReacting);
 }
 
 void ATKEnemyCharacter::InitAbilityActorInfo()

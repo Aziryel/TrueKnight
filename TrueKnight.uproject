@@ -15,7 +15,8 @@
 				"CommonUI",
 				"CoreUObject",
 				"EnhancedInput",
-				"UMG"
+				"UMG",
+				"AIModule"
 			]
 		}
 	],

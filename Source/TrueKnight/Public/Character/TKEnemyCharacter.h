@@ -10,6 +10,9 @@
 #include "TKEnemyCharacter.generated.h"
 
 class UWidgetComponent;
+class UBehaviorTree;
+class ATKAIController;
+
 /**
  * 
  */
@@ -20,6 +23,7 @@ class TRUEKNIGHT_API ATKEnemyCharacter : public ATKCharacterBase, public ITKTarg
 
 public:
 	ATKEnemyCharacter();
+	virtual void PossessedBy(AController* NewController) override;
 
 	/* Enemy Interface */
 	virtual void HighlightActor() override;
@@ -61,5 +65,11 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UWidgetComponent> HealthBar;
+
+	UPROPERTY(EditDefaultsOnly, Category = "AI")
+	TObjectPtr<UBehaviorTree> BehaviorTree;
+
+	UPROPERTY()
+	TObjectPtr<ATKAIController> TKAIController;
 	
 };
