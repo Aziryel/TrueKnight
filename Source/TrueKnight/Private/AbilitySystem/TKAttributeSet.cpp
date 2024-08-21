@@ -204,7 +204,7 @@ void UTKAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallback
 		const float LocalIncomingDamage = GetIncomingDamage();
 		SetIncomingDamage(0.f);
 
-		if(LocalIncomingDamage > 0)
+		if(LocalIncomingDamage > 0 && GetHealth() > 0)
 		{
 			const float NewHealth = GetHealth() - LocalIncomingDamage;
 			SetHealth(FMath::Clamp(NewHealth, 0.f, GetMaxHealth()));
