@@ -14,6 +14,9 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/WidgetComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Perception/AIPerceptionComponent.h"
+#include "Perception/AISenseConfig_Hearing.h"
+#include "Perception/AISenseConfig_Sight.h"
 #include "UI/Widget/TKUserWidget.h"
 
 ATKEnemyCharacter::ATKEnemyCharacter()
@@ -30,6 +33,40 @@ ATKEnemyCharacter::ATKEnemyCharacter()
 
 	HealthBar = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
 	HealthBar->SetupAttachment(GetRootComponent());
+
+	// Create the Perception Component
+	AIPerceptionComponent = CreateDefaultSubobject<UAIPerceptionComponent>(TEXT("AIPerceptionComponent"));
+
+	// Create and configure the Sight sense
+	SightConfig = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("SightConfig"));
+	SightConfig->SightRadius = 1000.0f;
+	SightConfig->LoseSightRadius = 1200.0f;
+	SightConfig->PeripheralVisionAngleDegrees = 90.0f;
+	SightConfig->SetMaxAge(5.0f);
+	SightConfig->DetectionByAffiliation.bDetectEnemies = true;
+	SightConfig->DetectionByAffiliation.bDetectNeutrals = true;
+	SightConfig->DetectionByAffiliation.bDetectFriendlies = true;
+
+	// Add the Sight sense to the Perception Component
+	AIPerceptionComponent->ConfigureSense(*SightConfig);
+	AIPerceptionComponent->SetDominantSense(SightConfig->GetSenseImplementation());
+
+	// Create and configure the Hearing sense
+	HearingConfig = CreateDefaultSubobject<UAISenseConfig_Hearing>(TEXT("HearingConfig"));
+	HearingConfig->HearingRange = 1500.0f;
+	HearingConfig->SetMaxAge(2.0f);
+	HearingConfig->DetectionByAffiliation.bDetectEnemies = true;
+	HearingConfig->DetectionByAffiliation.bDetectNeutrals = true;
+	HearingConfig->DetectionByAffiliation.bDetectFriendlies = true;
+
+	// Add the Hearing sense to the Perception Component
+	AIPerceptionComponent->ConfigureSense(*HearingConfig);
+	
+	// Bind the perception updated delegate to a function
+	AIPerceptionComponent->OnPerceptionUpdated.AddDynamic(this, &ATKEnemyCharacter::OnPerceptionUpdated);
+	AIPerceptionComponent->OnTargetPerceptionUpdated.AddDynamic(this, &ATKEnemyCharacter::OnTargetPerceptionUpdated);
+	AIPerceptionComponent->OnTargetPerceptionForgotten.AddDynamic(this, &ATKEnemyCharacter::OnTargetPerceptionForgotten);
+	
 }
 
 void ATKEnemyCharacter::PossessedBy(AController* NewController)
@@ -134,4 +171,30 @@ void ATKEnemyCharacter::InitAbilityActorInfo()
 void ATKEnemyCharacter::InitializeDefaultAttributes() const
 {
 	UTKAbilitySystemBlueprintLibrary::InitializeDefaultsAttributes(this, CharacterClass, Level, AbilitySystemComponent);
+}
+
+void ATKEnemyCharacter::OnPerceptionUpdated(const TArray<AActor*>& UpdatedActors)
+{
+	
+}
+
+void ATKEnemyCharacter::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus)
+{
+	if (!TKAIController || !TKAIController->GetBlackboardComponent() || Actor->Tags.Contains(FName("Enemy")))
+	{
+		return;
+	}
+
+	if (Stimulus.WasSuccessfullySensed())
+	{
+		// Actor has been successfully sensed (e.g., seen by sight sense)
+		TKAIController->GetBlackboardComponent()->SetValueAsObject(FName("TargetToFollow"), Actor);
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, FString::Printf(TEXT("Following Actor: %s"), *GetNameSafe(Actor)));
+	}
+}
+
+void ATKEnemyCharacter::OnTargetPerceptionForgotten(AActor* ForgottenActor)
+{
+	TKAIController->GetBlackboardComponent()->ClearValue(FName("TargetToFollow"));
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Cyan, FString::Printf(TEXT("Forgotten Actor: %s."), *GetNameSafe(ForgottenActor)));
 }

@@ -44,6 +44,7 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void OnEndOverlap(AActor* TargetActor);
 
+	// Destroy the actor on application unless the effect is infinite
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effects")
 	bool bDestroyOnEffectApplication = false;
 	

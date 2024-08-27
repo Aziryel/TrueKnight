@@ -4,11 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystem/Data/CharacterClassInfo.h"
+#include "BehaviorTree/BehaviorTreeTypes.h"
 #include "Character/TKCharacterBase.h"
 #include "Interaction/TKTargetInterface.h"
 #include "UI/WidgetController/TKOverlayWidgetController.h"
 #include "TKEnemyCharacter.generated.h"
 
+struct FAIStimulus;
+class UAISenseConfig_Hearing;
+class UAISenseConfig_Sight;
+class UAIPerceptionComponent;
 class UWidgetComponent;
 class UBehaviorTree;
 class ATKAIController;
@@ -71,5 +76,23 @@ protected:
 
 	UPROPERTY()
 	TObjectPtr<ATKAIController> TKAIController;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
+	UAIPerceptionComponent* AIPerceptionComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
+	UAISenseConfig_Sight* SightConfig;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
+	UAISenseConfig_Hearing* HearingConfig;
+
+	UFUNCTION()
+	void OnPerceptionUpdated(const TArray<AActor*>& UpdatedActors);
+
+	UFUNCTION()
+	void OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
+
+	UFUNCTION()
+	void OnTargetPerceptionForgotten(AActor* ForgottenActor);
 	
 };

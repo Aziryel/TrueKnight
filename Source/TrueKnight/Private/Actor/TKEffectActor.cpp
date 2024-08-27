@@ -50,7 +50,7 @@ void ATKEffectActor::ApplyEffectToTarget(AActor* TargetActor, TSubclassOf<UGamep
 		ActiveEffectHandles.Add(ActiveEffectHandle, TargetASC);
 	}
 
-	if (!bIsInfinite)
+	if (!bIsInfinite && bDestroyOnEffectApplication)
 	{
 		Destroy();
 	}
