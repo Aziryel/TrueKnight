@@ -149,6 +149,9 @@ public:
 	FGameplayTag EventTag_LedgeClimb;
 	FGameplayTag EventTag_Slide;
 
+	// Ability Tags
+	FGameplayTag Abilities_Attack;
+	
 	// Combat Tags
 	FGameplayTag CombatTag_Casting;
 	FGameplayTag CombatTag_Attacking;

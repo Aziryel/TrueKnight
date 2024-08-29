@@ -41,7 +41,7 @@ void ATKCharacterBase::MulticastHandleDeath_Implementation()
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Emerald, FString::Printf(TEXT("Die CharacterBase")));
 }
 
-void ATKCharacterBase::Die_Implementation()
+void ATKCharacterBase::Die_Implementation(const float DyingLifeSpan)
 {
 	MulticastHandleDeath();
 }

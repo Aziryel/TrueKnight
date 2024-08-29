@@ -38,7 +38,7 @@ public:
 
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
-	virtual void Die_Implementation() override;
+	virtual void Die_Implementation(const float DyingLifeSpan) override;
 
 protected:
 	virtual void BeginPlay() override;

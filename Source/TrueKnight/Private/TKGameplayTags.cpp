@@ -129,6 +129,9 @@ void FTKGameplayTags::AddAllTags(UGameplayTagsManager& Manager)
 	AddTag(EventTag_LedgeClimb, "Event.Wall.Climb", "Event trigger to climb a wall.");
 	AddTag(EventTag_Slide, "Event.Slide", "Event trigger to slide.");
 
+	// Ability Tags
+	AddTag(Abilities_Attack, "Abilities.Attack", "Ability tag to handle attacks.");
+	
 	// Combat Tags
 	AddTag(CombatTag_Attacking, "Combat.Attacking", "Combat tag to melee attacks.");
 	AddTag(CombatTag_Casting, "Combat.Casting", "Combat tag to cast spells.");

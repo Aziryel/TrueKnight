@@ -37,7 +37,7 @@ public:
 
 	/* Combat Interface */
 	virtual int32 GetPlayerLevel_Implementation() override;
-	virtual void Die_Implementation() override;
+	virtual void Die_Implementation(const float DyingLifeSpan) override;
 	/* End Combat Interface */
 
 	UPROPERTY(BlueprintAssignable)

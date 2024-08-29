@@ -20,7 +20,7 @@
 #include "UI/Widget/TKUserWidget.h"
 
 ATKEnemyCharacter::ATKEnemyCharacter()
-{
+{	
 	//Create the TKASC for the enemy character.
 	AbilitySystemComponent = CreateDefaultSubobject<UTKAbilitySystemComponent>("AbilitySystemComponent");
 
@@ -30,6 +30,11 @@ ATKEnemyCharacter::ATKEnemyCharacter()
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);
 	GetSprite()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	GetSprite()->SetGenerateOverlapEvents(true);
+
+	// Constrain character movement to the X and Z axis only
+	GetCharacterMovement()->bConstrainToPlane = true;
+	GetCharacterMovement()->SetPlaneConstraintNormal(FVector(0.f, 1.f, 0.f));  // Constrains to the XZ plane
+	GetCharacterMovement()->SetPlaneConstraintNormal(FVector(0.f, 10.f, 0.f));
 
 	HealthBar = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
 	HealthBar->SetupAttachment(GetRootComponent());
@@ -99,12 +104,13 @@ int32 ATKEnemyCharacter::GetPlayerLevel_Implementation()
 	return Level;
 }
 
-void ATKEnemyCharacter::Die_Implementation()
+void ATKEnemyCharacter::Die_Implementation(const float DyingLifeSpan)
 {
-	SetLifeSpan(LifeSpan);
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Emerald, FString::Printf(TEXT("Die Enemy")));
+	SetLifeSpan(DyingLifeSpan);
+	HealthBar->SetVisibility(false);
+	TKAIController->GetBlackboardComponent()->SetValueAsBool(FName("IsDead"), true);
 
-	Super::Die_Implementation();
+	Super::Die_Implementation(DyingLifeSpan);
 }
 
 void ATKEnemyCharacter::BeginPlay()
@@ -115,7 +121,7 @@ void ATKEnemyCharacter::BeginPlay()
 	InitAbilityActorInfo();
 	if (HasAuthority())
 	{
-		UTKAbilitySystemBlueprintLibrary::GiveStartupAbilitites(this, AbilitySystemComponent);
+		UTKAbilitySystemBlueprintLibrary::GiveStartupAbilitites(this, AbilitySystemComponent, CharacterClass);
 	}
 
 	if (UTKUserWidget* TKUserWidget = Cast<UTKUserWidget>(HealthBar->GetUserWidgetObject()))

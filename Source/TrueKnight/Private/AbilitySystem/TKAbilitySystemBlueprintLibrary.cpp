@@ -6,6 +6,7 @@
 #include "TKAbilityTypes.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Game/TKGameModeBase.h"
+#include "Interaction/CombatInterface.h"
 #include "Kismet/GameplayStatics.h"
 #include "Player/TKPlayerState.h"
 #include "UI/HUD/TKHUD.h"
@@ -137,14 +138,26 @@ void UTKAbilitySystemBlueprintLibrary::InitializeDefaultsAttributes(const UObjec
 	ASC->ApplyGameplayEffectSpecToSelf(*VitalAttributesSpecHandle.Data.Get());
 }
 
-void UTKAbilitySystemBlueprintLibrary::GiveStartupAbilitites(const UObject* WorldContextObject,
-	UAbilitySystemComponent* ASC)
+void UTKAbilitySystemBlueprintLibrary::GiveStartupAbilitites(const UObject* WorldContextObject, UAbilitySystemComponent* ASC, ECharacterClass CharacterClass)
 {
 	UCharacterClassInfo* CharacterClassInfo = GetCharacterClassInfo(WorldContextObject);
+	if (CharacterClassInfo == nullptr || ASC == nullptr) return;
+	
 	for (TSubclassOf<UGameplayAbility> AbilityClass : CharacterClassInfo->CommonAbilities)
 	{
+		// These abilities don't require a level because they are things like die, hit react and so on...
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, 1);
 		ASC->GiveAbility(AbilitySpec);
+	}
+	const FCharacterClassDefaultInfo& DefaultInfo = CharacterClassInfo->GetClassDefaultInfo(CharacterClass);
+	for (TSubclassOf<UGameplayAbility> AbilityClass : DefaultInfo.ClassAbilities)
+	{
+		if (ICombatInterface* CombatInterface = Cast<ICombatInterface>(ASC->GetAvatarActor()))
+		{
+			// We need to use the execute version of getplayerlevel to avoid errors
+			FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, CombatInterface->Execute_GetPlayerLevel(ASC->GetAvatarActor()));
+			ASC->GiveAbility(AbilitySpec);
+		}
 	}
 }
 

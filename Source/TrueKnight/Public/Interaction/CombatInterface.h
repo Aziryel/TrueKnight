@@ -40,5 +40,5 @@ public:
 	UPaperZDAnimSequence* GetDeathAnimSequence();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void Die();
+	void Die(const float DyingLifeSpan);
 };
