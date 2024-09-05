@@ -7,12 +7,16 @@
 #include "PaperFlipbookComponent.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "TrueKnight/TrueKnight.h"
 
 ATKCharacterBase::ATKCharacterBase()
 {
 	PrimaryActorTick.bCanEverTick = false;
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Projectile, ECR_Overlap);
+
+	ProjectileSocketName = "ProjectilePos";
+	MeleeSocketName = "HitPos";
 }
 
 UAbilitySystemComponent* ATKCharacterBase::GetAbilitySystemComponent() const
@@ -35,6 +39,35 @@ UPaperZDAnimSequence* ATKCharacterBase::GetDeathAnimSequence_Implementation()
 	return DeathSequence;
 }
 
+UPaperZDAnimSequence* ATKCharacterBase::GetProjectileAnimSequence_Implementation()
+{
+	return ProjectileSequence;
+}
+
+UPaperZDAnimSequence* ATKCharacterBase::GetMeleeAnimSequence_Implementation()
+{
+	return MeleeSequence;
+}
+
+EMovementMode ATKCharacterBase::GetMovementMode_Implementation()
+{
+	return GetCharacterMovement()->MovementMode;
+}
+
+FCharacterDataResult ATKCharacterBase::GetCharacterCombatData_Implementation()
+{
+	FCharacterDataResult Result;
+
+	Result.AnimInstance = GetAnimInstance();
+	Result.HitReactAnimSequence = HitReactSequence;
+	Result.DeathAnimSequence = DeathSequence;
+	Result.ProjectileAnimSequence = ProjectileSequence;
+	Result.MeleeAnimSequence = MeleeSequence;
+	Result.MovementMode = GetCharacterMovement()->MovementMode;
+	
+	return Result;
+}
+
 void ATKCharacterBase::MulticastHandleDeath_Implementation()
 {
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
@@ -51,9 +84,14 @@ void ATKCharacterBase::BeginPlay()
 	Super::BeginPlay();
 }
 
-FVector ATKCharacterBase::GetCombatSocketLocation()
+FVector ATKCharacterBase::GetProjectileSocketLocation_Implementation()
 {
 	return GetSprite()->GetSocketLocation(ProjectileSocketName);
+}
+
+FVector ATKCharacterBase::GetMeleeSocketLocation_Implementation()
+{
+	return GetSprite()->GetSocketLocation(MeleeSocketName);
 }
 
 void ATKCharacterBase::InitAbilityActorInfo()

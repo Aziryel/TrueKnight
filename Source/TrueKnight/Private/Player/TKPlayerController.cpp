@@ -20,7 +20,7 @@ ATKPlayerController::ATKPlayerController()
 	
 	const FTKGameplayTags& GameplayTags = FTKGameplayTags::Get();
 
-	TagsToIgnore.AddTag(GameplayTags.CombatTag_Attacking);
+	TagsToIgnore.AddTag(GameplayTags.Abilities_Attack);
 	TagsToIgnore.AddTag(GameplayTags.CombatTag_Casting);
 	TagsToIgnore.AddTag(GameplayTags.EventTag_Wall);
 }

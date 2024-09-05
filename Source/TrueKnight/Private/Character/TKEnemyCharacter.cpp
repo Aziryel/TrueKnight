@@ -99,6 +99,16 @@ void ATKEnemyCharacter::UnhighlightActor()
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Magenta, FString::Printf(TEXT("Unhighligh Actor: %s"), *GetNameSafe(this)));
 }
 
+void ATKEnemyCharacter::SetCombatTarget_Implementation(AActor* InCombatTarget)
+{
+	CombatTarget = InCombatTarget;
+}
+
+AActor* ATKEnemyCharacter::GetCombatTarget_Implementation() const
+{
+	return CombatTarget;
+}
+
 int32 ATKEnemyCharacter::GetPlayerLevel_Implementation()
 {
 	return Level;

@@ -33,6 +33,8 @@ public:
 	/* Enemy Interface */
 	virtual void HighlightActor() override;
 	virtual void UnhighlightActor() override;
+	virtual void SetCombatTarget_Implementation(AActor* InCombatTarget) override;
+	virtual AActor* GetCombatTarget_Implementation() const override;
 	/* End Enemy Interface */
 
 	/* Combat Interface */
@@ -56,6 +58,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
 	float LifeSpan = 0.1f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
+	TObjectPtr<AActor> CombatTarget;
 
 protected:
 	virtual void BeginPlay() override;

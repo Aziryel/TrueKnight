@@ -35,6 +35,10 @@ public:
 	virtual UPaperZDAnimInstance* GetPaperAnimInstance_Implementation() override;
 	virtual UPaperZDAnimSequence* GetHitReactAnimSequence_Implementation() override;
 	virtual UPaperZDAnimSequence* GetDeathAnimSequence_Implementation() override;
+	virtual UPaperZDAnimSequence* GetProjectileAnimSequence_Implementation() override;
+	virtual UPaperZDAnimSequence* GetMeleeAnimSequence_Implementation() override;
+	virtual EMovementMode GetMovementMode_Implementation() override;
+	virtual FCharacterDataResult GetCharacterCombatData_Implementation() override;
 
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
@@ -46,7 +50,12 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	FName ProjectileSocketName;
 
-	virtual FVector GetCombatSocketLocation() override;
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	FName MeleeSocketName;
+	
+	virtual FVector GetProjectileSocketLocation_Implementation() override;
+	virtual FVector GetMeleeSocketLocation_Implementation() override;
+
 
 	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
@@ -73,6 +82,12 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> StartupAbilities;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TObjectPtr<UPaperZDAnimSequence> ProjectileSequence;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TObjectPtr<UPaperZDAnimSequence> MeleeSequence;
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	TObjectPtr<UPaperZDAnimSequence> HitReactSequence;
