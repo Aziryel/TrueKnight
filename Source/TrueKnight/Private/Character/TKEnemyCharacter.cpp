@@ -170,7 +170,10 @@ void ATKEnemyCharacter::HitReactTagChanged(const FGameplayTag CallbackTag, int32
 {
 	bHitReacting = NewCount > 0;
 	GetCharacterMovement()->MaxWalkSpeed = bHitReacting ? 0.f : BaseWalkSpeed;
-	TKAIController->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), bHitReacting);
+	if (TKAIController && TKAIController->GetBlackboardComponent())
+	{
+		TKAIController->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), bHitReacting);
+	}
 }
 
 void ATKEnemyCharacter::InitAbilityActorInfo()

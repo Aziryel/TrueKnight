@@ -4,6 +4,7 @@
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "TKGameplayTags.h"
 #include "AbilitySystem/Abilities/TKGameplayAbility.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 
 void UTKAbilitySystemComponent::AbilityActorInfoSet()
@@ -14,21 +15,44 @@ void UTKAbilitySystemComponent::AbilityActorInfoSet()
 
 void UTKAbilitySystemComponent::AddCharacterAbilities(const TArray<TSubclassOf<UGameplayAbility>>& StartupAbilities)
 {
-	for (const TSubclassOf<UGameplayAbility> AbilityClass : StartupAbilities)
+	for (const TSubclassOf<UGameplayAbility>& AbilityClass : StartupAbilities)
 	{
+		if (!AbilityClass) continue;
+
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, 1);
+
+		// Cast to check if this is a custom ability type
 		if (const UTKGameplayAbility* TKAbility = Cast<UTKGameplayAbility>(AbilitySpec.Ability))
 		{
+			// Add dynamic ability tags
 			AbilitySpec.DynamicAbilityTags.AddTag(TKAbility->StartupInputTag);
+
+			// Give the ability but don't activate it yet
+			GiveAbility(AbilitySpec);
+
+			// If the ability needs to activate immediately, trigger it (server-side)
+			if (TKAbility->bActivateOnGiven) 
+			{
+				// Ensure replication and activation happens on clients
+				FGameplayAbilitySpecHandle Handle = GiveAbility(AbilitySpec);
+				TryActivateAbility(Handle);
+                
+				UKismetSystemLibrary::PrintString(GetWorld(), FString::Printf(TEXT("Activating Ability: %s"), *GetNameSafe(AbilitySpec.Ability)), true, false, FColor::Blue, 5.f);
+			}
+		}
+	}
+}
+
+void UTKAbilitySystemComponent::ClientActivateAbilities()
+{
+	for (auto AbilitySpec : GetActivatableAbilities())
+	{
+		if (const UTKGameplayAbility* TKAbility = Cast<UTKGameplayAbility>(AbilitySpec.Ability))
+		{
 			if (TKAbility->bActivateOnGiven)
 			{
-				GiveAbilityAndActivateOnce(AbilitySpec);
+				TryActivateAbility(AbilitySpec.Handle);
 			}
-			else
-			{
-				GiveAbility(AbilitySpec);
-			}	
-			
 		}
 	}
 }

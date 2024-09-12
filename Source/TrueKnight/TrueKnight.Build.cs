@@ -19,7 +19,7 @@ public class TrueKnight : ModuleRules
 			"CommonUI",
 			"UMG",
 			"Slate",
-			"SlateCore"
+			"SlateCore", "PaperZD"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { "GameplayTags", "GameplayTasks", "Niagara", "AIModule" });

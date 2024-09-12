@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
+#include "PaperZDAnimInstance.h"
 #include "PaperZDCharacter.h"
 #include "Interaction/CombatInterface.h"
 #include "TKCharacterBase.generated.h"
@@ -12,6 +13,9 @@ class UGameplayAbility;
 class UGameplayEffect;
 class UAttributeSet;
 class UAbilitySystemComponent;
+
+//Dynamic delegate if you want to handle completion logic
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAnimationCompleted);
 
 /**
  * 
@@ -27,6 +31,7 @@ public:
 	ATKCharacterBase();
 
 	/* Ability System Interface */
+	UFUNCTION(BlueprintPure, Category = "TKAbilitySystem")
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	/* End Ability System Interface */
 	
@@ -43,6 +48,21 @@ public:
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
 	virtual void Die_Implementation(const float DyingLifeSpan) override;
+	
+	UFUNCTION(Server, Reliable)
+	virtual void ServerPlayAnimation(const UPaperZDAnimSequence* AnimSequence, FName SlotName, float PlayRate, float StartingPosition);
+	UFUNCTION(NetMulticast, Reliable)
+	virtual void MulticastPlayAnimation(const UPaperZDAnimSequence* AnimSequence, FName SlotName, float PlayRate, float StartingPosition);
+
+	UFUNCTION(BlueprintCallable, Category = "TKAbilities")
+	void Play2DMultiAnimation(const UPaperZDAnimSequence* AnimSequence, FName SlotName = FName("DefaultSlot"), float PlayRate = 1.0f, float StartingPosition = 0.0f);
+
+	// Function to simulate the end of the animation
+	UFUNCTION(BlueprintCallable, Category = "TKAbilities")
+	void OnAnimationEnd();
+	
+	UPROPERTY(BlueprintAssignable)
+	FOnAnimationCompleted OnAnimationCompleted;
 
 protected:
 	virtual void BeginPlay() override;
@@ -78,6 +98,7 @@ protected:
 	virtual void InitializeDefaultAttributes() const;
 
 	void AddCharacterAbilities();
+	
 private:
 
 	UPROPERTY(EditAnywhere, Category = "Abilities")

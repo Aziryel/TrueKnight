@@ -105,6 +105,8 @@ void ATKPlayerCharacter::InitAbilityActorInfo()
 	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->AbilityActorInfoSet();
 	AbilitySystemComponent->InitAbilityActorInfo(TKPlayerState, this);
 	AttributeSet = TKPlayerState->GetAttributeSet();
+	// Activate abilities on clients that only activated on the server on given
+	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->ClientActivateAbilities();
 
 	//Only continue if the PlayerController is valid
 	if (ATKPlayerController* TKPlayerController = Cast<ATKPlayerController>(GetController()))

@@ -5,6 +5,7 @@
 
 #include "AbilitySystemComponent.h"
 #include "PaperFlipbookComponent.h"
+#include "PaperZDAnimInstance.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -14,6 +15,10 @@ ATKCharacterBase::ATKCharacterBase()
 {
 	PrimaryActorTick.bCanEverTick = false;
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Projectile, ECR_Overlap);
+
+	bReplicates = true;
+	ACharacter::SetReplicateMovement(true);
+	
 
 	ProjectileSocketName = "ProjectilePos";
 	MeleeSocketName = "HitPos";
@@ -70,13 +75,65 @@ FCharacterDataResult ATKCharacterBase::GetCharacterCombatData_Implementation()
 
 void ATKCharacterBase::MulticastHandleDeath_Implementation()
 {
-	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
+	//GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Emerald, FString::Printf(TEXT("Die CharacterBase")));
 }
 
 void ATKCharacterBase::Die_Implementation(const float DyingLifeSpan)
 {
 	MulticastHandleDeath();
+}
+
+void ATKCharacterBase::ServerPlayAnimation_Implementation(const UPaperZDAnimSequence* AnimSequence, FName SlotName, float PlayRate, float StartingPosition)
+{
+	MulticastPlayAnimation(AnimSequence, SlotName, PlayRate, StartingPosition);
+}
+
+void ATKCharacterBase::MulticastPlayAnimation_Implementation(const UPaperZDAnimSequence* AnimSequence, FName SlotName, float PlayRate, float StartingPosition)
+{
+	if (GetAnimInstance())
+	{
+		// Play the animation locally on all clients and the server
+		GetAnimInstance()->PlayAnimationOverride(AnimSequence, SlotName, PlayRate, StartingPosition);
+	}
+}
+
+void ATKCharacterBase::Play2DMultiAnimation(const UPaperZDAnimSequence* AnimSequence, FName SlotName, float PlayRate, float StartingPosition)
+{
+	if (AnimSequence)
+	{
+		// Get the total duration of the animation
+		const float AnimationDuration = AnimSequence->GetTotalDuration() / PlayRate;  // Adjust for PlayRate
+
+		// Play the animation on the server and replicate it to clients
+		if (HasAuthority())
+		{
+			MulticastPlayAnimation(AnimSequence, SlotName, PlayRate, StartingPosition);
+		}
+		else
+		{
+			ServerPlayAnimation(AnimSequence, SlotName, PlayRate, StartingPosition);
+		}
+
+		// Set a timer to trigger OnAnimationEnd after the duration has passed
+		FTimerHandle TimerHandle_OnAnimationEnd;
+		GetWorld()->GetTimerManager().SetTimer(
+			TimerHandle_OnAnimationEnd,  // Timer handle to track the timer
+			this,                        // The object that owns the timer
+			&ATKCharacterBase::OnAnimationEnd,  // The function to call when the timer expires
+			AnimationDuration,           // Timer duration (animation length)
+			false                        // Do not loop, we only need this to trigger once
+		);
+	}
+}
+
+void ATKCharacterBase::OnAnimationEnd()
+{
+	// Simulate the completion of the animation
+	//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Green, TEXT("Animation Ended!"));
+
+	// Trigger the delegate
+	OnAnimationCompleted.Broadcast();
 }
 
 void ATKCharacterBase::BeginPlay()

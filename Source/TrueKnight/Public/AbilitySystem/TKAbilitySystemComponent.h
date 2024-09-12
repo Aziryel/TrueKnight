@@ -25,6 +25,7 @@ public:
 	TMap<FGameplayTag, FActiveGameplayEffectHandle> InventoryMap;
 
 	void AddCharacterAbilities(const TArray<TSubclassOf<UGameplayAbility>>& StartupAbilities);
+	void ClientActivateAbilities();
 	void AddItemToInventory(const FGameplayTag ItemTag, FActiveGameplayEffectHandle ActiveEffectHandle, const float Level, const int32 Quantity);
 	UFUNCTION(BlueprintCallable, Category = "GAS|Inventory")
 	void RemoveItemFromInventory(const FGameplayTag ItemTag, const int32 Quantity);
