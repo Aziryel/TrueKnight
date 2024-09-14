@@ -7,7 +7,6 @@
 #include "EnhancedInputSubsystems.h"
 #include "TKGameplayTags.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
-#include "Engine/Engine.h"
 #include "Engine/LocalPlayer.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/Pawn.h"
@@ -27,7 +26,7 @@ ATKPlayerController::ATKPlayerController()
 
 void ATKPlayerController::ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit)
 {
-	if (IsValid(TargetCharacter) && DamageTextComponentClass && IsLocalController())
+	/*if (IsValid(TargetCharacter) && DamageTextComponentClass && IsLocalController())
 	{
 		// To create a component, we have to declare a NewObject and then register it (this is normally done by CreateDefaultSubobject)
 		// We set the Outer to the TargetCharacter because we are attaching the widget component to it.
@@ -37,6 +36,28 @@ void ATKPlayerController::ShowDamageNumber_Implementation(float DamageAmount, AC
 		DamageText->AttachToComponent(TargetCharacter->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
 		DamageText->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
 		DamageText->SetDamageText(DamageAmount, bBlockedHit, bCriticalHit);
+	}*/
+
+	if (IsValid(TargetCharacter) && DamageTextComponentClass && IsLocalController())
+	{
+		// Create the damage text component only on the local client
+		if (GetNetMode() != NM_DedicatedServer) // Ensure we're not running on the server (already but double-checking)
+		{
+			UDamageTextComponent* DamageText = NewObject<UDamageTextComponent>(TargetCharacter, DamageTextComponentClass);
+			DamageText->RegisterComponent();
+    
+			// Attach the component to the target's root component (Z and X movement only)
+			FVector AttachLocation = TargetCharacter->GetActorLocation();
+    
+			// Modify AttachLocation to ensure it aligns to 2D (keep Y axis constant)
+			AttachLocation.Y = 0.f;  // Set Y to 0 to keep it in the 2D plane
+			DamageText->SetWorldLocation(AttachLocation);
+    
+			// Set relative rotation to keep it flat in the 2D space (facing the camera or flat on the screen)
+			FRotator FlatRotation(0.f, 0.f, 0.f);  // Flat rotation facing forward in 2D
+			DamageText->SetWorldRotation(FlatRotation);
+			DamageText->SetDamageText(DamageAmount, bBlockedHit, bCriticalHit);
+		}
 	}
 }
 

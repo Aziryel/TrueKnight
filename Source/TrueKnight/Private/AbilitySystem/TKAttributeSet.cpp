@@ -232,13 +232,20 @@ void UTKAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallback
 
 void UTKAttributeSet::ShowFloatingText(const FEffectProperties& Props, float Damage, bool bBlockedHit, bool bCriticalHit) const 
 {
-	if (Props.SourceCharacter != Props.TargetCharacter)
+	if (!IsValid(Props.SourceCharacter) || !IsValid(Props.TargetCharacter))
 	{
-		if (ATKPlayerController* PC = Cast<ATKPlayerController>(Props.SourceCharacter->Controller))
-		{
-			PC->ShowDamageNumber(Damage, Props.TargetCharacter, bBlockedHit, bCriticalHit);
-		}	
+		return;
 	}
+
+	if (Props.SourceCharacter == Props.TargetCharacter)
+	{
+		return;
+	}
+	
+	if (ATKPlayerController* PC = Cast<ATKPlayerController>(Props.SourceCharacter->Controller))
+	{
+		PC->ShowDamageNumber(Damage, Props.TargetCharacter, bBlockedHit, bCriticalHit);
+	}		
 }
 
 void UTKAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth) const

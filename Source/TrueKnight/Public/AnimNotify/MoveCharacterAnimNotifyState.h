@@ -6,6 +6,7 @@
 #include "Notifies/PaperZDAnimNotifyState.h"
 #include "MoveCharacterAnimNotifyState.generated.h"
 
+class APaperCharacter;
 /**
  * 
  */
@@ -21,11 +22,22 @@ public:
 
 protected:
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Final Location")
-	FVector FinalLocation;
+	// Curve for controlling X-axis movement
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	UCurveFloat* XMovementCurve;
+
+	// Curve for controlling Z-axis movement
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	UCurveFloat* ZMovementCurve;
+	
+	/*UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Final Location")
+	FVector FinalLocation;*/
+
+	void AdjustMovementOnCollision(APaperCharacter* OwningCharacter, const FHitResult& HitResult, float TimeFraction) const;
 	
 private:
-	
+
+	mutable FVector ForwardVector;
 	mutable FVector InitialLocation;
 	mutable FVector TargetLocation;
 	mutable float ElapsedTime;

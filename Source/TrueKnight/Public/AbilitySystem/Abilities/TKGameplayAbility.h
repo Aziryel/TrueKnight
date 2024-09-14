@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Abilities/GameplayAbility.h"
-#include "TrueKnight/TrueKnight.h"
 #include "TKGameplayAbility.generated.h"
 
 class UPaperZDAnimSequence;
