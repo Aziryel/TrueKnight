@@ -50,7 +50,7 @@ void ATKPlayerController::ShowDamageNumber_Implementation(float DamageAmount, AC
 			FVector AttachLocation = TargetCharacter->GetActorLocation();
     
 			// Modify AttachLocation to ensure it aligns to 2D (keep Y axis constant)
-			AttachLocation.Y = 0.f;  // Set Y to 0 to keep it in the 2D plane
+			AttachLocation.Y = 20.f;  // Set Y to 0 to keep it in the 2D plane
 			DamageText->SetWorldLocation(AttachLocation);
     
 			// Set relative rotation to keep it flat in the 2D space (facing the camera or flat on the screen)

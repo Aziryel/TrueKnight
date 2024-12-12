@@ -108,7 +108,7 @@ void ATKPlayerCharacter::InitAbilityActorInfo()
 	// Activate abilities on clients that only activated on the server on given
 	Cast<UTKAbilitySystemComponent>(AbilitySystemComponent)->ClientActivateAbilities();
 
-	//Only continue if the PlayerController is valid
+	// We need to use "if" instead of "check" for it to work in multiplayer, and we only continue if the PlayerController is valid
 	if (ATKPlayerController* TKPlayerController = Cast<ATKPlayerController>(GetController()))
 	{
 		if (ATKHUD* TKHUD = Cast<ATKHUD>(TKPlayerController->GetHUD()))
