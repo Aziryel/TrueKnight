@@ -96,8 +96,24 @@ void ATKPlayerController::Move(const FInputActionValue& InputActionValue)
 	// We check if the ASC has any ignored tags to avoid moving during the attack animation.
 	// This is only done with functions like Move and Input_Jump that aren't gameplay abilities.
 	if (GetASC() && GetASC()->HasAnyMatchingGameplayTags(TagsToIgnore)) return;
-	
+
+	//Movement for 3D/2D Hybrid
 	if (APawn* ControlledPawn = GetPawn<APawn>())
+	{
+		const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
+		const FRotator Rotation = ControlledPawn->GetControlRotation();
+		const FRotator YawRotation(0.f, Rotation.Yaw, 0.0f);
+
+		const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+		const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+
+		ControlledPawn->AddMovementInput(ForwardDirection, InputAxisVector.Y);
+		ControlledPawn->AddMovementInput(RightDirection, InputAxisVector.X);
+	}
+	
+	//Movement for 2D
+	//TODO Create a bool to change from 2D movement to 3D
+	/*if (APawn* ControlledPawn = GetPawn<APawn>())
 	{
 		// We set the controller rotation according to the direction of movement
 		if (InputActionValue.GetMagnitude() > 0.f)
@@ -109,7 +125,7 @@ void ATKPlayerController::Move(const FInputActionValue& InputActionValue)
 			SetControlRotation(FRotator(0.f, 180.f, 0.f));
 		}
 		ControlledPawn->AddMovementInput(FVector(1.f, 0.f, 0.f), InputActionValue.GetMagnitude());
-	}
+	}*/
 }
 
 void ATKPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
