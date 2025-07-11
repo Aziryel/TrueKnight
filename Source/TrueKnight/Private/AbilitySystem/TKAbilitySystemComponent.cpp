@@ -25,7 +25,7 @@ void UTKAbilitySystemComponent::AddCharacterAbilities(const TArray<TSubclassOf<U
 		if (const UTKGameplayAbility* TKAbility = Cast<UTKGameplayAbility>(AbilitySpec.Ability))
 		{
 			// Add dynamic ability tags
-			AbilitySpec.DynamicAbilityTags.AddTag(TKAbility->StartupInputTag);
+			AbilitySpec.GetDynamicSpecSourceTags().AddTag(TKAbility->StartupInputTag);
 
 			// Give the ability but don't activate it yet
 			GiveAbility(AbilitySpec);
@@ -132,7 +132,7 @@ void UTKAbilitySystemComponent::AbilityInputTagHeld(const FGameplayTag& InputTag
 
 	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
 	{
-		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		if (AbilitySpec.GetDynamicSpecSourceTags().HasTagExact(InputTag))
 		{
 			AbilitySpecInputPressed(AbilitySpec);
 			if (!AbilitySpec.IsActive())
@@ -149,7 +149,7 @@ void UTKAbilitySystemComponent::AbilityInputTagReleased(const FGameplayTag& Inpu
 
 	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
 	{
-		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		if (AbilitySpec.GetDynamicSpecSourceTags().HasTagExact(InputTag))
 		{
 			AbilitySpecInputReleased(AbilitySpec);
 		}

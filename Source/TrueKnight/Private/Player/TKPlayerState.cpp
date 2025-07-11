@@ -17,7 +17,7 @@ ATKPlayerState::ATKPlayerState()
 	//Create the TKAttributeSet for the player character.
 	AttributeSet = CreateDefaultSubobject<UTKAttributeSet>("AttributeSet");
 
-	NetUpdateFrequency = 100.f;
+	SetNetUpdateFrequency(100.f);
 }
 
 void ATKPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

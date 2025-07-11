@@ -5,6 +5,7 @@
 
 #include "AbilitySystemComponent.h"
 #include "PaperFlipbookComponent.h"
+#include "PaperZDAnimationComponent.h"
 #include "AbilitySystem/TKAbilitySystemComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/BoxComponent.h"
@@ -33,10 +34,21 @@ ATKPlayerCharacter::ATKPlayerCharacter()
 	Camera->SetupAttachment(SpringArm);
 	Camera->bUsePawnControlRotation = false;
 
+	HeadSprite = CreateDefaultSubobject<UPaperFlipbookComponent>(TEXT("HeadSprite"));
+	HeadSprite->SetupAttachment(GetSprite());
+
+	HeadAnimationComponent = CreateDefaultSubobject<UPaperZDAnimationComponent>(TEXT("HeadAnimationComponent"));
+	if (HeadSprite)
+	{
+		HeadAnimationComponent->InitRenderComponent(HeadSprite);
+	}
+
 	GetCharacterMovement()->bUseFlatBaseForFloorChecks = true;
 
 	GetCapsuleComponent()->OnComponentBeginOverlap.AddUniqueDynamic(this, &ATKPlayerCharacter::OnBeginOverlap);
 	GetCapsuleComponent()->OnComponentEndOverlap.AddUniqueDynamic(this, &ATKPlayerCharacter::OnEndOverlap);
+
+	BaseHeadLocation = HeadSprite->GetRelativeLocation();
 	
 }
 

@@ -34,14 +34,24 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "Camera")
 	AActor* OverlappingRestrictor;
 
+	UFUNCTION(BlueprintPure)
+	UPaperFlipbookComponent* GetHeadSprite() const { return HeadSprite; }
+
+	UPROPERTY(BlueprintReadOnly)
+	FVector BaseHeadLocation;
+
 protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USpringArmComponent* SpringArm;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UCameraComponent* Camera;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UPaperFlipbookComponent* HeadSprite;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UPaperZDAnimationComponent* HeadAnimationComponent;
 
 	//Used to access the Target Interface without using a cast
 	TScriptInterface<ITKTargetInterface> ThisActor;
