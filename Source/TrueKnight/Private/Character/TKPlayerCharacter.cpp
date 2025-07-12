@@ -49,7 +49,6 @@ ATKPlayerCharacter::ATKPlayerCharacter()
 	GetCapsuleComponent()->OnComponentEndOverlap.AddUniqueDynamic(this, &ATKPlayerCharacter::OnEndOverlap);
 
 	BaseHeadLocation = HeadSprite->GetRelativeLocation();
-	
 }
 
 void ATKPlayerCharacter::PossessedBy(AController* NewController)
@@ -92,7 +91,7 @@ void ATKPlayerCharacter::OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AAc
 	//Only activate the TargetInterface if the OtherActor has it
 	if (ThisActor)
 	{
-		ThisActor->HighlightActor();
+		//ThisActor->HighlightActor();
 	}
 }
 
@@ -105,7 +104,7 @@ void ATKPlayerCharacter::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, 
 	//Only activate the TargetInterface if the OtherActor has it
 	if (ThisActor)
 	{
-		ThisActor->UnhighlightActor();
+		//ThisActor->UnhighlightActor();
 	}
 }
 
